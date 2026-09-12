@@ -1,0 +1,63 @@
+name: "Sufyan Suleman"
+title: "Postdoctoral Researcher"
+affiliation: "Department of Biomedicine, Aarhus University"
+affiliation_secondary: "Affiliate Scientist, NNF Center for Genomic Mechanisms of Disease, Broad Institute of MIT and Harvard"
+location: "Aarhus, Denmark"
+tagline: "Research, Software, and Open Science"
+subheadline: "Building research tools, courses and interactive browsers for health, psychiatry, genomics, and clinical research."
+roles:
+  - "Postdoctoral Researcher"
+  - "Open Science Advocate"
+  - "Scientific Software Developer"
+  - "Educator"
+  - "Builder of Research Tools"
+interests:
+  - "Metabolic Disease Genetics"
+  - "Insulin Genetics"
+  - "T2D and Obesity"
+  - "Psychiatric Genetics"
+  - "Genomics"
+  - "Genetic Epidemiology"
+  - "Biomarker Software"
+  - "Clinical Data Science"
+  - "Open Science"
+  - "Reproducible Research"
+analytics:
+  goatcounter: "sufyansuleman"
+  since: "September 2026"
+socials:
+  github: "https://github.com/sufyansuleman"
+  orcid: "https://orcid.org/0000-0001-6612-6915"
+  linkedin: "https://www.linkedin.com/in/sufyan-suleman/"
+  scholar: ""
+  email: "sufyansuleman@hotmail.com"
+bio_short: "Computational biologist and geneticist studying metabolic and psychiatric disease, with a background in biotechnology and molecular biology. Postdoctoral researcher at Aarhus University and the Broad Institute; builds open-source R tools, reproducible pipelines and courses that make genomic and clinical data more usable."
+bio_long: |
+  Sufyan Suleman is a computational biologist and geneticist working on the shared genetics of metabolic and psychiatric disease. He trained in biotechnology and molecular biology before moving to statistical genetics, and is now a postdoctoral researcher in the Department of Biomedicine at Aarhus University, and an affiliate scientist at the Novo Nordisk Foundation Center for Genomic Mechanisms of Disease at the Broad Institute of MIT and Harvard. His doctoral work at the Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen, established the genetic architecture of insulin sensitivity and its links to type 2 diabetes, obesity, and cardiovascular disease, producing three first-author publications. His current postdoctoral research investigates the shared genetic architecture and biological mechanisms of obesity and ADHD, combining polygenic risk scoring, Mendelian randomisation, PheWAS, and integrative genomics across large population cohorts.
+
+  Alongside his research, Sufyan develops open-source R packages for biomarker and insulin-sensitivity calculation, contributes to widely used genomics tooling, and builds openly licensed courses in R and statistics. He has contributed to international genetics consortia including MAGIC and SpiroMeta, and his earlier research career included functional cancer genomics and developmental biology work in Oulu, Finland. He is committed to reproducible research practices and to making quantitative genetics and biostatistics methods accessible through open software and teaching.
+research_themes:
+  - name: "Metabolic Disease Genetics"
+    blurb: "Genetic architecture of type 2 diabetes, obesity and insulin resistance"
+  - name: "Insulin Genetics"
+    blurb: "GWAS and genetic risk scores for insulin sensitivity"
+  - name: "Psychiatric Genetics"
+    blurb: "Shared genetics of ADHD, depression and body weight"
+  - name: "Genomics"
+    blurb: "GWAS, polygenic scoring and integrative genomic analysis"
+  - name: "Genetic Epidemiology"
+    blurb: "Biobank-scale cohorts and consortium meta-analysis"
+  - name: "Biomarker Software"
+    blurb: "R packages for insulin sensitivity, islet function and clinical biomarkers"
+  - name: "Clinical Data Science"
+    blurb: "Reproducible pipelines for clinical and trial data"
+  - name: "Open and Reproducible Science"
+    blurb: "Open-source software, courses and archived outputs"
+
+languages:
+  - language: "English"
+    level: "Fluent"
+  - language: "Danish"
+    level: "Conversational"
+  - language: "Urdu"
+    level: "Native"

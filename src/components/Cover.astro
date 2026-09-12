@@ -1,0 +1,322 @@
+---
+import type { CatalogItem } from '../lib/catalog';
+
+interface Props {
+  item: CatalogItem;
+  class?: string;
+  variant?: 'compact' | 'full';
+}
+
+const { item, class: className, variant = 'compact' } = Astro.props;
+const cover = item.cover ?? { what: item.tagline, audience: '', keyword: '', motif: 'archive' as const };
+const isFull = variant === 'full';
+
+function categoryLabel(categories: string[]): string {
+  if (item.label) return item.label;
+  if (categories.includes('course')) return 'COURSE';
+  if (categories.includes('app')) return 'SCIENTIFIC APP';
+  if (categories.includes('tool')) return 'R PACKAGE';
+  if (categories.includes('dataset')) return 'SUPPLEMENTARY DATA';
+  return '';
+}
+
+function wrapLines(title: string, maxLen = 18): string[] {
+  if (title.length <= maxLen) return [title];
+  const words = title.split(' ');
+  if (words.length === 1) return [title];
+  let best = 1;
+  let bestDiff = Infinity;
+  for (let i = 1; i < words.length; i++) {
+    const l1 = words.slice(0, i).join(' ').length;
+    const l2 = words.slice(i).join(' ').length;
+    const diff = Math.abs(l1 - l2);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = i;
+    }
+  }
+  return [words.slice(0, best).join(' '), words.slice(best).join(' ')];
+}
+
+interface Seg {
+  text: string;
+  accent: boolean;
+}
+
+function splitSeg(line: string, keyword: string): Seg[] {
+  if (!keyword) return [{ text: line, accent: false }];
+  const idx = line.indexOf(keyword);
+  if (idx === -1) return [{ text: line, accent: false }];
+  const segs: Seg[] = [];
+  if (idx > 0) segs.push({ text: line.slice(0, idx), accent: false });
+  segs.push({ text: line.slice(idx, idx + keyword.length), accent: true });
+  if (idx + keyword.length < line.length) segs.push({ text: line.slice(idx + keyword.length), accent: false });
+  return segs;
+}
+
+function smoothPath(pts: [number, number][]): string {
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x0, y0] = pts[i];
+    const [x1, y1] = pts[i + 1];
+    const cx = x0 + (x1 - x0) / 2;
+    d += ` C${cx},${y0} ${cx},${y1} ${x1},${y1}`;
+  }
+  return d;
+}
+
+const label = categoryLabel(item.categories);
+const lines = wrapLines(item.title, 18);
+const longestLine = Math.max(...lines.map((l) => l.length));
+const titleFontSize = isFull
+  ? lines.length === 1
+    ? 68
+    : longestLine > 22
+      ? 44
+      : longestLine > 18
+        ? 52
+        : 60
+  : lines.length === 1
+    ? 88
+    : longestLine > 22
+      ? 60
+      : 72;
+const lineHeight = titleFontSize * 1.1;
+
+const titleStartY = isFull
+  ? 205
+  : (() => {
+      const totalHeight = lines.length * lineHeight;
+      return 675 / 2 - totalHeight / 2 + lineHeight * 0.78;
+    })();
+const titleBlockEnd = titleStartY + (lines.length - 1) * lineHeight;
+
+const whatLines = wrapLines(cover.what, 40);
+const whatFontSize = 28;
+const whatLineHeight = whatFontSize * 1.2;
+const whatY = titleBlockEnd + 55;
+const whatBlockEnd = whatY + (whatLines.length - 1) * whatLineHeight;
+
+const audienceLines = wrapLines(cover.audience, 40);
+const audienceFontSize = 26;
+const audienceLineHeight = audienceFontSize * 1.2;
+const audienceY = whatBlockEnd + 50;
+
+const pillWidth = Math.round(label.length * 14.5 + 40);
+const ariaLabel = `${item.title}, ${cover.what}`;
+const RIGHT_X = 696;
+const RIGHT_W = 504;
+const gridId = `cv-grid-${item.slug}`;
+
+// curves motif data (minutes 0/30/60/90/120 -> x 0/95/190/285/380)
+const curveXTicks = [0, 95, 190, 285, 380];
+const curveTickLabels = ['0', '30', '60', '90', '120'];
+const glucosePts: [number, number][] = [[0, 200], [95, 35], [190, 110], [285, 160], [380, 190]];
+const insulinPts: [number, number][] = [[0, 215], [95, 170], [190, 95], [285, 140], [380, 175]];
+---
+
+<svg
+  viewBox="0 0 1200 675"
+  width="100%"
+  role="img"
+  aria-label={ariaLabel}
+  preserveAspectRatio="xMidYMid slice"
+  class:list={[className]}
+  style="font-family: inherit;"
+>
+  <defs>
+    <linearGradient id={`bg-${item.slug}`} x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" class="cv-bg-a" />
+      <stop offset="100%" class="cv-bg-b" />
+    </linearGradient>
+    <pattern id={gridId} width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" class="cv-grid" fill-opacity="0.6" />
+    </pattern>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="675" fill={`url(#bg-${item.slug})`} />
+
+  <!-- category pill -->
+  <rect x="64" y="56" width={pillWidth} height="44" rx="22" class="cv-pill" />
+  <text x={64 + pillWidth / 2} y="84" text-anchor="middle" class="cv-pill-text" font-size="22" font-weight="700" letter-spacing="1.5">{label}</text>
+
+  <!-- title -->
+  <text x="64" y={titleStartY} font-size={titleFontSize} font-weight="700" class="cv-title">
+    {lines.map((line, i) => (
+      <tspan x="64" dy={i === 0 ? 0 : lineHeight}>
+        {splitSeg(line, cover.keyword).map((seg) =>
+          seg.accent ? <tspan class="cv-keyword">{seg.text}</tspan> : seg.text
+        )}
+      </tspan>
+    ))}
+  </text>
+
+  {isFull && (
+    <>
+      <!-- what -->
+      <text x="64" y={whatY} font-size={whatFontSize} class="cv-what">
+        {whatLines.map((line, i) => (
+          <tspan x="64" dy={i === 0 ? 0 : whatLineHeight}>{line}</tspan>
+        ))}
+      </text>
+
+      <!-- audience row -->
+      {cover.audience && (
+        <text x="64" y={audienceY} font-size={audienceFontSize} class="cv-muted">
+          {audienceLines.map((line, i) => (
+            <tspan x="64" dy={i === 0 ? 0 : audienceLineHeight}>{i === 0 ? `For ${line}` : line}</tspan>
+          ))}
+        </text>
+      )}
+
+      <!-- domain -->
+      <text x="64" y="620" font-size="20" class="cv-domain">sufyansuleman.github.io</text>
+    </>
+  )}
+
+  <!-- right motif panel -->
+  <rect x={RIGHT_X} y="0" width={RIGHT_W} height="675" fill={`url(#${gridId})`} />
+
+  <g transform={`translate(${RIGHT_X + 52}, 120)`}>
+    {cover.motif === 'r' && (
+      <g>
+        <rect x="0" y="0" width="380" height="220" rx="16" class="cv-stroke-a" stroke-width="3" />
+        <circle cx="26" cy="26" r="6" class="cv-motif-b" />
+        <circle cx="46" cy="26" r="6" class="cv-motif-a" fill-opacity="0.5" />
+        <text x="24" y="90" font-size="40" font-weight="700" class="cv-motif-b">&gt;</text>
+        <rect x="70" y="70" width="140" height="12" rx="6" class="cv-motif-a" />
+        <rect x="70" y="100" width="200" height="12" rx="6" class="cv-motif-a" fill-opacity="0.6" />
+        <rect x="70" y="130" width="100" height="12" rx="6" class="cv-motif-a" fill-opacity="0.4" />
+        <text x="150" y="330" font-size="180" font-weight="700" class="cv-motif-b" text-anchor="middle">R</text>
+      </g>
+    )}
+
+    {cover.motif === 'stats' && (
+      <g>
+        {[40, 90, 150, 190, 140, 80, 50].map((h, i) => (
+          <rect x={i * 52} y={220 - h} width="34" height={h} class="cv-motif-a" fill-opacity="0.8" />
+        ))}
+        <path d="M0,150 C80,60 260,40 364,120" class="cv-stroke-b" stroke-width="5" />
+        <g transform="translate(60,280)">
+          <line x1="0" y1="20" x2="260" y2="20" class="cv-motif-a" stroke-width="3" />
+          <rect x="70" y="0" width="120" height="40" rx="6" class="cv-stroke-b" stroke-width="3" />
+          <line x1="130" y1="0" x2="130" y2="40" class="cv-motif-b" stroke-width="3" />
+        </g>
+      </g>
+    )}
+
+    {cover.motif === 'cdisc' && (
+      <g>
+        {Array.from({ length: 4 }).map((_, r) =>
+          Array.from({ length: 5 }).map((_, c) => (
+            <rect x={c * 34} y={r * 30} width="30" height="26" rx="3"
+              class={r === 0 ? 'cv-motif-a' : 'cv-motif-a'}
+              fill-opacity={r === 0 ? 0.9 : 0.12} stroke="none" />
+          ))
+        )}
+        <path d="M180,60 L240,60" class="cv-motif-b" stroke-width="4" />
+        <polygon points="238,52 254,60 238,68" class="cv-motif-b" />
+        <g transform="translate(270,20)">
+          {Array.from({ length: 3 }).map((_, r) =>
+            Array.from({ length: 4 }).map((_, c) => (
+              <rect x={c * 26} y={r * 24} width="22" height="20" rx="3"
+                fill-opacity={r === 0 ? 0.9 : 0.15} class="cv-motif-b" />
+            ))
+          )}
+        </g>
+      </g>
+    )}
+
+    {cover.motif === 'trial' && (
+      <g>
+        <line x1="0" y1="120" x2="360" y2="120" class="cv-motif-a" stroke-width="4" />
+        <circle cx="0" cy="120" r="8" class="cv-motif-a" />
+        <path d="M180,120 L340,40" class="cv-stroke-a" stroke-width="3" />
+        <circle cx="340" cy="40" r="10" class="cv-motif-a" />
+        <text x="330" y="20" font-size="26" class="cv-motif-a">&#10003;</text>
+        <path d="M180,120 L340,120" class="cv-stroke-b" stroke-width="3" />
+        <circle cx="340" cy="120" r="10" class="cv-motif-b" />
+        <path d="M180,120 L340,200" class="cv-stroke-a" stroke-width="3" />
+        <circle cx="340" cy="200" r="10" class="cv-motif-a" fill-opacity="0.5" />
+        <text x="330" y="230" font-size="26" class="cv-motif-a">&#10007;</text>
+        <circle cx="180" cy="120" r="9" class="cv-motif-b" />
+      </g>
+    )}
+
+    {cover.motif === 'heartbeat' && (
+      <g>
+        <rect x="0" y="40" width="380" height="180" rx="18" class="cv-stroke-a" stroke-width="3" />
+        <polyline points="20,130 90,130 110,70 140,190 170,130 210,130 230,100 250,130 360,130"
+          class="cv-stroke-b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+        <circle cx="320" cy="80" r="16" class="cv-motif-a" fill-opacity="0.85" />
+      </g>
+    )}
+
+    {cover.motif === 'curves' && (
+      <g>
+        <line x1="0" y1="220" x2="380" y2="220" class="cv-motif-a" stroke-width="3" />
+        <line x1="0" y1="220" x2="0" y2="20" class="cv-motif-a" stroke-width="3" />
+        <path d={smoothPath(glucosePts)} class="cv-stroke-a" stroke-width="6" stroke-linecap="round" />
+        <path d={smoothPath(insulinPts)} class="cv-stroke-b" stroke-width="6" stroke-linecap="round" />
+        {glucosePts.map(([x, y]) => (
+          <circle cx={x} cy={y} r="6" class="cv-motif-a" />
+        ))}
+        {insulinPts.map(([x, y]) => (
+          <circle cx={x} cy={y} r="6" class="cv-motif-b" />
+        ))}
+        {curveXTicks.map((x, i) => (
+          <text x={x} y="240" font-size="14" text-anchor="middle" class="cv-muted">{curveTickLabels[i]}</text>
+        ))}
+      </g>
+    )}
+
+    {cover.motif === 'islet' && (
+      <g>
+        <circle cx="180" cy="120" r="150" class="cv-stroke-a" stroke-width="2" stroke-opacity="0.4" />
+        {Array.from({ length: 14 }).map((_, i) => {
+          const angle = (i / 14) * Math.PI * 2;
+          const r = 60 + (i % 3) * 22;
+          const cx = 180 + Math.cos(angle) * r;
+          const cy = 120 + Math.sin(angle) * r * 0.7;
+          const beta = i % 2 === 0;
+          return (
+            <circle
+              cx={cx}
+              cy={cy}
+              r={beta ? 16 : 10}
+              class:list={[beta ? 'cv-motif-a' : 'cv-motif-b', 'cv-dot-fill']}
+              stroke-width="3"
+            />
+          );
+        })}
+      </g>
+    )}
+
+    {cover.motif === 'scatter' && (
+      <g>
+        <line x1="0" y1="220" x2="380" y2="220" class="cv-motif-a" stroke-width="3" />
+        <line x1="0" y1="220" x2="0" y2="20" class="cv-motif-a" stroke-width="3" />
+        {Array.from({ length: 30 }).map((_, i) => {
+          const x = (i * 37) % 370;
+          const y = 200 - ((x * 0.4 + (i * 53) % 60));
+          return <circle cx={x} cy={Math.max(10, y)} r="5" class="cv-motif-b" fill-opacity="0.75" />;
+        })}
+        <line x1="0" y1="210" x2="370" y2="30" class="cv-motif-a" stroke-width="3" />
+        <circle cx="300" cy="70" r="34" class="cv-stroke-a" stroke-width="4" />
+        <line x1="324" y1="94" x2="350" y2="120" class="cv-motif-a" stroke-width="4" />
+      </g>
+    )}
+
+    {cover.motif === 'archive' && (
+      <g>
+        <path d="M0,60 L120,60 L140,90 L380,90 L380,220 L0,220 Z" class="cv-stroke-a" stroke-width="3" />
+        <rect x="40" y="40" width="180" height="130" class="cv-motif-b" fill-opacity="0.12" stroke="none" />
+        <rect x="60" y="55" width="140" height="14" rx="3" class="cv-motif-a" fill-opacity="0.7" />
+        <rect x="60" y="80" width="140" height="14" rx="3" class="cv-motif-a" fill-opacity="0.5" />
+        <rect x="60" y="105" width="100" height="14" rx="3" class="cv-motif-a" fill-opacity="0.35" />
+        <rect x="270" y="130" width="90" height="34" rx="6" class="cv-stroke-b" stroke-width="3" />
+        <text x="315" y="153" font-size="16" text-anchor="middle" class="cv-motif-b">DOI</text>
+      </g>
+    )}
+  </g>
+</svg>

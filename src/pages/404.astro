@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import ButtonLink from '../components/ButtonLink.astro';
+---
+
+<Base title="Page Not Found">
+  <section class="container-x flex flex-col items-center justify-center py-32 text-center">
+    <p class="text-sm font-semibold uppercase tracking-wide text-accent">404</p>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight text-primary dark:text-white sm:text-4xl">
+      This page doesn't exist
+    </h1>
+    <p class="mt-4 max-w-md text-muted">
+      The page you're looking for may have moved or never existed. Let's get you back on track.
+    </p>
+    <div class="mt-8">
+      <ButtonLink href="/">Back to home</ButtonLink>
+    </div>
+  </section>
+</Base>

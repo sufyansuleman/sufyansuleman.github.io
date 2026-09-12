@@ -1,0 +1,186 @@
+items:
+  - slug: HealthMarkers
+    category: tool
+    title: HealthMarkers
+    tagline: Clinical, metabolic and cardiovascular biomarker calculations in R
+    icon: lucide:activity
+    featured: true
+    tags: [R package, biomarkers, cardiometabolic]
+    links:
+      site: https://sufyansuleman.github.io/HealthMarkers/
+      docs: https://sufyansuleman.github.io/HealthMarkers/
+      github: https://github.com/sufyansuleman/HealthMarkers
+      doi: https://doi.org/10.5281/zenodo.20668335
+    cover:
+      what: "Clinical and cardiometabolic biomarker calculations in R"
+      audience: "Researchers working with clinical trial or cohort data"
+      keyword: "Health"
+      motif: heartbeat
+    cta:
+      question: "Do you have data with hundreds of variables and need the standard indices out of it?"
+      detail: "HealthMarkers computes over 290 of them from a single table. I can help you map your columns, choose the right markers, and run it on your cohort."
+
+  - slug: InsuSensCalc
+    category: tool
+    title: InsuSensCalc
+    tagline: Insulin sensitivity indices from fasting, OGTT, adipose and tracer data
+    icon: lucide:calculator
+    featured: true
+    tags: [R package, insulin resistance, metabolism]
+    links:
+      site: https://sufyansuleman.github.io/InsuSensCalc/
+      docs: https://sufyansuleman.github.io/InsuSensCalc/
+      github: https://github.com/sufyansuleman/InsuSensCalc
+      doi: https://doi.org/10.5281/zenodo.20647743
+    cover:
+      what: "Insulin sensitivity indices from fasting, OGTT, adipose and tracer data"
+      audience: "Metabolic and diabetes researchers"
+      keyword: "Calc"
+      motif: curves
+    cta:
+      question: "Which insulin sensitivity indices do you work with, or are you planning to compute all of them?"
+      detail: "I can help you pick the indices that fit your measurements, check units, and run them across your cohort."
+
+  - slug: IsletCalc
+    category: tool
+    title: IsletCalc
+    tagline: Surrogate indices of pancreatic islet hormone release from fasting and OGTT measurements
+    icon: lucide:flask-conical
+    featured: true
+    tags: [R package, beta-cell, glucagon]
+    links:
+      site: https://sufyansuleman.github.io/IsletCalc/
+      docs: https://sufyansuleman.github.io/IsletCalc/
+      github: https://github.com/sufyansuleman/IsletCalc
+    cover:
+      what: "Surrogate indices of pancreatic islet hormone release"
+      audience: "Researchers analysing fasting and OGTT measurements"
+      keyword: "Islet"
+      motif: islet
+
+  # private repo, metadata is manual unless GH_PAT is set
+    cta:
+      question: "Which beta-cell or glucagon indices do you need, or all of them?"
+      detail: "I can help you match the indices to your OGTT and glucagon data and run them across your cohort."
+
+  - slug: R_basic
+    category: course
+    title: Getting Started with R
+    tagline: A self-paced introduction to R and RStudio for researchers coming from Stata or Excel
+    icon: lucide:code-2
+    featured: false
+    tags: [R, beginners]
+    links:
+      site: https://sufyansuleman.github.io/R_basic/
+      doi: https://doi.org/10.5281/zenodo.20657622
+    course:
+      level: Introductory
+      duration: "6-9 hours"
+      audience: PhD students and researchers new to R
+      format: "Self-paced, 3 modules, 9 sessions"
+    manual:
+      description: "Introduction to R and RStudio: installation, syntax, R Markdown, vectors, data frames, packages, import and visualisation."
+      language: R
+      topics: [r, teaching]
+    cover:
+      what: "Self-paced introduction to R and RStudio"
+      audience: "Researchers coming from Stata or Excel"
+      keyword: "R"
+      motif: r
+
+  - slug: basic_statistics
+    category: course
+    title: Basic Statistics
+    tagline: Introduction to statistics for PhD students and beyond
+    icon: lucide:bar-chart-3
+    featured: false
+    tags: [statistics, PhD]
+    links:
+      site: https://sufyansuleman.github.io/basic_statistics/
+      github: https://github.com/sufyansuleman/basic_statistics
+      slides: https://sufyansuleman.github.io/basic_statistics/
+      doi: https://doi.org/10.5281/zenodo.20672940
+    course:
+      level: Introductory
+      audience: PhD students and early-career researchers
+      format: Lecture slides and exercises
+    cover:
+      what: "Introduction to statistics for PhD students and beyond"
+      audience: "PhD students and early-career researchers"
+      keyword: "Statistics"
+      motif: stats
+
+  - slug: cdisc-with-r
+    category: course
+    title: CDISC with R
+    tagline: Build SDTM and ADaM datasets from raw trial exports, 30 hands-on sessions
+    icon: lucide:database
+    featured: true
+    tags: [CDISC, clinical trials, R]
+    links:
+      site: https://sufyansuleman.github.io/cdisc-with-r/
+      github: https://github.com/sufyansuleman/cdisc-with-r
+    course:
+      level: Intermediate
+      duration: "30 sessions"
+      audience: Statistical programmers, biostatisticians, data managers
+      format: Online textbook with a simulated Phase III trial (GLPX-1)
+    cover:
+      what: "Build SDTM and ADaM datasets from raw trial exports"
+      audience: "Statistical programmers and biostatisticians"
+      keyword: "CDISC"
+      motif: cdisc
+
+  - slug: platform-trial-data-management
+    label: R PIPELINE
+    category: tool
+    title: Platform Trial Data Management
+    tagline: Demonstration data-management and monitoring pipeline for adaptive platform trials
+    icon: lucide:git-branch
+    featured: false
+    tags: [R, clinical trials, data management]
+    links:
+      site: https://sufyansuleman.github.io/platform-trial-data-management/
+      github: https://github.com/sufyansuleman/platform-trial-data-management
+    manual:
+      note: "Demonstration project modelled on a Rigshospitalet adaptive trial; not commissioned work."
+    cover:
+      what: "Reference pipeline for multi-site trial data"
+      audience: "Trial data managers and statisticians"
+      keyword: "Platform"
+      motif: trial
+    cta:
+      question: "Managing data from a multi-site or adaptive trial?"
+      detail: "I can help you adapt this pipeline, write your validation rules as configuration, and set up the reporting."
+
+  - slug: isi_t2d_nat_24
+    categories: [tool, dataset]
+    label: INTERACTIVE BROWSER
+    title: T2D Risk × Insulin Sensitivity Browser
+    tagline: Explore associations between type 2 diabetes risk alleles and insulin sensitivity measures
+    icon: lucide:scatter-chart
+    featured: false
+    tags: [genomics, T2D, insulin sensitivity]
+    links:
+      launch: https://sufyansuleman.github.io/isi_t2d_nat_24/
+      github: https://github.com/sufyansuleman/isi_t2d_nat_24
+    cover:
+      what: "T2D risk alleles versus insulin sensitivity measures"
+      audience: "Genomics and metabolic researchers"
+      keyword: "Insulin"
+      motif: scatter
+
+  - slug: ir-grs-jcem-2024
+    category: dataset
+    title: Insulin-resistance genetic risk scores (JCEM 2024)
+    tagline: Supplementary tables, data files and code for the adult-based IR-GRS article
+    icon: lucide:folder-archive
+    featured: false
+    tags: [supplementary, GRS, insulin resistance]
+    links:
+      github: https://github.com/sufyansuleman/ir-grs-jcem-2024
+    cover:
+      what: "Supplementary tables, data files and code for the IR-GRS article"
+      audience: "Readers of the adult-based IR-GRS paper"
+      keyword: "GRS"
+      motif: archive

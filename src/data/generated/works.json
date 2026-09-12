@@ -1,0 +1,1488 @@
+{
+  "fetched_at": "2026-09-12T11:05:30.996Z",
+  "source": "orcid+openalex",
+  "publications": [
+    {
+      "id": "10.1159/000553060",
+      "doi": "10.1159/000553060",
+      "title": "Unraveling the Genetic Basis of Glycogen Storage Diseases through Exome Sequencing: A Study in Pediatric Patients",
+      "type": "journal-article",
+      "year": 2026,
+      "journal": "Molecular Syndromology",
+      "authors": [
+        {
+          "name": "MARYAM NASEER",
+          "is_self": false
+        },
+        {
+          "name": "Muhammad Tariq",
+          "is_self": false
+        },
+        {
+          "name": "Nadia Waheed",
+          "is_self": false
+        },
+        {
+          "name": "Bushra Khan",
+          "is_self": false
+        },
+        {
+          "name": "Dost Muhammad Kalhoro",
+          "is_self": false
+        },
+        {
+          "name": "Shahid Ali",
+          "is_self": false
+        },
+        {
+          "name": "Hammal Khan",
+          "is_self": false
+        },
+        {
+          "name": "Amir Hussain",
+          "is_self": false
+        },
+        {
+          "name": "Naseeb Ullah Kakar",
+          "is_self": false
+        },
+        {
+          "name": "Abid Ali Shah",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Asmat Ullah",
+          "is_self": false
+        }
+      ],
+      "abstract": "Introduction: Glycogen storage diseases (GSDs) are a group of inherited metabolic disorders characterized by impaired glycogen metabolism, primarily affecting the liver and muscles. Methods: A retrospective cross-sectional study was conducted. Medical records of 72 children afflicted with GSDs were reviewed for clinical features, family history, and consanguinity. Sequencing was performed using DNA samples from patients and their family members. Results: Of the 72 patients, the median age at presentation was 5.0 months (interquartile range: 1.8-9.0). Common features included abdominal distension (97.2%), hepatomegaly (94.4%), doll-like facies (54.2%), and failure to thrive (53%). Other findings included acidotic breathing, developmental delay, vomiting, convulsions, and positive family history. All cases involved consanguinity. Thirty-eight pathogenic variants were identified across nine GSD-associated genes. Conclusion: Abdominal distension, hepatomegaly, and failure to thrive are key clinical indicators of GSDs. Genetic testing improves diagnostic accuracy and classification, and our findings expand the mutational spectrum of GSDs in Pakistan",
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13427025/",
+      "volume": null,
+      "issue": null,
+      "pages": "1",
+      "openalex_id": "https://openalex.org/W7164920924"
+    },
+    {
+      "id": "10.1038/s41598-025-98507-w",
+      "doi": "10.1038/s41598-025-98507-w",
+      "title": "Exploring the genetic intersection between obesity-associated genetic variants and insulin sensitivity indices",
+      "type": "journal-article",
+      "year": 2025,
+      "journal": "Scientific Reports",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Lars Ängquist",
+          "is_self": false
+        },
+        {
+          "name": "Allan Linneberg",
+          "is_self": false
+        },
+        {
+          "name": "Torben Frøstrup Hansen",
+          "is_self": false
+        },
+        {
+          "name": "Niels Grarup",
+          "is_self": false
+        }
+      ],
+      "abstract": "Insulin sensitivity (IS) is a key determinant of metabolic health and may share genetic factors with obesity-related traits. Previous large-scale genetic studies have identified variants associated with IS as well as obesity related traits like body mass index (BMI) and waist-to-hip ratio (WHR). Notably, many of these associations are shared across traits, indicating a potential genetic overlap. However, the genetic intersection between IS and obesity-related traits remains underexplored. To explore this gap, we investigated associations between six IS indices, including fasting and post-glucose load measures, and genetic variants linked to BMI and WHR to determine their influence on IS and related cardiometabolic traits. To achieve this, we calculated six IS indices using fasting and oral glucose tolerance test (OGTT) data from 5,007 non-diabetic individuals, grouping them into fasting, OGTT 0,120 , and OGTT 0,30,120 categories. A total of 678 BMI-associated and 265 WHR-associated genetic variants were analysed using linear regression, adjusting for age and sex, with sex-specific analyses for WHR. Analyses were conducted with and without BMI adjustments and corrected for multiple testing (p adj ). Additionally, we explored the relationship between IS-linked variants and their associations with type 2 diabetes (T2D), coronary artery disease (CAD) and stroke. Among the 678 BMI-associated variants, 100 showed nominal associations ( p < 0.05) with at least one IS index; and 20 remained significant after multiple testing correction (p adj < 0.05) when not adjusting for BMI. After adjusting for BMI, 70 variants retained nominal associations, and six remained significant (p adj < 0.05). In sex-specific analyses of the 265 WHR-associated variants, 12 variants were associated in females when adjusted for BMI, whereas no significant associations were observed in males. Furthermore, BMI- and WHR-associated variants linked to decreased IS, such as those in FTO and VPS13C loci , were also associated with increased T2D and stroke risk, whereas IS-increasing variants, including those in VPS13C and PPARG , were linked to lower T2D and stroke risk, with some, like THADA , showing opposing effects on CAD. This study offers insights into genetic variants that influence both IS and obesity-related traits, revealing BMI- and WHR-associated variants with both positive and negative effects on IS and their potential impact on cardiometabolic health.",
+      "cited_by_count": 1,
+      "is_oa": true,
+      "oa_url": "https://www.nature.com/articles/s41598-025-98507-w.pdf",
+      "volume": "15",
+      "issue": "1",
+      "pages": "15761",
+      "openalex_id": "https://openalex.org/W4410133804"
+    },
+    {
+      "id": "orcid:217864455",
+      "doi": null,
+      "title": "Unraveling shared biological mechanisms of depression and Body Mass Index",
+      "type": "conference-paper",
+      "year": 2025,
+      "journal": "EUROPEAN JOURNAL OF HUMAN GENETICS",
+      "authors": [],
+      "abstract": null,
+      "cited_by_count": 0,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": null
+    },
+    {
+      "id": "orcid:217864456",
+      "doi": null,
+      "title": "Unravelling the shared genetics and biological mechanisms of ADHD and obesity",
+      "type": "conference-paper",
+      "year": 2025,
+      "journal": "EUROPEAN JOURNAL OF HUMAN GENETICS",
+      "authors": [],
+      "abstract": null,
+      "cited_by_count": 0,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": null
+    },
+    {
+      "id": "10.1210/clinem/dgae882",
+      "doi": "10.1210/clinem/dgae882",
+      "title": "Adult-based Genetic Risk Scores for Insulin Resistance Associate With Cardiometabolic Traits in Children and Adolescents",
+      "type": "journal-article",
+      "year": 2024,
+      "journal": "The Journal of Clinical Endocrinology & Metabolism",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Yun Huang",
+          "is_self": false
+        },
+        {
+          "name": "Rasmus Tanderup Jensen",
+          "is_self": false
+        },
+        {
+          "name": "Axel Illeris Poggi",
+          "is_self": false
+        },
+        {
+          "name": "Sara Bech Christensen",
+          "is_self": false
+        },
+        {
+          "name": "Maria Martens Fraulund",
+          "is_self": false
+        },
+        {
+          "name": "Louise Vølund Anderson",
+          "is_self": false
+        },
+        {
+          "name": "Sara Stinson",
+          "is_self": false
+        },
+        {
+          "name": "Cilius Esmann Fonvig",
+          "is_self": false
+        },
+        {
+          "name": "Oluf Pedersen",
+          "is_self": false
+        },
+        {
+          "name": "Jens‐Christian Holm",
+          "is_self": false
+        },
+        {
+          "name": "Torben Hansen",
+          "is_self": false
+        },
+        {
+          "name": "Niels Grarup",
+          "is_self": false
+        }
+      ],
+      "abstract": "CONTEXT: Insulin resistance (IR) is a key factor in the development of cardiometabolic diseases. While genetic risk scores (GRSs) for IR have been developed and validated in adult populations, it is unclear if they can be used for risk assessment in youth. OBJECTIVE: Our objective was to investigate whether adult-derived GRSs for IR associate with cardiometabolic traits in children and adolescents. METHODS: We studied a group of children and adolescents with obesity (n = 1680) and a group without obesity (n = 1804). We constructed 3 GRSs based on fasting (IR-GRS27), oral glucose tolerance test (IR-GRS8), and IR-related phenotypes (IR-GRS51) from previous genome-wide association studies. Using an additive genetic model, we calculated weighted GRSs and analyzed their associations with cardiometabolic traits using linear and logistic regression models. RESULTS: The IR-GRS27 was associated with higher serum concentrations of fasting insulin, C-peptide, triglycerides (TG), gamma-glutamyl transferase and alanine aminotransferase (ALT), and homeostatic model assessment of insulin resistance. The IR-GRS27 was furthermore associated with a higher prevalence of IR and ALT. IR-GRS51 was associated with higher TG and lower high-density lipoprotein cholesterol, while IR-GRS8 associated with lower total cholesterol, low-density lipoprotein cholesterol, and increased ALT. IR-GRS27 and IR-GRS8 were additionally associated with a higher prevalence of IR and steatotic liver disease, respectively. CONCLUSION: Adult-derived GRSs for IR are significantly associated with cardiometabolic traits in children and adolescents. If validated in independent study samples, our findings suggest the contribution of adult-based GRSs in assessing IR-related cardiometabolic risk in youth.",
+      "cited_by_count": 2,
+      "is_oa": true,
+      "oa_url": "https://academic.oup.com/jcem/advance-article-pdf/doi/10.1210/clinem/dgae882/61222373/dgae882.pdf",
+      "volume": "110",
+      "issue": "9",
+      "pages": "2645",
+      "openalex_id": "https://openalex.org/W4405555871"
+    },
+    {
+      "id": "10.1210/clinem/dgae275",
+      "doi": "10.1210/clinem/dgae275",
+      "title": "Genetic Underpinnings of Fasting and Oral Glucose-stimulated Based Insulin Sensitivity Indices",
+      "type": "journal-article",
+      "year": 2024,
+      "journal": "The Journal of Clinical Endocrinology & Metabolism",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Anne Lundager Madsen",
+          "is_self": false
+        },
+        {
+          "name": "Lars Ängquist",
+          "is_self": false
+        },
+        {
+          "name": "Mikkel Schubert",
+          "is_self": false
+        },
+        {
+          "name": "Allan Linneberg",
+          "is_self": false
+        },
+        {
+          "name": "Ruth J. F. Loos",
+          "is_self": false
+        },
+        {
+          "name": "Torben Hansen",
+          "is_self": false
+        },
+        {
+          "name": "Niels Grarup",
+          "is_self": false
+        }
+      ],
+      "abstract": "CONTEXT: Insulin sensitivity (IS) is an important factor in type 2 diabetes (T2D) and can be estimated by many different indices. OBJECTIVE: We aimed to compare the genetic components underlying IS indices obtained from fasting and oral glucose-stimulated plasma glucose and serum insulin levels. METHODS: We computed 21 IS indices, classified as fasting, OGTT0,120, and OGTT0,30,120 indices, using fasting and oral glucose tolerance test (OGTT) data in 2 cohorts. We used data from a family cohort (n = 313) to estimate the heritability and the genetic and phenotypic correlations of IS indices. The population cohort, Inter99 (n = 5343), was used to test for associations between IS indices and 426 genetic variants known to be associated with T2D. RESULTS: Heritability estimates of IS indices ranged between 19% and 38%. Fasting and OGTT0,30,120 indices had high genetic (ρG) and phenotypic (ρP) pairwise correlations (ρG and ρP: 0.88 to 1) The OGTT0,120 indices displayed a wide range of pairwise correlations (ρG: 0.17-1.00 and ρP: 0.13-0.97). We identified statistically significant associations between IS indices and established T2D-associated variants. The PPARG rs11709077 variant was associated only with fasting indices and PIK3R rs4976033 only with OGTT0,30,120 indices. The variants in FAM63A/MINDY1, GCK, C2CD4A/B, and FTO loci were associated only with OGTT0,120 indices. CONCLUSION: Even though the IS indices mostly share a common genetic background, notable differences emerged between OGTT0,120 indices. The fasting and OGTT-based indices have distinct associations with T2D risk variants. This work provides a basis for future large-scale genetic investigations into the differences between IS indices.",
+      "cited_by_count": 4,
+      "is_oa": true,
+      "oa_url": "https://academic.oup.com/jcem/advance-article-pdf/doi/10.1210/clinem/dgae275/57271091/dgae275.pdf",
+      "volume": "109",
+      "issue": "11",
+      "pages": "2754",
+      "openalex_id": "https://openalex.org/W4394920315"
+    },
+    {
+      "id": "10.1111/cge.14444",
+      "doi": "10.1111/cge.14444",
+      "title": "Clinical exome sequencing reveals a novel pathogenic variant in KIF12 underlying cholestasis with highly variable phenotypes",
+      "type": "other",
+      "year": 2023,
+      "journal": "Clinical Genetics",
+      "authors": [
+        {
+          "name": "Nadia Waheed",
+          "is_self": false
+        },
+        {
+          "name": "Rehmana Waris",
+          "is_self": false
+        },
+        {
+          "name": "Maryam Naseer",
+          "is_self": false
+        },
+        {
+          "name": "Ayesha Razzaq",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Asmat Ullah",
+          "is_self": false
+        }
+      ],
+      "abstract": "Four affected individuals from a large consanguineous family were diagnosed with variable phenotypes of cholestasis based on their clinical laboratory and biopsy findings. Cholestasis is a condition when there is not enough bile flow between liver and small intestine. Two of the affected individuals (IV-1, IV-4) died of cholestatic liver at an early age, while the other two patients are alive with chronic liver disease. Clinical exome and Sanger sequencing identified a novel homozygous pathogenic variant (c.482-7_500del) in the patients.",
+      "cited_by_count": 3,
+      "is_oa": true,
+      "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/cge.14444",
+      "volume": "105",
+      "issue": "1",
+      "pages": "106",
+      "openalex_id": "https://openalex.org/W4387856674"
+    },
+    {
+      "id": "10.1038/s41588-023-01408-9",
+      "doi": "10.1038/s41588-023-01408-9",
+      "title": "Genome-wide association study and functional characterization identifies candidate genes for insulin-stimulated glucose uptake",
+      "type": "journal-article",
+      "year": 2023,
+      "journal": "Nature Genetics",
+      "authors": [
+        {
+          "name": "Alice Williamson",
+          "is_self": false
+        },
+        {
+          "name": "Dougall M. Norris",
+          "is_self": false
+        },
+        {
+          "name": "Xianyong Yin",
+          "is_self": false
+        },
+        {
+          "name": "K. Alaine Broadaway",
+          "is_self": false
+        },
+        {
+          "name": "Anne H. Moxley",
+          "is_self": false
+        },
+        {
+          "name": "Swarooparani Vadlamudi",
+          "is_self": false
+        },
+        {
+          "name": "Emma P Wilson",
+          "is_self": false
+        },
+        {
+          "name": "Anne Jackson",
+          "is_self": false
+        },
+        {
+          "name": "Vasudha Ahuja",
+          "is_self": false
+        },
+        {
+          "name": "Mette K. Andersen",
+          "is_self": false
+        },
+        {
+          "name": "Zorayr Arzumanyan",
+          "is_self": false
+        },
+        {
+          "name": "Lori L. Bonnycastle",
+          "is_self": false
+        },
+        {
+          "name": "Stefan R. Bornstein",
+          "is_self": false
+        },
+        {
+          "name": "Maxi Pia Bretschneider",
+          "is_self": false
+        },
+        {
+          "name": "Thomas A. Buchanan",
+          "is_self": false
+        },
+        {
+          "name": "Yi‐Cheng Chang",
+          "is_self": false
+        },
+        {
+          "name": "Lee‐Ming Chuang",
+          "is_self": false
+        },
+        {
+          "name": "Ren‐Hua Chung",
+          "is_self": false
+        },
+        {
+          "name": "Tine D. Clausen",
+          "is_self": false
+        },
+        {
+          "name": "Peter Damm",
+          "is_self": false
+        },
+        {
+          "name": "Graciela E. Delgado",
+          "is_self": false
+        },
+        {
+          "name": "Vanessa D. de Mello",
+          "is_self": false
+        },
+        {
+          "name": "Josée Dupuis",
+          "is_self": false
+        },
+        {
+          "name": "Om Prakash Dwivedi",
+          "is_self": false
+        },
+        {
+          "name": "Michael R. Erdos",
+          "is_self": false
+        },
+        {
+          "name": "Lilian Fernandes Silva",
+          "is_self": false
+        },
+        {
+          "name": "Timothy M. Frayling",
+          "is_self": false
+        },
+        {
+          "name": "Christian Gieger",
+          "is_self": false
+        },
+        {
+          "name": "Mark O. Goodarzi",
+          "is_self": false
+        },
+        {
+          "name": "Xiuqing Guo",
+          "is_self": false
+        },
+        {
+          "name": "Stefan Gustafsson",
+          "is_self": false
+        },
+        {
+          "name": "Liisa Hakaste",
+          "is_self": false
+        },
+        {
+          "name": "Ulf Hammar",
+          "is_self": false
+        },
+        {
+          "name": "Gad Hatem",
+          "is_self": false
+        },
+        {
+          "name": "Sandra M. Herrmann",
+          "is_self": false
+        },
+        {
+          "name": "Kurt Højlund",
+          "is_self": false
+        },
+        {
+          "name": "Katrin Horn",
+          "is_self": false
+        },
+        {
+          "name": "Willa A. Hsueh",
+          "is_self": false
+        },
+        {
+          "name": "Yi‐Jen Hung",
+          "is_self": false
+        },
+        {
+          "name": "Chii‐Min Hwu",
+          "is_self": false
+        },
+        {
+          "name": "Anna Jonsson",
+          "is_self": false
+        },
+        {
+          "name": "Line Lund Kårhus",
+          "is_self": false
+        },
+        {
+          "name": "Marcus E. Kleber",
+          "is_self": false
+        },
+        {
+          "name": "Péter Kovács",
+          "is_self": false
+        },
+        {
+          "name": "Timo A. Lakka",
+          "is_self": false
+        },
+        {
+          "name": "Marie Lauzon",
+          "is_self": false
+        },
+        {
+          "name": "I‐Te Lee",
+          "is_self": false
+        },
+        {
+          "name": "Cecilia M. Lindgren",
+          "is_self": false
+        },
+        {
+          "name": "Jaana Lindström",
+          "is_self": false
+        },
+        {
+          "name": "Allan Linneberg",
+          "is_self": false
+        },
+        {
+          "name": "Ching‐Ti Liu",
+          "is_self": false
+        },
+        {
+          "name": "Jian’an Luan",
+          "is_self": false
+        },
+        {
+          "name": "Dina Mansour Aly",
+          "is_self": false
+        },
+        {
+          "name": "Elisabeth R. Mathiesen",
+          "is_self": false
+        },
+        {
+          "name": "Angela P. Moissl",
+          "is_self": false
+        },
+        {
+          "name": "Andrew P. Morris",
+          "is_self": false
+        },
+        {
+          "name": "Narisu Narisu",
+          "is_self": false
+        },
+        {
+          "name": "Nikolaos Perakakis",
+          "is_self": false
+        },
+        {
+          "name": "Annette Peters",
+          "is_self": false
+        },
+        {
+          "name": "Rashmi B. Prasad",
+          "is_self": false
+        },
+        {
+          "name": "Roman N. Rodionov",
+          "is_self": false
+        },
+        {
+          "name": "Kathryn Roll",
+          "is_self": false
+        },
+        {
+          "name": "Carsten F. Rundsten",
+          "is_self": false
+        },
+        {
+          "name": "Chloé Sarnowski",
+          "is_self": false
+        },
+        {
+          "name": "Kai Savonen",
+          "is_self": false
+        },
+        {
+          "name": "Markus Scholz",
+          "is_self": false
+        },
+        {
+          "name": "Sapna Sharma",
+          "is_self": false
+        },
+        {
+          "name": "Sara Stinson",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Jingyi Tan",
+          "is_self": false
+        },
+        {
+          "name": "Kent D. Taylor",
+          "is_self": false
+        },
+        {
+          "name": "Matti Uusitupa",
+          "is_self": false
+        },
+        {
+          "name": "Dorte Vistisen",
+          "is_self": false
+        },
+        {
+          "name": "Daniel R. Witte",
+          "is_self": false
+        },
+        {
+          "name": "Romy Walther",
+          "is_self": false
+        },
+        {
+          "name": "Peitao Wu",
+          "is_self": false
+        },
+        {
+          "name": "Anny H. Xiang",
+          "is_self": false
+        },
+        {
+          "name": "Björn Zethelius",
+          "is_self": false
+        },
+        {
+          "name": "Vanessa D. de Mello",
+          "is_self": false
+        },
+        {
+          "name": "Emma Ahlqvist",
+          "is_self": false
+        },
+        {
+          "name": "Richard N. Bergman",
+          "is_self": false
+        },
+        {
+          "name": "Yii‐Der Ida Chen",
+          "is_self": false
+        },
+        {
+          "name": "Francis S. Collins",
+          "is_self": false
+        },
+        {
+          "name": "Tove Fall",
+          "is_self": false
+        },
+        {
+          "name": "José C. Florez",
+          "is_self": false
+        },
+        {
+          "name": "Andreas Fritsche",
+          "is_self": false
+        },
+        {
+          "name": "Harald Grallert",
+          "is_self": false
+        },
+        {
+          "name": "Leif Groop",
+          "is_self": false
+        },
+        {
+          "name": "Torben Hansen",
+          "is_self": false
+        },
+        {
+          "name": "Heikki A. Koistinen",
+          "is_self": false
+        },
+        {
+          "name": "Pirjo Komulainen",
+          "is_self": false
+        },
+        {
+          "name": "Markku Laakso",
+          "is_self": false
+        },
+        {
+          "name": "Lars Lind",
+          "is_self": false
+        },
+        {
+          "name": "Markus Loeffler",
+          "is_self": false
+        },
+        {
+          "name": "Winfried März",
+          "is_self": false
+        },
+        {
+          "name": "James B. Meigs",
+          "is_self": false
+        },
+        {
+          "name": "Leslie J. Raffel",
+          "is_self": false
+        },
+        {
+          "name": "Rainer Rauramaa",
+          "is_self": false
+        },
+        {
+          "name": "Jerome I. Rotter",
+          "is_self": false
+        },
+        {
+          "name": "Peter E. H. Schwarz",
+          "is_self": false
+        },
+        {
+          "name": "Michael Stümvoll",
+          "is_self": false
+        },
+        {
+          "name": "Johan Sundström",
+          "is_self": false
+        },
+        {
+          "name": "Anke Tönjes",
+          "is_self": false
+        },
+        {
+          "name": "Tiinamaija Tuomi",
+          "is_self": false
+        },
+        {
+          "name": "Jaakko Tuomilehto",
+          "is_self": false
+        },
+        {
+          "name": "Róbert Wágner",
+          "is_self": false
+        },
+        {
+          "name": "Inês Barroso",
+          "is_self": false
+        },
+        {
+          "name": "Mark Walker",
+          "is_self": false
+        },
+        {
+          "name": "Niels Grarup",
+          "is_self": false
+        },
+        {
+          "name": "Michael Boehnke",
+          "is_self": false
+        },
+        {
+          "name": "Nicholas J. Wareham",
+          "is_self": false
+        },
+        {
+          "name": "Karen L. Mohlke",
+          "is_self": false
+        },
+        {
+          "name": "Eleanor Wheeler",
+          "is_self": false
+        },
+        {
+          "name": "Stephen O’Rahilly",
+          "is_self": false
+        },
+        {
+          "name": "Daniel J. Fazakerley",
+          "is_self": false
+        },
+        {
+          "name": "Claudia Langenberg",
+          "is_self": false
+        }
+      ],
+      "abstract": "Distinct tissue-specific mechanisms mediate insulin action in fasting and postprandial states. Previous genetic studies have largely focused on insulin resistance in the fasting state, where hepatic insulin action dominates. Here we studied genetic variants influencing insulin levels measured 2 h after a glucose challenge in >55,000 participants from three ancestry groups. We identified ten new loci (P < 5 × 10−8) not previously associated with postchallenge insulin resistance, eight of which were shown to share their genetic architecture with type 2 diabetes in colocalization analyses. We investigated candidate genes at a subset of associated loci in cultured cells and identified nine candidate genes newly implicated in the expression or trafficking of GLUT4, the key glucose transporter in postprandial glucose uptake in muscle and fat. By focusing on postprandial insulin resistance, we highlighted the mechanisms of action at type 2 diabetes loci that are not adequately captured by studies of fasting glycemic traits. Genome-wide association analyses of two oral glucose tolerance test-derived measures of postprandial insulin resistance discover ten new loci. Functional characterization identifies nine candidate genes implicated in the regulation of GLUT4.",
+      "cited_by_count": 82,
+      "is_oa": true,
+      "oa_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/7614755",
+      "volume": "55",
+      "issue": "6",
+      "pages": "973",
+      "openalex_id": "https://openalex.org/W4379877956"
+    },
+    {
+      "id": "10.1002/jgm.3601",
+      "doi": "10.1002/jgm.3601",
+      "title": "Identification of novel homozygous variants in FOXE3 and AP4M1 underlying congenital syndromic anophthalmia and microphthalmia",
+      "type": "journal-article",
+      "year": 2023,
+      "journal": "The Journal of Gene Medicine",
+      "authors": [
+        {
+          "name": "Warda Akbar",
+          "is_self": false
+        },
+        {
+          "name": "Asmat Ullah",
+          "is_self": false
+        },
+        {
+          "name": "Nighat Haider",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Fati Ullah Khan",
+          "is_self": false
+        },
+        {
+          "name": "Abid Ali Shah",
+          "is_self": false
+        },
+        {
+          "name": "Muhammad Atif Sikandar",
+          "is_self": false
+        },
+        {
+          "name": "Sulman Basit",
+          "is_self": false
+        },
+        {
+          "name": "Wasim Ahmad",
+          "is_self": false
+        }
+      ],
+      "abstract": "BACKGROUND: Anophthalmia and microphthalmia are severe developmental ocular disorders that affect the size of the ocular globe and can be unilateral or bilateral. The disease is found in syndromic as well as non-syndromic forms. It is genetically caused by chromosomal aberrations, copy number variations and single gene mutations, along with non-genetic factors such as viral infections, deficiency of vitamin A and an exposure to alcohol or drugs during pregnancy. To date, more than 30 genes having different modes of inheritance patterns are identified as causing anophthalmia and microphthalmia. METHODS: In the present study, a clinical and genetic analysis was performed of six patients with anophthalmia and microphthalmia and/or additional phenotypes of intellectual disability, developmental delay and cerebral palsy from a large consanguineous Pakistani family. Whole exome sequencing followed by data analysis for variants prioritization and validation through Sanger sequencing was performed to identify the disease causing variant(s). American College of Medical Genetics and Genomics (ACMG) guidelines were applied to classify clinical interpretation of the prioritized variants. RESULTS: Clinical investigations revealed that the affected individuals are afflicted with anophthalmia. Three of the patients showed additional phenotype of intellectual disability, developmental delays and other neurological symptoms. Whole exome sequencing of the DNA samples of the affected members in the family identified a novel homozygous stop gain mutation (NM_012186: c.106G>T: p.Glu36*) in Forkhead Box E3 (FOXE3) gene shared by all affected individuals. Moreover, patients segregating additional phenotypes of spastic paraplegia, intellectual disability, hearing loss and microcephaly showed an additional homozygous sequence variant (NM_004722: c.953G>A: p.Arg318Gln) in AP4M1. Sanger sequencing validated the correct segregation of the identified variants in the affected family. ACMG guidelines predicted the variants to be pathogenic. CONCLUSIONS: We have investigated first case of syndromic anophthalmia caused by variants in the FOXE3 and AP4M1. The present findings are helpful for understanding pathological role of the mutations of the genes in syndromic forms of anophthalmia. Furthermore, the study signifies searching for the identification of second variant in families with patients exhibiting variable phenotypes. In addition, the findings will help clinical geneticists, genetic counselors and the affected family with respect to prenatal testing, family planning and genetic counseling.",
+      "cited_by_count": 6,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": "26",
+      "issue": "1",
+      "pages": "e3601",
+      "openalex_id": "https://openalex.org/W4387079753"
+    },
+    {
+      "id": "10.1007/s10048-022-00692-7",
+      "doi": "10.1007/s10048-022-00692-7",
+      "title": "A novel nonsense variant in EXOC8 underlies a neurodevelopmental disorder",
+      "type": "journal-article",
+      "year": 2022,
+      "journal": "Neurogenetics",
+      "authors": [
+        {
+          "name": "Asmat Ullah",
+          "is_self": false
+        },
+        {
+          "name": "Jai Krishin",
+          "is_self": false
+        },
+        {
+          "name": "Nighat Haider",
+          "is_self": false
+        },
+        {
+          "name": "Brekhna Aurangzeb",
+          "is_self": false
+        },
+        {
+          "name": "Abdullah Abdullah",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Wasim Ahmad",
+          "is_self": false
+        },
+        {
+          "name": "Torben Hansen",
+          "is_self": false
+        },
+        {
+          "name": "Sulman Basit",
+          "is_self": false
+        }
+      ],
+      "abstract": null,
+      "cited_by_count": 6,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": "23",
+      "issue": "3",
+      "pages": "203",
+      "openalex_id": "https://openalex.org/W4224253696"
+    },
+    {
+      "id": "10.1007/s00251-022-01278-1",
+      "doi": "10.1007/s00251-022-01278-1",
+      "title": "Whole exome sequencing identified a novel splice donor site variant in interleukin 2 receptor alpha chain",
+      "type": "journal-article",
+      "year": 2022,
+      "journal": "Immunogenetics",
+      "authors": [
+        {
+          "name": "Nadia Waheed",
+          "is_self": false
+        },
+        {
+          "name": "Maryam Naseer",
+          "is_self": false
+        },
+        {
+          "name": "Nighat Haider",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Asmat Ullah",
+          "is_self": false
+        }
+      ],
+      "abstract": null,
+      "cited_by_count": 7,
+      "is_oa": true,
+      "oa_url": "https://curis.ku.dk/ws/files/412458203/IMMU_D_22_00128_R2.pdf",
+      "volume": "75",
+      "issue": "2",
+      "pages": "71",
+      "openalex_id": "https://openalex.org/W4301182990"
+    },
+    {
+      "id": "10.1038/s41598-020-68972-6",
+      "doi": "10.1038/s41598-020-68972-6",
+      "title": "Trisk 95 as a novel skin mirror for normal and diabetic systemic glucose level",
+      "type": "journal-article",
+      "year": 2020,
+      "journal": "Scientific Reports",
+      "authors": [
+        {
+          "name": "Nsrein Ali",
+          "is_self": false
+        },
+        {
+          "name": "Hamid Rezvani",
+          "is_self": false
+        },
+        {
+          "name": "Diana Motei",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Walid Mahfouf",
+          "is_self": false
+        },
+        {
+          "name": "Isabelle Marty",
+          "is_self": false
+        },
+        {
+          "name": "Veli‐Pekka Ronkainen",
+          "is_self": false
+        },
+        {
+          "name": "Seppo Vainio",
+          "is_self": false
+        }
+      ],
+      "abstract": "Developing trustworthy, cost effective, minimally or non-invasive glucose sensing strategies is of great need for diabetic patients. In this study, we used an experimental type I diabetic mouse model to examine whether the skin would provide novel means for identifying biomarkers associated with blood glucose level. We first showed that skin glucose levels are rapidly influenced by blood glucose concentrations. We then conducted a proteomic screen of murine skin using an experimental in vivo model of type I diabetes and wild-type controls. Among the proteins that increased expression in response to high blood glucose, Trisk 95 expression was significantly induced independently of insulin signalling. A luciferase reporter assay demonstrated that the induction of Trisk 95 expression occurs at a transcriptional level and is associated with a marked elevation in the Fluo-4AM signal, suggesting a role for intracellular calcium changes in the signalling cascade. Strikingly, these changes lead concurrently to fragmentation of the mitochondria. Moreover, Trisk 95 knockout abolishes both the calcium flux and the mitochondrial phenotype changes indicating dependency of glucose flux in the skin on Trisk 95 function. The data demonstrate that the skin reacts robustly to systemic blood changes, and that Trisk 95 is a promising biomarker for a glucose monitoring assembly.",
+      "cited_by_count": 2,
+      "is_oa": true,
+      "oa_url": "https://www.nature.com/articles/s41598-020-68972-6.pdf",
+      "volume": "10",
+      "issue": "1",
+      "pages": "12246",
+      "openalex_id": "https://openalex.org/W3044278751"
+    },
+    {
+      "id": "10.1158/0008-5472.can-17-1721",
+      "doi": "10.1158/0008-5472.can-17-1721",
+      "title": "A Large-Scale, Exome-Wide Association Study of Han Chinese Women Identifies Three Novel Loci Predisposing to Breast Cancer",
+      "type": "journal-article",
+      "year": 2018,
+      "journal": "Cancer Research",
+      "authors": [
+        {
+          "name": "Bo Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Men-Yun Chen",
+          "is_self": false
+        },
+        {
+          "name": "Yu-Jun Shen",
+          "is_self": false
+        },
+        {
+          "name": "Xian-Bo Zhuo",
+          "is_self": false
+        },
+        {
+          "name": "Ping Gao",
+          "is_self": false
+        },
+        {
+          "name": "Fu-Sheng Zhou",
+          "is_self": false
+        },
+        {
+          "name": "Bo Liang",
+          "is_self": false
+        },
+        {
+          "name": "Jun Zu",
+          "is_self": false
+        },
+        {
+          "name": "Qin Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Yi-Hui Xu",
+          "is_self": false
+        },
+        {
+          "name": "Min-Gui Xu",
+          "is_self": false
+        },
+        {
+          "name": "Jin-Kai Xu",
+          "is_self": false
+        },
+        {
+          "name": "Chen-Cheng Liu",
+          "is_self": false
+        },
+        {
+          "name": "Nikolaos Giannareas",
+          "is_self": false
+        },
+        {
+          "name": "Ji‐Han Xia",
+          "is_self": false
+        },
+        {
+          "name": "Yuan Zhao",
+          "is_self": false
+        },
+        {
+          "name": "Zhong-Lian Huang",
+          "is_self": false
+        },
+        {
+          "name": "Zhen Yang",
+          "is_self": false
+        },
+        {
+          "name": "Huaidong Cheng",
+          "is_self": false
+        },
+        {
+          "name": "Na Li",
+          "is_self": false
+        },
+        {
+          "name": "Yan‐Yan Hong",
+          "is_self": false
+        },
+        {
+          "name": "Wěi Li",
+          "is_self": false
+        },
+        {
+          "name": "Min-Jun Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Ke‐Da Yu",
+          "is_self": false
+        },
+        {
+          "name": "Guoliang Li",
+          "is_self": false
+        },
+        {
+          "name": "Meng-Hong Sun",
+          "is_self": false
+        },
+        {
+          "name": "Zhen-dong Chen",
+          "is_self": false
+        },
+        {
+          "name": "Gong‐Hong Wei",
+          "is_self": false
+        },
+        {
+          "name": "Zhi-Min Shao",
+          "is_self": false
+        }
+      ],
+      "abstract": "Abstract Genome-wide association studies have identified more than 90 susceptibility loci for breast cancer. However, the missing heritability is evident, and the contributions of coding variants to breast cancer susceptibility have not yet been systematically evaluated. Here, we present a large-scale whole-exome association study for breast cancer consisting of 24,162 individuals (10,055 cases and 14,107 controls). In addition to replicating known susceptibility loci (e.g., ESR1, FGFR2, and TOX3), we identify two novel missense variants in C21orf58 (rs13047478, Pmeta = 4.52 × 10−8) and ZNF526 (rs3810151, Pmeta = 7.60 × 10−9) and one new noncoding variant at 7q21.11 (P < 5 × 10−8). C21orf58 and ZNF526 possessed functional roles in the control of breast cancer cell growth, and the two coding variants were found to be the eQTL for several nearby genes. rs13047478 was significantly (P < 5.00 × 10−8) associated with the expression of genes MCM3AP and YBEY in breast mammary tissues. rs3810151 was found to be significantly associated with the expression of genes PAFAH1B3 (P = 8.39 × 10−8) and CNFN (P = 3.77 × 10−4) in human blood samples. C21orf58 and ZNF526, together with these eQTL genes, were differentially expressed in breast tumors versus normal breast. Our study reveals additional loci and novel genes for genetic predisposition to breast cancer and highlights a polygenic basis of disease development. Significance: Large-scale genetic screening identifies novel missense variants and a noncoding variant as predisposing factors for breast cancer. Cancer Res; 78(11); 3087–97. ©2018 AACR.",
+      "cited_by_count": 22,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": "78",
+      "issue": "11",
+      "pages": "3087",
+      "openalex_id": "https://openalex.org/W2790522032"
+    },
+    {
+      "id": "10.1016/j.cell.2018.06.003",
+      "doi": "10.1016/j.cell.2018.06.003",
+      "title": "Biology and Clinical Implications of the 19q13 Aggressive Prostate Cancer Susceptibility Locus",
+      "type": "journal-article",
+      "year": 2018,
+      "journal": "Cell",
+      "authors": [
+        {
+          "name": "Ping Gao",
+          "is_self": false
+        },
+        {
+          "name": "Ji‐Han Xia",
+          "is_self": false
+        },
+        {
+          "name": "Csilla Sipeky",
+          "is_self": false
+        },
+        {
+          "name": "Xiaoming Dong",
+          "is_self": false
+        },
+        {
+          "name": "Qin Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Yuehong Yang",
+          "is_self": false
+        },
+        {
+          "name": "Peng Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Sara Pereira Cruz",
+          "is_self": false
+        },
+        {
+          "name": "Kai Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Jing Zhu",
+          "is_self": false
+        },
+        {
+          "name": "Hang‐Mao Lee",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Nikolaos Giannareas",
+          "is_self": false
+        },
+        {
+          "name": "Song Liu",
+          "is_self": false
+        },
+        {
+          "name": "Teuvo L.J. Tammela",
+          "is_self": false
+        },
+        {
+          "name": "Anssi Auvinen",
+          "is_self": false
+        },
+        {
+          "name": "Xiaoyue Wang",
+          "is_self": false
+        },
+        {
+          "name": "Qilai Huang",
+          "is_self": false
+        },
+        {
+          "name": "Liguo Wang",
+          "is_self": false
+        },
+        {
+          "name": "Aki Manninen",
+          "is_self": false
+        },
+        {
+          "name": "Markku H. Vaarala",
+          "is_self": false
+        },
+        {
+          "name": "Liang Wang",
+          "is_self": false
+        },
+        {
+          "name": "Johanna Schleutker",
+          "is_self": false
+        },
+        {
+          "name": "Gong‐Hong Wei",
+          "is_self": false
+        }
+      ],
+      "abstract": null,
+      "cited_by_count": 174,
+      "is_oa": true,
+      "oa_url": "http://www.cell.com/article/S0092867418307281/pdf",
+      "volume": "174",
+      "issue": "3",
+      "pages": "576",
+      "openalex_id": "https://openalex.org/W2883005025"
+    },
+    {
+      "id": "10.1038/s41467-018-04451-x",
+      "doi": "10.1038/s41467-018-04451-x",
+      "title": "High-throughput screening of prostate cancer risk loci by single nucleotide polymorphisms sequencing",
+      "type": "journal-article",
+      "year": 2018,
+      "journal": "Nature Communications",
+      "authors": [
+        {
+          "name": "Peng Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Ji‐Han Xia",
+          "is_self": false
+        },
+        {
+          "name": "Jing Zhu",
+          "is_self": false
+        },
+        {
+          "name": "Ping Gao",
+          "is_self": false
+        },
+        {
+          "name": "Yijun Tian",
+          "is_self": false
+        },
+        {
+          "name": "Meijun Du",
+          "is_self": false
+        },
+        {
+          "name": "Yong-Chen Guo",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Qin Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Manish Kohli",
+          "is_self": false
+        },
+        {
+          "name": "Lori S. Tillmans",
+          "is_self": false
+        },
+        {
+          "name": "Stephen N. Thibodeau",
+          "is_self": false
+        },
+        {
+          "name": "Amy J. French",
+          "is_self": false
+        },
+        {
+          "name": "James R. Cerhan",
+          "is_self": false
+        },
+        {
+          "name": "Lidong Wang",
+          "is_self": false
+        },
+        {
+          "name": "Gong‐Hong Wei",
+          "is_self": false
+        },
+        {
+          "name": "Liang Wang",
+          "is_self": false
+        }
+      ],
+      "abstract": "Functional characterization of disease-causing variants at risk loci has been a significant challenge. Here we report a high-throughput single-nucleotide polymorphisms sequencing (SNPs-seq) technology to simultaneously screen hundreds to thousands of SNPs for their allele-dependent protein-binding differences. This technology takes advantage of higher retention rate of protein-bound DNA oligos in protein purification column to quantitatively sequence these SNP-containing oligos. We apply this technology to test prostate cancer-risk loci and observe differential allelic protein binding in a significant number of selected SNPs. We also test a unique application of self-transcribing active regulatory region sequencing (STARR-seq) in characterizing allele-dependent transcriptional regulation and provide detailed functional analysis at two risk loci (RGS17 and ASCL2). Together, we introduce a powerful high-throughput pipeline for large-scale screening of functional SNPs at disease risk loci.",
+      "cited_by_count": 94,
+      "is_oa": true,
+      "oa_url": "https://www.nature.com/articles/s41467-018-04451-x.pdf",
+      "volume": "9",
+      "issue": "1",
+      "pages": "2022",
+      "openalex_id": "https://openalex.org/W2803198744"
+    },
+    {
+      "id": "10.1158/1538-7445.am2017-1280",
+      "doi": "10.1158/1538-7445.am2017-1280",
+      "title": "Abstract 1280: Functional characterization of prostate cancer risk loci by SNPs-seq and STARR-seq",
+      "type": "journal-article",
+      "year": 2017,
+      "journal": "Cancer Research",
+      "authors": [
+        {
+          "name": "Peng Zhang",
+          "is_self": false
+        },
+        {
+          "name": "Jing Zhu",
+          "is_self": false
+        },
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Yongchen Guo",
+          "is_self": false
+        },
+        {
+          "name": "Meijun Du",
+          "is_self": false
+        },
+        {
+          "name": "Lidong Wang",
+          "is_self": false
+        },
+        {
+          "name": "Gong‐Hong Wei",
+          "is_self": false
+        },
+        {
+          "name": "Liang Wang",
+          "is_self": false
+        }
+      ],
+      "abstract": "Abstract Background. By SNP genotyping and RNA sequencing of 471 normal prostate samples, we recently created a prostate tissue-based eQTL dataset and identified significant eQTL signals at 51 prostate cancer risk loci. To functionally characterize these risk SNPs, we developed a massively parallel sequencing technology to screen SNPs for their allele-dependent protein binding differences. We combined this technology (called SNPs-seq) with another high throughput assay (called STARR-seq) to screen the risk loci with significant prostate-specific eQTL signals. Methods. To select candidate functional SNPs in eQTL regions, we took advantage of existing epigenomic datasets and available tools including ENCODE, HaploReg, and Regulome. For all selected SNPs, we first made allele-specific double-strand oligos and performed DNA-protein binding assays. We then performed sequencing analysis on the protein-bound DNA oligos and determined allele-specific protein binding differences. To evaluate reproducibility of SNPs-seq, we performed each assay in duplicates. We cloned SNPs-seq screened SNP regions showing allele-specific protein binding differences into the STARR-seq vector to further determine allele-specific enhancer activities. Finally, we performed EMSA and luciferase reporter assays to validate a set of promising candidate SNPs. Results. From 51 risk loci with strong eQTL signals, we selected 374 SNPs with strong indication of regulatory potential, as evidenced by overlapping with epigenomic marks. When comparing technical duplicates, sequence read counts from the SNPs-seq showed significant correlation with r2>=0.99. By normalizing input controls, we found 101 of the 374 SNPs showing significant allelic protein binding differences (>=1.5-fold binding difference between variant and reference alleles). Interestingly, three published functional SNPs (rs12769019, rs10993994, and rs4907792) were also among the significant SNPs, validating SNPs-seq as functional SNP screening tool. To further validate the candidate SNPs from SNPs-seq, we applied STARR-seq and tested the 101 SNPs-containing sequences (371-686bp) in LNCaP cell line under androgen treatment. This analysis revealed 11 SNPs that not only demonstrated enhancer/repressor activity but also functioned with allelic differences. EMSA and luciferase reporter assays confirmed 6 SNPs with allele-dependent enhancer/repressor activity. Conclusions. We developed a high throughput sequencing-based technology to screen large number candidate SNPs for their allelic protein binding differences. The SNPs-seq coupled with STARR-seq will provide a powerful strategy for functionally characterizing risk loci in prostate cancer and other common diseases. Further understanding genetic role of prostate cancer etiology may facilitate the translation of population-based discovery into biological mechanisms and eventually benefit clinical practice. Citation Format: Peng Zhang, Jing Zhu, Sufyan Suleman, Yong-Chen Guo, Mei-Jun Du, Li-Dong Wang, Gong-Hong Wei, Liang Wang. Functional characterization of prostate cancer risk loci by SNPs-seq and STARR-seq [abstract]. In: Proceedings of the American Association for Cancer Research Annual Meeting 2017; 2017 Apr 1-5; Washington, DC. Philadelphia (PA): AACR; Cancer Res 2017;77(13 Suppl):Abstract nr 1280. doi:10.1158/1538-7445.AM2017-1280",
+      "cited_by_count": 0,
+      "is_oa": false,
+      "oa_url": null,
+      "volume": "77",
+      "issue": "13_Supplement",
+      "pages": "1280",
+      "openalex_id": "https://openalex.org/W2741797396"
+    },
+    {
+      "id": "10.1016/j.ajur.2017.04.003",
+      "doi": "10.1016/j.ajur.2017.04.003",
+      "title": "Combined immunotherapy for advanced prostate cancer: Empowering the T cell army",
+      "type": "journal-article",
+      "year": 2017,
+      "journal": "Asian journal of urology",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        },
+        {
+          "name": "Gong‐Hong Wei",
+          "is_self": false
+        }
+      ],
+      "abstract": null,
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://www.sciencedirect.com/science/article/pii/S2214388217300462/pdf",
+      "volume": "4",
+      "issue": "4",
+      "pages": "199",
+      "openalex_id": "https://openalex.org/W2612435591"
+    }
+  ],
+  "archives": [
+    {
+      "id": "10.5281/zenodo.20672940",
+      "doi": "10.5281/zenodo.20672940",
+      "title": "sufyansuleman/basic_statistics: basic_statistics_v1.0",
+      "type": "book",
+      "year": 2026,
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        }
+      ],
+      "abstract": "This course provides an introduction to basic statistics, tailored for PhD students and beyond. However, individuals at all levels may find it beneficial.",
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.5281/zenodo.20672940",
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": "https://openalex.org/W7164528283"
+    },
+    {
+      "id": "10.5281/zenodo.20668335",
+      "doi": "10.5281/zenodo.20668335",
+      "title": "sufyansuleman/HealthMarkers: HealthMarkers 0.1.4",
+      "type": "software",
+      "year": 2026,
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        }
+      ],
+      "abstract": "Formula & unit bug fixes fasting_is() — HOMA_IR_inv and FIRI now use raw mmol/L glucose (were ~18× too large); QUICKI now uses log10 (Katz 2000). ogtt_is() — Cederholm_index uses raw mmol/L glucose, removing a double unit conversion. glycemic_markers() — SPISE and METS_IR now convert inputs to mg/dL internally, as their definitions and validated cut-offs require. liver_fat_markers() — NAFLD_LFS codes type-2 diabetes as yes = 2 (Kotronen 2009). renal_markers() — eGFR_combined uses the Inker 2012 creatinine α and the correct female (×0.969) and Black (×1.08) multipliers. ckd_stage() — KDIGO risk heatmap corrected: G1/G2 + A3 → High; G3a + A3 → Very High. kidney_failure_risk() — KFRE reimplemented per Tangri 2011 (non-North-American calibration). obesity_indices() — BRI uses π (not 2π) in the eccentricity ratio (Thomas 2013). Documentation AIP unit clarifications for atherogenic_indices() and cvd_marker_aip() (inputs in mmol/L). Internal Fixed the Fedora CRAN check failure in test-frailty_index (now mocks the internal di gatekeeper directly via local_mocked_bindings) — the issue that caused archival. Removed a deprecated dplyr::case_when() pattern in obesity_indices() (dplyr ≥ 1.2.0). Full details and references: NEWS.md Full Changelog: https://github.com/sufyansuleman/HealthMarkers/compare/v0.1.3...v0.1.4",
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.5281/zenodo.20668335",
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": "https://openalex.org/W7164573715"
+    },
+    {
+      "id": "10.5281/zenodo.20647743",
+      "doi": "10.5281/zenodo.20647743",
+      "title": "sufyansuleman/InsuSensCalc: InsuSensCalc",
+      "type": "software",
+      "year": 2026,
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        }
+      ],
+      "abstract": "This release corrects several insulin sensitivity index formulas after verifying each against its original publication and Table 2 of the package's source paper (Suleman 2024). Computed values for the affected indices change relative to 0.0.1, see below. ⚠️ Formula corrections (change computed values) VAI_Men_inv / VAI_Women_inv: Fixed the denominator grouping so waist is divided by the full (constant + slope * BMI) term, and switched triglycerides/HDL-C to mmol/L as required by the original constants (Amato 2010, doi:10.2337/dc09-1825). Previous values were substantially off. LAP_Men_inv / LAP_Women_inv: Triglycerides now used in mmol/L (Kahn 2005, doi:10.1186/1471-2261-5-26); previous mg/dL values were inflated ~88.6x. McAuley_index: Triglycerides now used in mmol/L (McAuley 2001, doi:10.2337/diacare.24.3.460). Avignon_Sim: Now computed as the data-driven weighted mean (w * Si0 + Si120) / 2, where w = mean(Si120) / mean(Si0), matching Table 2 of Avignon 1999 (doi:10.1038/sj.ijo.0800864). This index now depends on the full sample. The previous expression returned an invalid, dataset-wide collapsed value. Matsuda_ISI: Mean glucose/insulin terms now use the same units (mg/dL, µU/mL) as the fasting terms, fixing a unit mismatch (Matsuda & DeFronzo 1999, doi:10.2337/diacare.22.9.1462). BigttSi: Corrected the 30-minute insulin coefficient from 0.000565 to 0.000556 (Hansen 2007, doi:10.2337/dc06-1240). Homa_IR_inv: Now uses glucose in mmol/L, giving the standard HOMA-IR (Matthews 1985, doi:10.1007/BF00280883); previous mg/dL-based values were ~18x too large. Maintenance Homa_IR_inv and HOMA_IR_rev_inv are both retained as separate columns; after the units fix they return the same standard HOMA-IR value. Removed library() calls from package source (imports handled via NAMESPACE); dropped the unused tidyr dependency. Documentation now states the correct triglyceride (* 88.57) and HDL-C (* 38.67) unit-conversion factors and fixes a reversed insulin-conversion comment. Added a citation for the package's source publication (Suleman 2024, doi:10.1210/clinem/dgae275) to DESCRIPTION. Submission status This version has been submitted to CRAN.",
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.5281/zenodo.20647743",
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": "https://openalex.org/W7164330134"
+    },
+    {
+      "id": "10.5281/zenodo.20657622",
+      "doi": "10.5281/zenodo.20657622",
+      "title": "sufyansuleman/R_basic: r_basic_v0.2",
+      "type": "book",
+      "year": 2026,
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "authors": [
+        {
+          "name": "Sufyan Suleman",
+          "is_self": true
+        }
+      ],
+      "abstract": "This is an R course designed for beginners to learn R and do simple data analysis.",
+      "cited_by_count": 0,
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.5281/zenodo.20657622",
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "openalex_id": "https://openalex.org/W7164533375"
+    }
+  ]
+}

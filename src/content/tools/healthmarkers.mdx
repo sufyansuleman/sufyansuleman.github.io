@@ -1,0 +1,45 @@
+---
+slug: "healthmarkers"
+summary: "R package computing 290+ validated clinical biomarker indices from lab and phenotypic data."
+---
+
+## Overview
+
+HealthMarkers is an R package that automates computation of derived clinical indices from laboratory and phenotypic data. Computing these indices by hand is slow, error-prone and rarely documented, so the package wraps over 290 validated biomarkers across multiple health domains behind a consistent interface, with automatic column recognition for 15+ cohorts including UK Biobank, NHANES, HUNT, Tromsø, FinnGen, Estonian Biobank, LifeLines and Generation Scotland.
+
+## Research problem
+
+Researchers working with biobank or clinical trial data routinely need to re-derive standard indices (HOMA-IR, FIB-4, eGFR, PHQ-9 and similar) from raw measurements, but the formulas are scattered across papers, units differ between cohorts, and re-implementation introduces errors. HealthMarkers centralises these calculations with documented, published formulas.
+
+## What it computes
+
+- **Insulin sensitivity**: `fasting_is()`, `ogtt_is()`, `adipo_is()`, `all_insulin_indices()`, HOMA-IR, QUICKI, Matsuda, Stumvoll, Gutt and 40+ related indices
+- **Glycemic**: `glycemic_markers()`, TyG index, METS-IR, LAR, ASI, HOMA-CP
+- **Lipid/atherogenic**: `lipid_markers()`, `cvd_marker_aip()`, TC/HDL ratio, AIP, CRI-I/II, Castelli index, LDL particle estimates
+- **Liver**: `liver_markers()`, `liver_fat_markers()`, FLI, NFS, FIB-4, APRI, BARD, ALBI, MELD-XI, HSI, LAP
+- **Renal/CKD**: `renal_markers()`, `kidney_failure_risk()`, `ckd_stage()`, eGFR, KFRE, CKD staging, UACR, FE-Urea
+- **Cardiovascular risk**: `cvd_risk_ascvd()`, `cvd_risk_qrisk3()`, `cvd_risk_scorescvd()`, ASCVD (PCE), QRISK3, SCORE2/SCORE2-OP
+- **Pulmonary**: `spirometry_markers()`, `pulmo_markers()`, `bode_index()`, FEV1/FVC z-scores, GLI 2012, BODE index
+- **Inflammatory/ageing**: `inflammatory_markers()`, `iAge()`, `oxidative_markers()`, NLR, PLR, SII, LMR, iAge clock, 8-OHdG, KTR
+- **Hormonal**: `hormone_markers()`, T/E2 ratio, TSH/fT4, cortisol/DHEA, LH/FSH, HOMA-B, FAI
+- **Body composition**: `obesity_indices()`, `adiposity_sds()`, `alm_bmi_index()`, BMI, WHR, ABSI, BRI, BAI, SDS z-scores
+- **Bone/fracture**: `bone_markers()`, `frax_score()`, P1NP, osteocalcin, CTX, NTX, FRAX probabilities
+- **Frailty/comorbidity**: `frailty_index()`, `charlson_index()`, `sarc_f_score()`, Rockwood index, Charlson CCI, SARC-F
+- **Vitamins/nutrients**: `vitamin_markers()`, `nutrient_markers()`, vitamin D status, B12/folate ratio, ferritin saturation
+- **Alternate biofluids**: `saliva_markers()`, `sweat_markers()`, `urine_markers()`, CAR, sweat chloride, urinary ratios
+- **Psychiatric**: `psych_markers()`, `phq9_score()`, `gad7_score()`, `k10_score()`, PHQ-9, GAD-7, ISI, GHQ-12, K10, WHO-5, ASRS, BIS-11, SPQ
+- **Neurological**: `nfl_marker()`, `kyn_trp_ratio()`, age-adjusted NfL, kynurenine/tryptophan ratio
+- **Dispatcher**: `all_health_markers()`, runs any combination of the 40+ marker groups on a single wide tibble
+
+## Install
+
+```r
+install.packages("HealthMarkers")
+
+# development version
+remotes::install_github("sufyansuleman/HealthMarkers")
+```
+
+## Documentation
+
+Full reference and vignettes: https://sufyansuleman.github.io/HealthMarkers/

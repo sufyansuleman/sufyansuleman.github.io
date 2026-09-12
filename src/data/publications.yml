@@ -1,0 +1,50 @@
+# Curated overrides for the auto-fetched publications pipeline (see
+# scripts/fetch-publications.mjs -> src/data/generated/works.json).
+#
+# topics:  the filter-chip taxonomy shown on /publications, in display order.
+# exclude: ids (doi, or "orcid:<put-code>" for DOI-less ORCID entries) to hide
+#          entirely (e.g. misattributed or duplicate records).
+# add:     manual entries not present on ORCID, same shape as a fetched publication.
+# entries: per-id overrides merged onto the fetched record, topics and/or links
+#          (supp/code/app) for items that have supplementary material elsewhere.
+#
+# Key reference for the two DOI-less ORCID conference papers (put-codes from the
+# fetched works.json, ORCID 0000-0001-6612-6915):
+#   orcid:217864455 -> "Unraveling shared biological mechanisms of depression and Body Mass Index"
+#   orcid:217864456 -> "Unravelling the shared genetics and biological mechanisms of ADHD and obesity"
+
+topics:
+  - Psychiatric genomics
+  - Metabolic genomics
+  - Insulin resistance
+  - Obesity
+  - Rare disease genetics
+  - Cancer genetics
+  - Methods & software
+
+exclude: []
+
+add: []
+
+entries:
+  "10.1210/clinem/dgae882":
+    topics: [Insulin resistance, Metabolic genomics]
+    links: { supp: https://github.com/sufyansuleman/ir-grs-jcem-2024, code: https://github.com/sufyansuleman/ir-grs-jcem-2024 }
+  "10.1210/clinem/dgae275":
+    topics: [Insulin resistance, Metabolic genomics]
+    links: { app: https://sufyansuleman.github.io/isi_t2d_nat_24/, supp: https://github.com/sufyansuleman/isi_t2d_nat_24 }
+  "10.1038/s41598-025-98507-w": { topics: [Obesity, Insulin resistance] }
+  "10.1038/s41588-023-01408-9": { topics: [Metabolic genomics] }
+  "10.1038/s41598-020-68972-6": { topics: [Metabolic genomics] }
+  "10.1159/000553060": { topics: [Rare disease genetics] }
+  "10.1111/cge.14444": { topics: [Rare disease genetics], type: journal-article }
+  "10.1002/jgm.3601": { topics: [Rare disease genetics] }
+  "10.1007/s00251-022-01278-1": { topics: [Rare disease genetics] }
+  "10.1007/s10048-022-00692-7": { topics: [Rare disease genetics] }
+  "10.1016/j.cell.2018.06.003": { topics: [Cancer genetics] }
+  "10.1158/0008-5472.CAN-17-1721": { topics: [Cancer genetics] }
+  "10.1038/s41467-018-04451-x": { topics: [Cancer genetics] }
+  "10.1158/1538-7445.am2017-1280": { topics: [Cancer genetics], type: conference-paper }
+  "10.1016/j.ajur.2017.04.003": { topics: [Cancer genetics], journal: "Asian Journal of Urology" }
+  "orcid:217864455": { topics: [Psychiatric genomics, Obesity] }
+  "orcid:217864456": { topics: [Psychiatric genomics, Obesity] }

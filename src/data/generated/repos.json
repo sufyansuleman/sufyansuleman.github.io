@@ -1,0 +1,113 @@
+{
+  "fetched_at": "2026-09-12T10:56:09.083Z",
+  "repos": {
+    "basic_statistics": {
+      "description": "This course provides an introduction to basic statistics, tailored for PhD students and beyond. However, individuals at all levels may find it beneficial.",
+      "language": "TeX",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-06-16T19:05:54Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/basic_statistics",
+      "archived": false,
+      "private": false
+    },
+    "cdisc-with-r": {
+      "description": null,
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/cdisc-with-r/",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-09-09T05:43:08Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/cdisc-with-r",
+      "archived": false,
+      "private": false
+    },
+    "HealthMarkers": {
+      "description": "Toolkit for Clinical, Metabolic, and Cardiovascular Biomarker Calculations",
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/HealthMarkers/",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-06-18T14:02:05Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/HealthMarkers",
+      "archived": false,
+      "private": false
+    },
+    "InsuSensCalc": {
+      "description": "Comprehensive Package for Insulin Sensitivity Indices Calculation",
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/InsuSensCalc/",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "pushed_at": "2026-09-12T10:05:48Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/InsuSensCalc",
+      "archived": false,
+      "private": false
+    },
+    "ir-grs-jcem-2024": {
+      "description": "This is a repository for supplementary data for IR-GRSs article submitted to JCEM",
+      "language": null,
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2024-11-14T17:50:34Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/ir-grs-jcem-2024",
+      "archived": true,
+      "private": false
+    },
+    "isi_t2d": {
+      "description": null,
+      "language": "JavaScript",
+      "homepage": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2024-04-10T09:41:59Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/isi_t2d",
+      "archived": true,
+      "private": false
+    },
+    "isi_t2d_nat_24": {
+      "description": null,
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/isi_t2d_nat_24/",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-07-23T05:53:01Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/isi_t2d_nat_24",
+      "archived": false,
+      "private": false
+    },
+    "IsletCalc": {
+      "description": "IsletCalc computes surrogate indices of pancreatic islet hormone release from fasting and 75 g oral glucose tolerance test (OGTT) measurements. It covers both beta-cell (insulin) and alpha-cell (glucagon) function in one lightweight, dependency-free package for metabolic and endocrine research.",
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/IsletCalc/",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-07-17T22:09:05Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/IsletCalc",
+      "archived": false,
+      "private": false
+    },
+    "platform-trial-data-management": {
+      "description": null,
+      "language": "R",
+      "homepage": "https://sufyansuleman.github.io/platform-trial-data-management/",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-08-28T14:20:43Z",
+      "topics": [],
+      "html_url": "https://github.com/sufyansuleman/platform-trial-data-management",
+      "archived": false,
+      "private": false
+    }
+  }
+}

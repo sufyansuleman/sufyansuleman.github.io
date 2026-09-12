@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import WorkWithMe from '../components/WorkWithMe.astro';
+import { Icon } from 'astro-icon/components';
+import { profile } from '../lib/data';
+
+const socials = [
+  { label: 'GitHub', href: profile.socials.github, icon: 'lucide:github' },
+  { label: 'ORCID', href: profile.socials.orcid, icon: 'lucide:badge-check' },
+  { label: 'LinkedIn', href: profile.socials.linkedin, icon: 'lucide:linkedin' },
+  { label: 'Google Scholar', href: profile.socials.scholar, icon: 'lucide:graduation-cap' }
+].filter((s) => s.href);
+
+const [emailUser, emailDomain] = profile.socials.email.split('@');
+---
+
+<Base title="Contact">
+  <section class="container-x py-20">
+    <SectionHeader
+      title="Contact"
+      lede="Reach out about collaborations, research tools, or courses."
+    />
+
+    <div class="mt-10 max-w-xl">
+      <ul class="space-y-4">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-ink hover:text-accent dark:text-[#E5EAF2]">
+              <Icon name={s.icon} class="h-5 w-5" />
+              <span>{s.label}</span>
+            </a>
+          </li>
+        ))}
+        {profile.socials.email && (
+          <li>
+            <a
+              id="email-link"
+              href="#"
+              data-user={emailUser}
+              data-domain={emailDomain}
+              class="flex items-center gap-3 text-ink hover:text-accent dark:text-[#E5EAF2]"
+            >
+              <Icon name="lucide:mail" class="h-5 w-5" />
+              <span id="email-label">Email</span>
+            </a>
+          </li>
+        )}
+        <li class="flex items-center gap-3 text-ink dark:text-[#E5EAF2]">
+          <Icon name="lucide:map-pin" class="h-5 w-5" />
+          <span>{profile.location}</span>
+        </li>
+        <li class="pt-2 text-sm text-muted">Email is the fastest way to reach me.</li>
+      </ul>
+
+      <div class="mt-10">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-muted">How I can help</h2>
+        <WorkWithMe compact />
+      </div>
+
+      
+    </div>
+  </section>
+</Base>
+
+<script>
+  const link = document.getElementById('email-link') as HTMLAnchorElement | null;
+  const label = document.getElementById('email-label');
+  if (link && label) {
+    const user = link.dataset.user ?? '';
+    const domain = link.dataset.domain ?? '';
+    const address = `${user}@${domain}`;
+    link.href = `mailto:${address}`;
+    label.textContent = address;
+  }
+</script>

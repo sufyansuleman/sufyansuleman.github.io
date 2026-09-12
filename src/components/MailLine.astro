@@ -1,0 +1,32 @@
+---
+// Shared "muted sentence + mail link" line used across page footers.
+import { profile } from '../lib/data';
+
+interface Props {
+  text: string;
+  linkText?: string;
+  subject: string;
+}
+
+const { text, linkText = 'Email me', subject } = Astro.props;
+const [emailUser, emailDomain] = profile.socials.email.split('@');
+---
+
+<p class="text-sm text-muted">
+  {text}{' '}
+  <a
+    href="#"
+    class="js-mailto text-accent hover:text-accent-hover"
+    data-user={emailUser}
+    data-domain={emailDomain}
+    data-subject={subject}
+  >{linkText}</a>
+</p>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('a.js-mailto:not([data-bound])').forEach((a) => {
+    a.dataset.bound = 'true';
+    const { user, domain, subject } = a.dataset;
+    if (user && domain) a.href = `mailto:${user}@${domain}?subject=${encodeURIComponent(subject ?? '')}`;
+  });
+</script>

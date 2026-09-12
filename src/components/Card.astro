@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  image?: string;
+  icon?: string;
+  tags?: string[];
+  meta?: string;
+}
+
+const { title, description, href, image, icon = 'lucide:sparkles', tags, meta } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  href={href}
+  class:list={[
+    'group flex flex-col overflow-hidden rounded-2xl border border-line bg-white transition hover:-translate-y-0.5 hover:shadow-md dark:bg-[#111A2E] dark:border-[#233049]'
+  ]}
+>
+  {Astro.slots.has('cover') ? (
+    <div class="h-40 w-full overflow-hidden">
+      <slot name="cover" />
+    </div>
+  ) : image ? (
+    <img src={image} alt="" class="h-40 w-full object-cover" />
+  ) : (
+    <div class="flex h-40 w-full items-center justify-center bg-gradient-to-br from-primary to-accent">
+      <Icon name={icon} class="h-10 w-10 text-white" />
+    </div>
+  )}
+
+  <div class="flex flex-1 flex-col gap-3 p-6">
+    {meta && <p class="text-xs font-semibold uppercase tracking-wide text-muted">{meta}</p>}
+    <h3 class="text-lg font-semibold text-primary dark:text-white">{title}</h3>
+    <p class="text-sm text-muted">{description}</p>
+
+    {tags && tags.length > 0 && (
+      <div class:list={[Astro.slots.has('actions') ? '' : 'mt-auto', 'flex flex-wrap gap-2 pt-2']}>
+        {tags.map((tag) => (
+          <span class="rounded-full bg-surface px-2.5 py-1 text-xs text-muted dark:bg-[#0B1220]">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    {Astro.slots.has('actions') && (
+      <div class="mt-auto flex flex-wrap gap-3 pt-2">
+        <slot name="actions" />
+      </div>
+    )}
+  </div>
+</Tag>

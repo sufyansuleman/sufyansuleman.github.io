@@ -1,0 +1,46 @@
+---
+import CallToAction from '../../components/CallToAction.astro';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import Cover from '../../components/Cover.astro';
+import { getItems } from '../../lib/catalog';
+
+const tools = getItems('tool');
+
+function metaLine(item: (typeof tools)[number]) {
+  const lang = item.repo?.language ?? item.manual?.language;
+  const updated = item.updated
+    ? new Date(item.updated).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
+    : undefined;
+  return [lang, updated ? `updated ${updated}` : undefined].filter(Boolean).join(' · ');
+}
+---
+
+<Base title="Research Tools">
+  <section class="container-x py-20">
+    <SectionHeader
+      eyebrow="Software"
+      title="Research Tools"
+      lede="Open-source R packages, a reference pipeline and an interactive browser, built for clinical, metabolic and genomic research."
+    />
+    <div class="mt-10">
+      <CardGrid>
+        {tools.map((item) => (
+          <Card
+            title={item.title}
+            description={item.tagline}
+            href={`/tools/${item.urlSlug}/`}
+            icon={item.icon}
+            meta={metaLine(item)}
+            tags={item.tags}
+          >
+            <Cover item={item} slot="cover" />
+          </Card>
+        ))}
+      </CardGrid>
+      <CallToAction kind="tools-list" />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+import { nav } from '../lib/nav';
+import { profile } from '../lib/data';
+
+const year = new Date().getFullYear();
+
+const resources = [
+  { label: 'GitHub', href: profile.socials.github, icon: 'lucide:github' },
+  { label: 'ORCID', href: profile.socials.orcid, icon: 'lucide:badge-check' },
+  { label: 'Google Scholar', href: profile.socials.scholar, icon: 'lucide:graduation-cap' },
+  { label: 'LinkedIn', href: profile.socials.linkedin, icon: 'lucide:linkedin' }
+].filter((r) => r.href);
+
+const [emailUser, emailDomain] = profile.socials.email.split('@');
+---
+
+<footer class="border-t border-line bg-surface dark:bg-[#111A2E] dark:border-[#233049]">
+  <div class="container-x grid gap-10 py-16 sm:grid-cols-3">
+    <div>
+      <p class="font-semibold text-primary dark:text-white">{profile.name}</p>
+      <p class="mt-3 text-sm text-muted">{profile.subheadline}</p>
+      <div class="mt-4 flex gap-3">
+        {resources.map((r) => (
+          <a href={r.href} target="_blank" rel="noopener noreferrer" aria-label={r.label} class="text-muted hover:text-accent">
+            <Icon name={r.icon} class="h-5 w-5" />
+          </a>
+        ))}
+      </div>
+      <a
+        href="#"
+        class="js-mailto mt-4 inline-block text-sm text-accent hover:text-accent-hover"
+        data-user={emailUser}
+        data-domain={emailDomain}
+        data-subject="Hello from your website"
+      >Email me</a>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-muted">Explore</p>
+      <ul class="mt-3 space-y-2">
+        {nav.map((item) => (
+          <li><a href={item.href} class="text-sm text-ink hover:text-accent dark:text-[#E5EAF2]">{item.label}</a></li>
+        ))}
+        <li><a href="/about/journey/" class="text-sm text-ink hover:text-accent dark:text-[#E5EAF2]">Academic journey</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-muted">Resources</p>
+      <ul class="mt-3 space-y-2">
+        {resources.map((r) => (
+          <li><a href={r.href} target="_blank" rel="noopener noreferrer" class="text-sm text-ink hover:text-accent dark:text-[#E5EAF2]">{r.label}</a></li>
+        ))}
+        <li>
+          <a
+            href="#"
+            class="js-mailto text-sm text-ink hover:text-accent dark:text-[#E5EAF2]"
+            data-user={emailUser}
+            data-domain={emailDomain}
+            data-subject="Hello from your website"
+          >Email</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-line py-6 text-center text-sm text-muted dark:border-[#233049]">
+    © {year} Sufyan Suleman · Built with Astro · <a href="https://github.com/sufyansuleman/sufyansuleman.github.io" class="hover:text-accent">Source on GitHub</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('a.js-mailto:not([data-bound])').forEach((a) => {
+    a.dataset.bound = 'true';
+    const { user, domain, subject } = a.dataset;
+    if (user && domain) a.href = `mailto:${user}@${domain}?subject=${encodeURIComponent(subject ?? '')}`;
+  });
+</script>

@@ -1,0 +1,144 @@
+---
+import Badge from './Badge.astro';
+import ButtonLink from './ButtonLink.astro';
+import type { Publication } from '../lib/publications';
+
+interface Props {
+  pub: Publication;
+  compact?: boolean;
+}
+
+const { pub, compact = false } = Astro.props;
+
+const typeLabels: Record<string, string> = {
+  'journal-article': 'Journal article',
+  'conference-paper': 'Conference paper',
+  software: 'Software',
+  book: 'Book',
+  other: 'Other'
+};
+
+const href = pub.doi ? `https://doi.org/${pub.doi}` : null;
+const showOaLink = pub.is_oa && pub.oa_url && pub.oa_url !== href;
+const biblio = pub.pages && pub.volume
+  ? [pub.volume && pub.issue ? `${pub.volume}(${pub.issue})` : pub.volume, pub.pages].filter(Boolean).join(':')
+  : '';
+
+const MAX_VISIBLE_AUTHORS = 10;
+const truncateAuthors = pub.authors.length > 12;
+const visibleAuthors = truncateAuthors ? pub.authors.slice(0, MAX_VISIBLE_AUTHORS) : pub.authors;
+const selfIndex = pub.authors.findIndex((a) => a.is_self);
+const selfOutsideVisible = truncateAuthors && selfIndex >= MAX_VISIBLE_AUTHORS;
+const selfAuthor = selfOutsideVisible ? pub.authors[selfIndex] : null;
+const hiddenCount = pub.authors.length - visibleAuthors.length - (selfOutsideVisible ? 1 : 0);
+---
+
+<li class="flex gap-4 border-b border-line py-6 dark:border-[#233049] last:border-b-0" data-year={pub.year ?? ''} data-topics={pub.topics.join('|')}>
+  <div class="hidden w-16 shrink-0 flex-col items-start gap-1 sm:flex">
+    {compact && <span class="text-lg font-semibold text-primary dark:text-white">{pub.year ?? ''}</span>}
+    <span class="text-xs uppercase tracking-wide text-muted">{typeLabels[pub.type] ?? pub.type}</span>
+  </div>
+
+  <div class="min-w-0 flex-1">
+    <h3 class="text-lg font-semibold leading-snug text-ink dark:text-white">
+      {href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" class="hover:text-accent">{pub.title}</a>
+      ) : (
+        pub.title
+      )}
+    </h3>
+
+    <p class="mt-1 text-sm text-muted sm:hidden">{pub.year ?? ''} · {typeLabels[pub.type] ?? pub.type}</p>
+
+    {pub.authors.length > 0 && (
+      <p class="mt-2 text-sm text-muted" data-authors>
+        {truncateAuthors ? (
+          <>
+            <span class="authors-collapsed">
+              {visibleAuthors.map((author, i) => (
+                <>
+                  {author.is_self ? <strong class="text-ink dark:text-white">{author.name}</strong> : author.name}
+                  {i < visibleAuthors.length - 1 ? ', ' : ''}
+                </>
+              ))}
+              {selfOutsideVisible && (
+                <>
+                  , … , <strong class="text-ink dark:text-white">{selfAuthor!.name}</strong>
+                </>
+              )}
+              {', '}
+            </span>
+            <button
+              type="button"
+              class="authors-toggle font-medium text-accent hover:text-accent-hover"
+              aria-expanded="false"
+              data-label-more={`… and ${hiddenCount} more`}
+              data-label-less="Show fewer"
+            >
+              {`… and ${hiddenCount} more`}
+            </button>
+            <span class="authors-full hidden">
+              {pub.authors.map((author, i) => (
+                <>
+                  {author.is_self ? <strong class="text-ink dark:text-white">{author.name}</strong> : author.name}
+                  {i < pub.authors.length - 1 ? ', ' : ''}
+                </>
+              ))}
+            </span>
+          </>
+        ) : (
+          pub.authors.map((author, i) => (
+            <>
+              {author.is_self ? <strong class="text-ink dark:text-white">{author.name}</strong> : author.name}
+              {i < pub.authors.length - 1 ? ', ' : ''}
+            </>
+          ))
+        )}
+      </p>
+    )}
+
+    <p class="mt-1 text-sm text-muted">
+      {[pub.journal, pub.year, biblio || null].filter(Boolean).join(' · ')}
+    </p>
+
+    {pub.topics.length > 0 && (
+      <div class="mt-3 flex flex-wrap gap-2">
+        {pub.topics.map((topic) => <Badge>{topic}</Badge>)}
+      </div>
+    )}
+
+
+    {!compact && (
+      <div class="mt-3 flex flex-wrap gap-4">
+        {href && <ButtonLink href={href} variant="ghost" external>Paper</ButtonLink>}
+        {showOaLink && <ButtonLink href={pub.oa_url!} variant="ghost" external>Open access</ButtonLink>}
+        {pub.links.supp && <ButtonLink href={pub.links.supp} variant="ghost" external>Supplementary data</ButtonLink>}
+        {pub.links.code && <ButtonLink href={pub.links.code} variant="ghost" external>Code</ButtonLink>}
+        {pub.links.app && <ButtonLink href={pub.links.app} variant="ghost" external>Interactive app</ButtonLink>}
+      </div>
+    )}
+
+    {!compact && pub.abstract && (
+      <details class="mt-3 text-sm text-muted">
+        <summary class="cursor-pointer font-medium text-accent hover:text-accent-hover">Abstract</summary>
+        <p class="mt-2 max-w-prose">{pub.abstract}</p>
+      </details>
+    )}
+  </div>
+</li>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.authors-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const wrapper = btn.closest('[data-authors]');
+      if (!wrapper) return;
+      const collapsed = wrapper.querySelector('.authors-collapsed');
+      const full = wrapper.querySelector('.authors-full');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      collapsed?.classList.toggle('hidden', !expanded);
+      full?.classList.toggle('hidden', expanded);
+      btn.textContent = expanded ? (btn.dataset.labelMore ?? '') : (btn.dataset.labelLess ?? '');
+    });
+  });
+</script>

@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import PubItem from '../components/PubItem.astro';
+import MailLine from '../components/MailLine.astro';
+import { getPublications, getArchives, topics, years, count, fetchedAt } from '../lib/publications';
+import { allItems } from '../lib/catalog';
+
+const publications = getPublications();
+const archives = getArchives();
+const catalogByDoi = new Map(
+  allItems()
+    .filter((item) => item.links.doi)
+    .map((item) => [item.links.doi!.toLowerCase(), item.title])
+);
+
+function archiveTitle(doi: string | null, fallback: string): string {
+  if (!doi) return fallback;
+  return catalogByDoi.get(`https://doi.org/${doi}`.toLowerCase()) ?? fallback;
+}
+const yearList = years();
+const updated = new Date(fetchedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const byYear = yearList.map((year) => ({
+  year,
+  items: publications.filter((p) => p.year === year)
+}));
+const noYear = publications.filter((p) => p.year == null);
+---
+
+<Base title="Publications">
+  <section class="container-x py-20">
+    <SectionHeader
+      eyebrow="Research output"
+      title="Publications"
+      lede={`${count()} peer-reviewed articles and conference papers, sourced from ORCID (0000-0001-6612-6915), updated ${updated}.`}
+    />
+
+    <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" id="pub-filters">
+      <div class="flex items-center gap-2">
+        <label for="year-filter" class="text-sm font-medium text-muted">Year</label>
+        <select id="year-filter" class="rounded-lg border border-line bg-white px-3 py-1.5 text-sm dark:bg-[#111A2E] dark:border-[#233049] dark:text-white">
+          <option value="all">All</option>
+          {yearList.map((y) => <option value={y}>{y}</option>)}
+        </select>
+      </div>
+
+      <div class="flex flex-wrap gap-2" id="topic-chips">
+        <button type="button" class="topic-chip rounded-full border border-line px-3 py-1 text-xs font-medium text-ink dark:border-[#233049] dark:text-white" data-topic="all" aria-pressed="true">All</button>
+        {topics.map((topic) => (
+          <button type="button" class="topic-chip rounded-full border border-line px-3 py-1 text-xs font-medium text-ink dark:border-[#233049] dark:text-white" data-topic={topic} aria-pressed="false">
+            {topic}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-10" id="pub-list">
+      {byYear.map(({ year, items }) => (
+        <div class="year-group" data-year-group={year}>
+          <h2 class="text-xl font-semibold text-primary dark:text-white">{year}</h2>
+          <ul class="mt-2">
+            {items.map((pub) => <PubItem pub={pub} />)}
+          </ul>
+        </div>
+      ))}
+      {noYear.length > 0 && (
+        <div class="year-group" data-year-group="">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Undated</h2>
+          <ul class="mt-2">
+            {noYear.map((pub) => <PubItem pub={pub} />)}
+          </ul>
+        </div>
+      )}
+      <p id="pub-empty" class="hidden py-10 text-center text-muted">No publications match the current filters.</p>
+    </div>
+
+    <div class="mt-10">
+      <MailLine text="Working on similar questions? I am open to collaboration." subject="Collaboration" />
+    </div>
+
+    {archives.length > 0 && (
+      <div class="mt-16 border-t border-line pt-10 dark:border-[#233049]">
+        <h2 class="text-lg font-semibold text-primary dark:text-white">Archived software and teaching materials</h2>
+        <ul class="mt-4 space-y-3">
+          {archives.map((a) => (
+            <li class="flex flex-wrap items-baseline justify-between gap-2 text-sm">
+              <span class="text-ink dark:text-white">{archiveTitle(a.doi, a.title)}</span>
+              <span class="flex items-center gap-3 text-muted">
+                {a.year}
+                {a.doi && (
+                  <a href={`https://doi.org/${a.doi}`} target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover">
+                    {a.doi}
+                  </a>
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+</Base>
+
+<script>
+  const yearFilter = document.getElementById('year-filter') as HTMLSelectElement;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.topic-chip'));
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#pub-list li[data-year]'));
+  const yearGroups = Array.from(document.querySelectorAll<HTMLDivElement>('.year-group'));
+  const empty = document.getElementById('pub-empty');
+
+  function currentTopic(): string {
+    return chips.find((c) => c.getAttribute('aria-pressed') === 'true')?.dataset.topic ?? 'all';
+  }
+
+  function applyFilters() {
+    const year = yearFilter.value;
+    const topic = currentTopic();
+    let visibleCount = 0;
+
+    for (const item of items) {
+      const itemYear = item.dataset.year ?? '';
+      const itemTopics = (item.dataset.topics ?? '').split('|').filter(Boolean);
+      const yearMatch = year === 'all' || itemYear === year;
+      const topicMatch = topic === 'all' || itemTopics.includes(topic);
+      const visible = yearMatch && topicMatch;
+      item.hidden = !visible;
+      if (visible) visibleCount += 1;
+    }
+
+    for (const group of yearGroups) {
+      const groupItems = Array.from(group.querySelectorAll('li'));
+      const anyVisible = groupItems.some((li) => !(li as HTMLLIElement).hidden);
+      (group as HTMLDivElement).hidden = !anyVisible;
+    }
+
+    if (empty) empty.classList.toggle('hidden', visibleCount > 0);
+
+    const params = new URLSearchParams();
+    if (year !== 'all') params.set('year', year);
+    if (topic !== 'all') params.set('topic', topic);
+    const hash = params.toString();
+    history.replaceState(null, '', hash ? `#${hash}` : location.pathname);
+  }
+
+  function setTopic(topic: string) {
+    for (const chip of chips) {
+      const active = chip.dataset.topic === topic;
+      chip.setAttribute('aria-pressed', String(active));
+      chip.classList.toggle('bg-accent', active);
+      chip.classList.toggle('text-white', active);
+      chip.classList.toggle('border-accent', active);
+    }
+  }
+
+  function restoreFromHash() {
+    const params = new URLSearchParams(location.hash.replace(/^#/, ''));
+    const year = params.get('year');
+    const topic = params.get('topic');
+    if (year && yearFilter.querySelector(`option[value="${year}"]`)) yearFilter.value = year;
+    setTopic(topic && chips.some((c) => c.dataset.topic === topic) ? topic : 'all');
+  }
+
+  yearFilter.addEventListener('change', applyFilters);
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      setTopic(chip.dataset.topic ?? 'all');
+      applyFilters();
+    });
+  }
+
+  restoreFromHash();
+  applyFilters();
+</script>
