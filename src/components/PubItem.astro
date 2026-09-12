@@ -11,8 +11,8 @@ interface Props {
 const { pub, compact = false } = Astro.props;
 
 const typeLabels: Record<string, string> = {
-  'journal-article': 'Journal article',
-  'conference-paper': 'Conference paper',
+  'journal-article': 'Article',
+  'conference-paper': 'Conference',
   software: 'Software',
   book: 'Book',
   other: 'Other'
@@ -34,9 +34,9 @@ const hiddenCount = pub.authors.length - visibleAuthors.length - (selfOutsideVis
 ---
 
 <li class="flex gap-4 border-b border-line py-6 dark:border-[#233049] last:border-b-0" data-year={pub.year ?? ''} data-topics={pub.topics.join('|')}>
-  <div class="hidden w-16 shrink-0 flex-col items-start gap-1 sm:flex">
+  <div class="hidden w-24 shrink-0 flex-col items-start gap-1 sm:flex">
     {compact && <span class="text-lg font-semibold text-primary dark:text-white">{pub.year ?? ''}</span>}
-    <span class="text-xs uppercase tracking-wide text-muted">{typeLabels[pub.type] ?? pub.type}</span>
+    <span class="text-[11px] uppercase tracking-wide text-muted">{typeLabels[pub.type] ?? pub.type}</span>
   </div>
 
   <div class="min-w-0 flex-1">
