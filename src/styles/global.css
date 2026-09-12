@@ -1,0 +1,78 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/jetbrains-mono';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #0B2545;
+  --color-primary-light: #13315C;
+  --color-surface: #F4F6F8;
+  --color-ink: #1E293B;
+  --color-muted: #5A6779;
+  --color-accent: #09786B;
+  --color-accent-hover: #06615A;
+  --color-line: #E2E8F0;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.dark {
+  --color-background: #0B1220;
+  --color-surface: #111A2E;
+  --color-ink: #E5EAF2;
+  --color-line: #233049;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-ink bg-white dark:bg-[#0B1220] dark:text-[#E5EAF2];
+}
+
+.container-x {
+  @apply mx-auto max-w-7xl px-6 lg:px-8;
+}
+
+.prose-tight {
+  @apply max-w-prose leading-relaxed;
+}
+
+/* Cover.astro tokens */
+.cv-bg-a { stop-color: #F4F6F8; }
+.cv-bg-b { stop-color: #FFFFFF; }
+.cv-pill { fill: #0B2545; }
+.cv-pill-text { fill: #FFFFFF; }
+.cv-title { fill: #0B2545; }
+.cv-keyword { fill: #0E9F8E; }
+.cv-what { fill: #64748B; }
+.cv-muted { fill: #64748B; }
+.cv-domain { fill: #94A3B8; }
+.cv-line { stroke: #E2E8F0; }
+.cv-grid { stroke: #E2E8F0; }
+.cv-motif-a { fill: #0B2545; stroke: #0B2545; }
+.cv-motif-b { fill: #0E9F8E; stroke: #0E9F8E; }
+.cv-dot-fill { fill: #F4F6F8; }
+.cv-stroke-a { fill: none; stroke: #0B2545; }
+.cv-stroke-b { fill: none; stroke: #0E9F8E; }
+
+.dark .cv-bg-a { stop-color: #111A2E; }
+.dark .cv-bg-b { stop-color: #0B1220; }
+.dark .cv-title { fill: #E5EAF2; }
+.dark .cv-what { fill: #94A3B8; }
+.dark .cv-muted { fill: #94A3B8; }
+.dark .cv-domain { fill: #94A3B8; }
+.dark .cv-line { stroke: #233049; }
+.dark .cv-grid { stroke: #233049; }
+.dark .cv-dot-fill { fill: #0B1220; }
+
+/* Dark-mode token overrides: brighter accent and lighter muted text on dark backgrounds */
+.dark {
+  --color-accent: #14B8A6;
+  --color-accent-hover: #2DD4BF;
+  --color-muted: #94A3B8;
+}

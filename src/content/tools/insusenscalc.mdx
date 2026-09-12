@@ -1,0 +1,32 @@
+---
+slug: "insusenscalc"
+summary: "R package for computing insulin sensitivity indices from fasting, OGTT, adipose and tracer/DXA data."
+---
+
+## Overview
+
+InsuSensCalc is an R package built around a single function, `isi_calculator()`, that takes a data frame of glucose, insulin and related measurements and returns published insulin sensitivity indices. A `category` argument selects which family of measurements to process.
+
+## Research problem
+
+Insulin sensitivity indices are derived from many different published formulas, each requiring specific timepoints (fasting only, OGTT, adipose-tissue markers, or tracer/DXA data) and specific unit conventions. Re-implementing these formulas correctly for each study is a common source of error. InsuSensCalc consolidates them behind one interface.
+
+## What it computes
+
+- **Fasting** (10 indices): Fasting Insulin, Raynaud Index, HOMA-IR_inv, FIRI, QUICKI, Belfiore basal, Insulin to Glucose Ratio, Insulin Sensitivity Index basal, Bennett Index, HOMA-IR-inv (Revised)
+- **OGTT** (15 indices): Insulin Sensitivity Index, Cederholm Index, Gutt Index, Matsuda ISI AUC, Matsuda ISI, IG_ratio_120_inv, Avignon indices (Si0, Si120, Sim), Modified Stumvoll, Stumvoll Demographics, Glucose and Insulin AUC means, BigttSI, Ifc_inv, HIRI_inv, Belfiore_ISI_gly
+- **Adipose tissue** (10 indices): Revised QUICKI, VAI (Men/Women), TG/HDL-C ratio, TyG, LAP (Men/Women), McAuley Index, Adipo_inv, Belfiore with FFA
+- **Tracer & DXA** (3 indices): LIRI_inv, Lipo_inv, ATIRI_inv
+
+## Install
+
+```r
+install.packages("InsuSensCalc")
+
+# development version
+remotes::install_github("sufyansuleman/InsuSensCalc")
+```
+
+## Documentation
+
+Full reference and vignettes: https://sufyansuleman.github.io/InsuSensCalc/

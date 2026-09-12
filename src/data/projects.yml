@@ -1,0 +1,95 @@
+projects:
+  - slug: adhd-obesity-genetics
+    title: "ADHD x obesity shared genetics"
+    status: active
+    period:
+      start: "2024-09"
+    summary: "Investigating shared genetic architecture and biological mechanisms between ADHD and obesity using polygenic scoring, Mendelian randomisation, PheWAS, and integrative genomics across biobank-scale cohorts."
+    role: "Lead analyst (postdoc)"
+    methods:
+      - "SBayesRC polygenic risk scoring"
+      - "Bidirectional Mendelian randomisation"
+      - "PheWAS across 1,434 ICD-10 phecodes"
+      - "MiXeR, LAVA, LDSC genetic correlation"
+      - "ASSET and METASOFT cross-trait meta-analysis"
+      - "FUMA, MAGMA, FINEMAP, PoPS, FLAMES gene prioritisation"
+      - "scDRS single-cell disease relevance scoring"
+      - "CellProfiler / LipocyteProfiler imaging integration"
+    outcomes:
+      - "Manuscript in preparation (first author)"
+      - "Oral presentation, ESHG Annual Meeting 2025"
+      - "Upcoming presentation, World Congress of Psychiatric Genetics, Glasgow, September 2026"
+    related:
+      publications: []
+      tools: []
+      courses: []
+    milestones:
+      - date: "2025-06"
+        label: "ESHG 2025 oral presentation"
+      - date: "2026-09"
+        label: "WCPG Glasgow presentation"
+
+  - slug: insulin-sensitivity-genetics
+    title: "Genetics of insulin sensitivity and T2D"
+    status: completed
+    period:
+      start: "2021-06"
+      end: "2024-11"
+    summary: "PhD research establishing the genetic architecture of insulin sensitivity and its links to type 2 diabetes, obesity, and cardiovascular disease, using GWAS of 21 indices in Danish cohorts."
+    role: "PhD researcher"
+    methods:
+      - "GWAS of 21 insulin sensitivity indices"
+      - "Genetic risk score development"
+      - "Cross-cohort validation (adult to paediatric)"
+    outcomes:
+      - "Three first-author publications"
+      - "PhD thesis submitted and defended"
+    related:
+      publications:
+        - "10.1210/clinem/dgae275"
+        - "10.1210/clinem/dgae882"
+        - "10.1038/s41598-025-98507-w"
+      tools: []
+      courses: []
+
+  - slug: cancer-functional-genomics-oulu
+    title: "Cancer functional genomics, Oulu"
+    status: completed
+    period:
+      start: "2017-01"
+      end: "2019-08"
+    summary: "Functional genomics of prostate and breast cancer susceptibility loci in the Gong-Hong Wei lab, combining wet-lab experiments with statistical and computational GWAS follow-up analysis."
+    role: "Research assistant / MSc researcher"
+    methods:
+      - "ChIP-seq, RNA-seq, CRISPR-Cas9"
+      - "SNPs-seq"
+      - "eQTL and pathway enrichment analysis"
+    outcomes:
+      - "Published in Cell, Nature Communications, and Cancer Research"
+    related:
+      publications:
+        - "10.1016/j.cell.2018.06.003"
+        - "10.1038/s41467-018-04451-x"
+        - "10.1158/0008-5472.CAN-17-1721"
+      tools: []
+      courses: []
+
+  - slug: trisk95-skin-glucose-biomarker
+    title: "Trisk 95 skin glucose biomarker"
+    status: completed
+    period:
+      start: "2018-06"
+      end: "2019-08"
+    summary: "Identified a skin-based protein biomarker (Trisk 95/Triadin) mirroring systemic blood glucose in a type 1 diabetic mouse model, in the Vainio Laboratory of Developmental Biology, Oulu."
+    role: "Researcher; performed the promoter luciferase reporter study"
+    methods:
+      - "Molecular cloning and luciferase reporter assay"
+      - "Primary keratinocyte culture"
+      - "In vivo STZ-induced diabetic mouse model"
+    outcomes:
+      - "Published in Scientific Reports, 2020"
+    related:
+      publications:
+        - "10.1038/s41598-020-68972-6"
+      tools: []
+      courses: []

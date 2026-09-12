@@ -1,0 +1,28 @@
+---
+slug: "isi_t2d_nat_24"
+summary: "Interactive browser linking T2D GWAS variants to 23 insulin sensitivity indices, with BMI mediation analysis."
+---
+
+## What it shows
+
+An interactive browser exploring how T2D risk variants from the largest type 2 diabetes GWAS to date (Suzuki et al., *Nature*, 2024; >2.5 million individuals) associate with 23 insulin sensitivity indices (ISIs) derived from fasting blood measurements and OGTTs. It shows, for each variant, which ISIs it associates with, the direction of effect, whether the effect acts through fasting insulin resistance or post-load glucose handling, and how much of the effect is mediated through BMI. All results are shown for both BMI-adjusted and BMI-unadjusted models.
+
+## How to use it
+
+1. Open the **Heatmap** tab for an effect-size overview across all variants x 23 ISIs, with a searchable data table.
+2. Use **BMI Comparison** to view BMI-adjusted vs unadjusted heatmaps side by side, including a per-variant Δβ calculator.
+3. Check **Volcano** plots (β vs −log₁₀ p) for a single index or all 23 at once.
+4. Select a variant in **Effect Profile** to see a lollipop chart of its effect across all 23 ISIs.
+5. Use **BMI Mediation** for a Baron-Kenny proportion-mediated bar chart, or **Data Browser** / **Gene Summary** to search, filter and download the underlying results.
+
+All tabs respond to a shared filter panel (gene name, rsID, index group, p-value threshold, minimum |β|).
+
+## Data behind the app
+
+ISIs cover three timepoint groups: fasting (inv-FIns, inv-HOMA-IR, QUICKI, Raynaud SI, Belfiore basal, ISI basal, Bennett SI, Avignon SI0, FIRI, inv-FIns/FGlu), OGTT 0-120 min (inv-Ins120, inv-Glu120, ISI 120, inv-Ins/Glu120, Gutt Index, Avignon SI120, Avignon SIM), and OGTT 0-30-120 min (Stumvoll Modi, Stumvoll Dem, inv-IFC, BIGTT SI, Matsuda, Matsuda AUC). BMI mediation uses the Baron-Kenny formula PM = (β_total − β_direct) / |β_total| × 100, restricted to variants with |β_total| ≥ 0.005 across ≥ 3 ISIs, with individual PMs clamped to ±300% before taking the median.
+
+## Related publication
+
+This browser accompanies Suleman S, Ängquist L, Linneberg A, Hansen T, Grarup N. "Exploring the genetic intersection between obesity-associated genetic variants and insulin sensitivity indices." *Scientific Reports* 15, 15761 (2025). https://doi.org/10.1038/s41598-025-98507-w, building on T2D variants from Suzuki et al., *Nature* 627, 347-357 (2024). It is not the JCEM 2024 paper on fasting and OGTT-based insulin sensitivity indices.
+
+Live app: https://sufyansuleman.github.io/isi_t2d_nat_24/

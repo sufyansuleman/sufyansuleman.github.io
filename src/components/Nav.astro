@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon/components';
+import { nav } from '../lib/nav';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-white/80 backdrop-blur dark:bg-[#0B1220]/80 dark:border-[#233049]">
+  <div class="container-x flex h-16 items-center justify-between">
+    <a href="/" class="font-semibold tracking-tight text-primary dark:text-white">Sufyan Suleman</a>
+
+    <nav class="hidden lg:flex items-center gap-6">
+      {nav.map((item) => {
+        const active = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+        const isContact = item.label === 'Contact';
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-medium transition-colors',
+              isContact
+                ? 'rounded-full border border-line px-3 py-1 hover:bg-surface dark:border-[#233049] dark:hover:bg-[#111A2E]'
+                : 'hover:text-accent',
+              active ? 'text-accent' : 'text-ink dark:text-[#E5EAF2]'
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="rounded-full p-2 text-ink hover:bg-surface dark:text-[#E5EAF2] dark:hover:bg-[#111A2E]"
+      >
+        <Icon name="lucide:sun" class="h-5 w-5 dark:hidden" />
+        <Icon name="lucide:moon" class="h-5 w-5 hidden dark:block" />
+      </button>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        class="lg:hidden rounded-full p-2 text-ink hover:bg-surface dark:text-[#E5EAF2] dark:hover:bg-[#111A2E]"
+      >
+        <Icon name="lucide:menu" class="h-6 w-6" />
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="lg:hidden hidden border-t border-line dark:border-[#233049]">
+    <div class="container-x flex flex-col gap-1 py-4">
+      {nav.map((item) => {
+        const active = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-surface dark:hover:bg-[#111A2E]',
+              active ? 'text-accent' : 'text-ink dark:text-[#E5EAF2]'
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  navToggle?.addEventListener('click', () => {
+    const isOpen = mobileNav?.classList.toggle('hidden') === false;
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  const themeToggle = document.getElementById('theme-toggle');
+
+  themeToggle?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>

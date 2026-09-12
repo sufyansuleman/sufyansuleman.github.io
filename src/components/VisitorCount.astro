@@ -1,0 +1,33 @@
+---
+import { profile } from '../lib/data';
+const code = profile.analytics?.goatcounter ?? '';
+const since = profile.analytics?.since ?? '';
+---
+
+{code && (
+  <section class="container-x pb-20">
+    <div class="rounded-3xl border border-line bg-surface px-8 py-12 text-center dark:bg-[#111A2E] dark:border-[#233049]">
+      <p class="text-sm font-medium uppercase tracking-wide text-muted">Visitors</p>
+      <p id="visitor-count" class="mt-3 text-5xl font-semibold tracking-tight text-primary dark:text-white sm:text-6xl" data-code={code}>
+        <span class="text-muted">…</span>
+      </p>
+      {since && <p class="mt-3 text-sm text-muted">page views since {since}</p>}
+    </div>
+  </section>
+)}
+
+<script>
+  const el = document.getElementById('visitor-count');
+  if (el) {
+    const code = el.dataset.code;
+    fetch(`https://${code}.goatcounter.com/counter/TOTAL.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => {
+        const n = Number(String(d.count).replace(/[^0-9]/g, ''));
+        el.textContent = Number.isFinite(n) ? n.toLocaleString('en-GB') : String(d.count);
+      })
+      .catch(() => {
+        el.textContent = 'n/a';
+      });
+  }
+</script>

@@ -1,0 +1,27 @@
+---
+export interface TimelineItem {
+  date: string;
+  title: string;
+  org: string;
+  location?: string;
+  summary?: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="ml-1.5 space-y-8 border-l border-line dark:border-[#233049]">
+  {items.map((item) => (
+    <li class="relative pl-7">
+      <span class="absolute left-0 top-1 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-accent bg-white dark:bg-[#0B1220]"></span>
+      <p class="text-xs font-semibold uppercase tracking-wide text-accent">{item.date}</p>
+      <h3 class="mt-1 font-semibold text-primary dark:text-white">{item.title}</h3>
+      <p class="text-sm text-muted">{item.org}{item.location ? ` · ${item.location}` : ''}</p>
+      {item.summary && <p class="mt-2 text-sm text-muted">{item.summary}</p>}
+    </li>
+  ))}
+</ol>

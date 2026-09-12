@@ -1,0 +1,33 @@
+---
+slug: "isletcalc"
+summary: "R package computing beta-cell, alpha-cell and glucagon-resistance indices from OGTT data."
+---
+
+## Overview
+
+IsletCalc is an R package for computing islet-cell function indices, beta-cell insulin release, alpha-cell glucagon release, and glucagon resistance, from OGTT glucose, insulin and glucagon measurements. Every index follows a published, peer-reviewed formula, with the exact equation, unit conventions and source documented.
+
+## Research problem
+
+Beta-cell and alpha-cell function indices depend on combinations of fasting and post-load glucose, insulin and glucagon values, each defined in a separate publication with its own units and assumptions. IsletCalc implements these formulas directly from source so results are traceable to the original equation.
+
+## What it computes
+
+- **`insulin_release()`**, beta-cell indices: HOMA-beta, CIR, Stumvoll, insulinogenic (Xinsdg30, Xinsg30), BIGTT-AIR, disposition indices (Di, Dibig)
+- **`glucagon_release()`**, alpha-cell indices: fasting glucagon, glucagon AUC
+- **`glucagon_resistance()`**, alpha-cell resistance indices: glucagon suppression ratio, fasting glucagon:insulin ratio
+
+Inputs are glucose (G0, G30, G120 in mmol/L), insulin (I0, I30, I120 in pmol/L), sex, BMI, and glucagon (Glucagon0, Glucagon30, Glucagon120 in pmol/L) as available, only the columns needed for the requested indices must be present.
+
+## Install
+
+```r
+install.packages("IsletCalc")
+
+# development version
+remotes::install_github("sufyansuleman/IsletCalc")
+```
+
+## Documentation
+
+Full reference and vignettes: https://sufyansuleman.github.io/IsletCalc/

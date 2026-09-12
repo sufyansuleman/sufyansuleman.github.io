@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ButtonLink from '../components/ButtonLink.astro';
+import Badge from '../components/Badge.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Card from '../components/Card.astro';
+import Cover from '../components/Cover.astro';
+import PubItem from '../components/PubItem.astro';
+import VisitorCount from '../components/VisitorCount.astro';
+import WorkWithMe from '../components/WorkWithMe.astro';
+import { profile } from '../lib/data';
+import { featured as getFeatured } from '../lib/catalog';
+import { latest } from '../lib/publications';
+
+const featured = getFeatured()
+  .filter((item) => item.categories.includes('tool'))
+  .slice(0, 3);
+
+const latestPubs = latest(3);
+---
+
+<Base title="Home">
+  <Hero headline={profile.name} kicker={profile.tagline} subheadline={profile.bio_short}>
+    <Fragment slot="actions">
+      <ButtonLink href="/tools/">Research Tools</ButtonLink>
+      <ButtonLink href="/publications/" variant="secondary">Publications</ButtonLink>
+      <ButtonLink href="/courses/" variant="secondary">Courses</ButtonLink>
+      <ButtonLink href="/about/" variant="secondary">About</ButtonLink>
+    </Fragment>
+
+    <Fragment slot="aside">
+      <div class="mx-auto max-w-xs rounded-3xl border border-line bg-white p-5 text-center shadow-sm dark:bg-[#111A2E] dark:border-[#233049]">
+        <img src="/photo-512.jpg" width="512" height="512" alt="Sufyan Suleman" class="mx-auto h-32 w-32 rounded-full object-cover" />
+        <p class="mt-4 font-semibold text-primary dark:text-white">{profile.title}</p>
+        <p class="text-xs text-muted">{profile.affiliation}</p>
+        {profile.affiliation_secondary && <p class="text-xs text-muted">{profile.affiliation_secondary}</p>}
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+          {profile.interests.slice(0, 5).map((interest) => <Badge>{interest}</Badge>)}
+        </div>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <section class="container-x py-20">
+    <SectionHeader
+      eyebrow="Featured"
+      title="Research tools"
+      lede="A selection of open-source packages built for clinical, metabolic, and genomic research workflows."
+    />
+    <div class="mt-10">
+      <CardGrid>
+        {featured.map((item) => (
+          <Card title={item.title} description={item.tagline} href={`/tools/${item.urlSlug}/`} icon={item.icon}>
+            <Cover item={item} slot="cover" />
+          </Card>
+        ))}
+      </CardGrid>
+    </div>
+  </section>
+
+  <section class="container-x py-20">
+    <SectionHeader
+      eyebrow="Research output"
+      title="Latest publications"
+      lede="Recent peer-reviewed work."
+    />
+    <ul class="mt-10">
+      {latestPubs.map((pub) => <PubItem pub={pub} compact />)}
+    </ul>
+    <div class="mt-6">
+      <ButtonLink href="/publications/" variant="ghost">All publications</ButtonLink>
+    </div>
+  </section>
+
+  <section class="container-x py-20">
+    <WorkWithMe />
+  </section>
+
+  <section class="container-x py-20">
+    <div class="rounded-3xl bg-gradient-to-br from-primary to-accent px-8 py-14 text-center text-white sm:px-16">
+      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Open Science</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-white/90">
+        Every tool and course on this site is released openly so other researchers can reuse, verify, and build on the work, from documented software packages to complete course materials.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <ButtonLink href="/tools/" variant="secondary">Research Tools</ButtonLink>
+        <ButtonLink href="/courses/" variant="secondary">Courses</ButtonLink>
+      </div>
+    </div>
+  </section>
+
+  <VisitorCount />
+</Base>

@@ -1,0 +1,34 @@
+---
+slug: "platform-trial-data-management"
+summary: "A reference implementation for managing data in multi-site, multi-country adaptive platform trials."
+---
+
+## Overview
+
+Platform Trial Data Management is a reference pipeline for managing data in multi-site, multi-country adaptive clinical trials. It works through transforming messy EDC exports, 125 CSV files across 25 sites in 5 countries, differing in date conventions, decimal separators, character encodings and units, into a frozen, verifiable dataset suitable for analysis, with a synthetic trial of 2,549 participants as the running example.
+
+## What it does
+
+- Encodes validation rules as data (YAML), readable by non-programmers
+- Harmonises multi-site exports with differing formats and units
+- Logs every data transformation for full auditability
+- Produces reproducible, checksummed ("frozen") data cuts
+- Reports endpoint uncertainty arising from missing or unresolved data
+- Documents where data management ends and statistical analysis begins
+
+The pipeline is built around a synthetic platform trial (3 clinical domains, 24 months enrolment, 23 validation rules, 419 tests) and documented in:
+
+- `runbook.md`, operational procedures
+- `data_management_plan.md`, governance documentation
+- `decisions.md`, dated design rationale
+- `validation_plan.md`, rule specifications and consequences
+
+## Validation
+
+Rule detection performance is measured against injected synthetic defects (overall 99.3% recall on targeted defect records; as low as 74.2% recall for weight unit errors).
+
+## Documentation
+
+The repository is a working reference implementation rather than a slide deck: code, YAML rule configuration, and the documentation files above. The statistical analysis itself is explicitly out of scope, the pipeline ends at producing the frozen data cut.
+
+Repository: https://sufyansuleman.github.io/platform-trial-data-management/
