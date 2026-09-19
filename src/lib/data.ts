@@ -26,6 +26,7 @@ export interface Profile {
   affiliation_secondary?: string;
   location: string;
   tagline: string;
+  kicker: string;
   hero_lead: string;
   hero_paragraphs: string[];
   statement_paragraphs: string[];
