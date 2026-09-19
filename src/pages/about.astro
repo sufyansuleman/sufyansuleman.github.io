@@ -1,39 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import SectionHeader from '../components/SectionHeader.astro';
 import Badge from '../components/Badge.astro';
 import ButtonLink from '../components/ButtonLink.astro';
-import Timeline from '../components/Timeline.astro';
+import { Icon } from 'astro-icon/components';
 import { profile, cv } from '../lib/data';
 
 const bioParagraphs = profile.bio_long.trim().split(/\n\s*\n/);
+const [emailUser, emailDomain] = profile.socials.email.split('@');
 
-function startKey(start: string): string {
-  // "2024-09" -> 2024-09, "2021" -> 2021-01 (so bare years sort before same-year months)
-  return /^\d{4}$/.test(start) ? `${start}-01` : start;
-}
-
-const positionItems = cv.positions
-  .map((p) => ({
-    date: `${p.start} - ${p.end === 'present' ? 'Present' : p.end}`,
-    title: p.title,
-    org: p.org,
-    location: p.location,
-    summary: p.summary,
-    sortKey: startKey(p.start)
-  }))
-  .sort((a, b) => b.sortKey.localeCompare(a.sortKey));
-
-const educationItems = cv.education
-  .map((e) => ({
-    date: `${e.start} - ${e.end}`,
-    title: `${e.degree}, ${e.field}`,
-    org: e.institution,
-    location: e.location,
-    summary: e.thesis,
-    sortKey: startKey(e.start)
-  }))
-  .sort((a, b) => b.sortKey.localeCompare(a.sortKey));
+const currentPositions = cv.positions.filter((p) => p.end === 'present');
+const pastPositions = cv.positions.filter((p) => p.end !== 'present');
 
 const skillLabels: Record<string, string> = {
   programming: 'Programming',
@@ -43,11 +19,20 @@ const skillLabels: Record<string, string> = {
   infrastructure: 'Infrastructure',
   laboratory: 'Laboratory'
 };
+const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({ label: skillLabels[key] ?? key, values }));
 
-const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
-  label: skillLabels[key] ?? key,
-  values
-}));
+const sections = [
+  { id: 'current-position', label: 'Current position' },
+  { id: 'education', label: 'Education' },
+  { id: 'research-experience', label: 'Research experience' },
+  { id: 'teaching', label: 'Teaching' },
+  { id: 'consortia', label: 'Consortia' },
+  { id: 'talks', label: 'Talks' },
+  { id: 'awards', label: 'Awards and memberships' },
+  { id: 'certifications', label: 'Certifications and training' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'languages', label: 'Languages' }
+];
 ---
 
 <Base title="About" description={profile.bio_short}>
@@ -71,65 +56,171 @@ const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
           {bioParagraphs.map((p) => <p>{p}</p>)}
           <p><a href="/about/journey/" class="font-medium text-accent hover:underline">Read the full story of how I got here</a></p>
         </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <ButtonLink href={profile.socials.orcid} variant="secondary" icon="lucide:badge-check" external>ORCID</ButtonLink>
+          <a
+            href="#"
+            class="js-mailto inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+            data-user={emailUser}
+            data-domain={emailDomain}
+            data-subject="Hello from your website"
+          >
+            <Icon name="lucide:mail" class="h-4 w-4" />
+            Email
+          </a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
-    <div class="container-x">
-      <SectionHeader title="Research themes" />
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {profile.research_themes.map((theme) => (
-          <div class="rounded-2xl border border-line bg-white p-6 dark:bg-[#0B1220] dark:border-[#233049]">
-            <h3 class="font-semibold text-primary dark:text-white">{theme.name}</h3>
-            <p class="mt-2 text-sm text-muted">{theme.blurb}</p>
+    <div class="mt-16 grid gap-10 border-t border-line pt-12 lg:grid-cols-[220px_1fr] dark:border-[#233049]">
+      <nav class="hidden lg:block h-fit lg:sticky lg:top-24">
+        <ul class="space-y-2 text-sm">
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`} class="text-muted hover:text-accent">{s.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="min-w-0 space-y-12 text-sm leading-relaxed">
+        <section id="current-position">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Current position</h2>
+          <div class="mt-4 space-y-4">
+            {currentPositions.map((p) => (
+              <div>
+                <p class="font-semibold text-ink dark:text-white">{p.title}, {p.org}</p>
+                <p class="text-muted">{p.location} · {p.start} - Present</p>
+                {p.summary && <p class="mt-1 text-muted">{p.summary}</p>}
+                {p.highlights && p.highlights.length > 0 && (
+                  <ul class="mt-2 list-disc space-y-1 pl-5 text-muted">
+                    {p.highlights.map((h) => <li>{h}</li>)}
+                  </ul>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <section class="container-x py-20">
-    <SectionHeader title="Academic journey" />
-    <div class="mt-10 grid gap-12 lg:grid-cols-2">
-      <div>
-        <h3 class="mb-6 text-sm font-semibold uppercase tracking-wide text-muted">Positions</h3>
-        <Timeline items={positionItems} />
-      </div>
-      <div>
-        <h3 class="mb-6 text-sm font-semibold uppercase tracking-wide text-muted">Education</h3>
-        <Timeline items={educationItems} />
-      </div>
-    </div>
-    <div class="mt-8">
-      <ButtonLink href="/about/journey/" variant="secondary" icon="lucide:arrow-right">Read the full story</ButtonLink>
-    </div>
-  </section>
-
-  <section class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
-    <div class="container-x">
-      <SectionHeader title="Technical skills" />
-      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {skillGroups.map((group) => (
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-wide text-muted">{group.label}</h3>
-            <div class="mt-3 flex flex-wrap gap-2">
-              {group.values.map((v) => <Badge>{v}</Badge>)}
-            </div>
+        <section id="education">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Education</h2>
+          <div class="mt-4 space-y-4">
+            {cv.education.map((e) => (
+              <div>
+                <p class="font-semibold text-ink dark:text-white">{e.degree}, {e.field}</p>
+                <p class="text-muted">{e.institution} · {e.location} · {e.start} - {e.end}</p>
+                {e.thesis && <p class="mt-1 text-muted">Thesis: {e.thesis}</p>}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <section class="container-x py-20">
-    <SectionHeader title="Languages" />
-    <div class="mt-6 flex flex-wrap gap-4">
-      {profile.languages.map((l) => (
-        <span class="text-sm text-ink dark:text-[#E5EAF2]">
-          <strong class="font-semibold text-primary dark:text-white">{l.language}</strong>, {l.level}
-        </span>
-      ))}
+        <section id="research-experience">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Research experience</h2>
+          <div class="mt-4 space-y-4">
+            {pastPositions.map((p) => (
+              <div>
+                <p class="font-semibold text-ink dark:text-white">{p.title}, {p.org}</p>
+                <p class="text-muted">{p.location} · {p.start} - {p.end}</p>
+                {p.summary && <p class="mt-1 text-muted">{p.summary}</p>}
+                {p.highlights && p.highlights.length > 0 && (
+                  <ul class="mt-2 list-disc space-y-1 pl-5 text-muted">
+                    {p.highlights.map((h) => <li>{h}</li>)}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="teaching">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Teaching</h2>
+          <ul class="mt-4 space-y-2">
+            {cv.teaching.map((t) => (
+              <li>
+                <span class="font-semibold text-ink dark:text-white">{t.title}</span>
+               <span class="text-muted">, {t.role} · {t.org} · {t.period}</span>
+                {t.note && <p class="text-muted">{t.note}</p>}
+              </li>
+            ))}
+          </ul>
+          {cv.supervision.length > 0 && (
+            <ul class="mt-4 space-y-1">
+              {cv.supervision.map((s) => (
+                <li class="text-ink dark:text-white">Supervised {s.count} {s.level} students<span class="text-muted">, {s.org}, {s.period}</span></li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section id="consortia">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Consortia</h2>
+          <ul class="mt-4 space-y-2">
+            {cv.consortia.map((c) => (
+              <li>
+                <span class="font-semibold text-ink dark:text-white">{c.name}</span>
+               <span class="text-muted">, {c.role} · {c.period}</span>
+                {c.outcome && <p class="text-muted">{c.outcome}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="talks">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Talks</h2>
+          <ul class="mt-4 space-y-1">
+            {cv.talks.map((t) => (
+              <li class="text-ink dark:text-white">{t.title}<span class="text-muted">, {t.venue}, {t.year} ({t.type.toLowerCase()})</span></li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="awards">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Awards and memberships</h2>
+          <ul class="mt-4 space-y-1">
+            {cv.awards.map((a) => (
+              <li class="text-ink dark:text-white">{a.title}<span class="text-muted">, {a.org}, {a.period}</span></li>
+            ))}
+            {cv.memberships.map((m) => (
+              <li class="text-ink dark:text-white">{m.name}<span class="text-muted">, since {m.since}</span></li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="certifications">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Certifications and training</h2>
+          <ul class="mt-4 space-y-1">
+            {cv.certifications.map((c) => (
+              <li class="text-ink dark:text-white">{c.name}<span class="text-muted">, {c.issuer}{c.year ? `, ${c.year}` : ''}</span></li>
+            ))}
+            {cv.training.map((t) => (
+              <li class="text-ink dark:text-white">{t.name}<span class="text-muted">, {t.org}, {t.year}</span></li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="skills">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Skills</h2>
+          <div class="mt-4 space-y-4">
+            {skillGroups.map((g) => (
+              <div>
+                <p class="text-sm font-semibold text-ink dark:text-white">{g.label}</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  {g.values.map((v) => <Badge>{v}</Badge>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="languages">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Languages</h2>
+          <div class="mt-4 flex flex-wrap gap-4">
+            {cv.languages.map((l) => (
+              <span class="text-ink dark:text-white"><strong class="font-semibold">{l.language}</strong>, {l.level}</span>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   </section>
 </Base>
