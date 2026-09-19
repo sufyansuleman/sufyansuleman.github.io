@@ -29,6 +29,10 @@ export interface Profile {
   kicker: string;
   hero_lead: string;
   hero_paragraphs: string[];
+  statement_eyebrow: string;
+  statement_aside: string;
+  values_title: string;
+  values: string[];
   statement_paragraphs: string[];
   subheadline: string;
   roles: string[];

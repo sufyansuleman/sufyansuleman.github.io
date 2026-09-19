@@ -5,14 +5,11 @@ const since = profile.analytics?.since ?? '';
 ---
 
 {code && (
-  <section class="container-x pb-20">
-    <div class="rounded-3xl border border-line bg-surface px-8 py-12 text-center dark:bg-[#111A2E] dark:border-[#233049]">
-      <p class="text-sm font-medium uppercase tracking-wide text-muted">Visitors</p>
-      <p id="visitor-count" class="mt-3 text-5xl font-semibold tracking-tight text-primary dark:text-white sm:text-6xl" data-code={code}>
-        <span class="text-muted">…</span>
-      </p>
-      {since && <p class="mt-3 text-sm text-muted">page views since {since}</p>}
-    </div>
+  <section class="container-x pb-16">
+    <p class="border-t border-line pt-6 text-center text-sm text-muted dark:border-[#233049]">
+      <span id="visitor-count" class="font-semibold text-primary dark:text-white" data-code={code}>…</span>
+      {since ? ` page views since ${since}` : ' page views'}
+    </p>
   </section>
 )}
 

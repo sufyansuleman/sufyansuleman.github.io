@@ -77,7 +77,7 @@ const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
 
   <section class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
     <div class="container-x">
-      <SectionHeader eyebrow="Focus" title="Research themes" />
+      <SectionHeader title="Research themes" />
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {profile.research_themes.map((theme) => (
           <div class="rounded-2xl border border-line bg-white p-6 dark:bg-[#0B1220] dark:border-[#233049]">
@@ -90,7 +90,7 @@ const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
   </section>
 
   <section class="container-x py-20">
-    <SectionHeader eyebrow="Path" title="Academic journey" />
+    <SectionHeader title="Academic journey" />
     <div class="mt-10 grid gap-12 lg:grid-cols-2">
       <div>
         <h3 class="mb-6 text-sm font-semibold uppercase tracking-wide text-muted">Positions</h3>
@@ -108,7 +108,7 @@ const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
 
   <section class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
     <div class="container-x">
-      <SectionHeader eyebrow="Toolkit" title="Technical skills" />
+      <SectionHeader title="Technical skills" />
       <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (
           <div>
@@ -123,7 +123,7 @@ const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({
   </section>
 
   <section class="container-x py-20">
-    <SectionHeader eyebrow="Communication" title="Languages" />
+    <SectionHeader title="Languages" />
     <div class="mt-6 flex flex-wrap gap-4">
       {profile.languages.map((l) => (
         <span class="text-sm text-ink dark:text-[#E5EAF2]">

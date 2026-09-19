@@ -83,23 +83,27 @@ const titleFontSize = isFull
       : 72;
 const lineHeight = titleFontSize * 1.1;
 
+const whatLines = wrapLines(cover.what, 40);
+const whatFontSize = 28;
+const whatLineHeight = whatFontSize * 1.2;
+const audienceLines = wrapLines(cover.audience, 40);
+const audienceFontSize = 26;
+const audienceLineHeight = audienceFontSize * 1.2;
+
+// full variant: centre the text block between the pill and the domain line
+const fullBlockHeight =
+  lines.length * lineHeight +
+  55 + whatLines.length * whatLineHeight +
+  (cover.audience ? 50 + audienceLines.length * audienceLineHeight : 0);
 const titleStartY = isFull
-  ? 205
+  ? Math.max(190, 360 - fullBlockHeight / 2 + lineHeight * 0.78)
   : (() => {
       const totalHeight = lines.length * lineHeight;
       return 675 / 2 - totalHeight / 2 + lineHeight * 0.78;
     })();
 const titleBlockEnd = titleStartY + (lines.length - 1) * lineHeight;
-
-const whatLines = wrapLines(cover.what, 40);
-const whatFontSize = 28;
-const whatLineHeight = whatFontSize * 1.2;
 const whatY = titleBlockEnd + 55;
 const whatBlockEnd = whatY + (whatLines.length - 1) * whatLineHeight;
-
-const audienceLines = wrapLines(cover.audience, 40);
-const audienceFontSize = 26;
-const audienceLineHeight = audienceFontSize * 1.2;
 const audienceY = whatBlockEnd + 50;
 
 const pillWidth = Math.round(label.length * 14.5 + 40);
@@ -164,7 +168,7 @@ const insulinPts: [number, number][] = [[0, 215], [95, 170], [190, 95], [285, 14
       {cover.audience && (
         <text x="64" y={audienceY} font-size={audienceFontSize} class="cv-muted">
           {audienceLines.map((line, i) => (
-            <tspan x="64" dy={i === 0 ? 0 : audienceLineHeight}>{i === 0 ? `For ${line}` : line}</tspan>
+            <tspan x="64" dy={i === 0 ? 0 : audienceLineHeight}>{i === 0 ? `For ${line.charAt(0).toLowerCase()}${line.slice(1)}` : line}</tspan>
           ))}
         </text>
       )}
