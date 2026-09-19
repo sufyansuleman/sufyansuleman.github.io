@@ -12,12 +12,12 @@ interface Props {
 
 const {
   title,
-  description = 'Sufyan Suleman, computational biologist and geneticist at Aarhus University: research tools, scientific software, courses and publications on metabolic and psychiatric disease genetics.',
+  description = 'Sufyan Suleman, geneticist at Aarhus University. Health that starts from the person: research tools, courses and publications on metabolic and mental health, with genetics as one tool among several.',
   ogImage = '/og.png'
 } = Astro.props;
 
 const isHome = title === 'Home';
-const pageTitle = isHome ? 'Sufyan Suleman · Research, Software, and Open Science' : `${title} · Sufyan Suleman`;
+const pageTitle = isHome ? 'Sufyan Suleman · Health that starts from the person' : `${title} · Sufyan Suleman`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const personJsonLd = {
