@@ -10,6 +10,7 @@ import Cover from '../components/Cover.astro';
 import PubItem from '../components/PubItem.astro';
 import VisitorCount from '../components/VisitorCount.astro';
 import WorkWithMe from '../components/WorkWithMe.astro';
+import { Icon } from 'astro-icon/components';
 import { profile } from '../lib/data';
 import { featured as getFeatured } from '../lib/catalog';
 import { latest } from '../lib/publications';
@@ -19,10 +20,49 @@ const featured = getFeatured()
   .slice(0, 3);
 
 const latestPubs = latest(3);
+
+const beliefs = [
+  {
+    lead: 'People differ.',
+    body: 'Two people with the same diagnosis can have different biology behind it. My own PhD work found that insulin resistance splits into subtypes with distinct genetic architectures; a single label hides that.'
+  },
+  {
+    lead: 'Genetics is one tool.',
+    body: 'A polygenic score is useful, and it is not a destiny. What we measure in blood, what we eat and how much we move carry as much of the story, and unlike a genome they can change.'
+  },
+  {
+    lead: 'Grouping is how it becomes practical.',
+    body: 'None of us is the average of our group, but shared traits are what make care possible at scale. Finding those groupings honestly, subtypes and shared mechanisms, is most of my research.'
+  }
+];
+
+const practice = [
+  {
+    icon: 'lucide:activity',
+    title: 'Measure the individual',
+    body: 'Turn routine measurements into a person-level profile: 290 clinical markers, 40 insulin sensitivity indices and islet-function indices from one table.',
+    linkText: 'See the tools',
+    href: '/tools/'
+  },
+  {
+    icon: 'lucide:git-merge',
+    title: 'Find the shared mechanisms',
+    body: 'Why do obesity and ADHD share genetics? Which routes lead to insulin resistance? Statistical genetics from polygenic scores to fine-mapped genes.',
+    linkText: 'See the projects',
+    href: '/projects/'
+  },
+  {
+    icon: 'lucide:book-open',
+    title: 'Make it usable by others',
+    body: 'Open packages and courses in R, statistics and clinical data standards, because a method only counts once someone else can run it.',
+    linkText: 'See the courses',
+    href: '/courses/'
+  }
+];
 ---
 
 <Base title="Home">
-  <Hero headline={profile.name} kicker={profile.tagline} subheadline={profile.bio_short}>
+  <Hero headline={profile.name} paragraphs={profile.hero_paragraphs}>
     <Fragment slot="actions">
       <ButtonLink href="/tools/">Tools</ButtonLink>
       <ButtonLink href="/publications/" variant="secondary">Publications</ButtonLink>
@@ -43,11 +83,33 @@ const latestPubs = latest(3);
     </Fragment>
   </Hero>
 
+  <section class="container-x pt-8 pb-16">
+    <div class="max-w-3xl">
+      {profile.statement_paragraphs.map((t) => <p class="mt-5 text-lg leading-relaxed text-ink dark:text-[#E5EAF2] first:mt-0">{t}</p>)}
+    </div>
+  </section>
+
+  <section class="container-x py-20">
+    <SectionHeader eyebrow="In practice" title="What that looks like" />
+    <div class="mt-10 grid gap-8 sm:grid-cols-3">
+      {practice.map((item) => (
+        <div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+            <Icon name={item.icon} class="h-5 w-5" />
+          </div>
+          <p class="mt-3 font-semibold text-primary dark:text-white">{item.title}</p>
+          <p class="mt-1 text-sm text-muted">{item.body}</p>
+          <a href={item.href} class="mt-2 inline-block text-sm text-accent hover:text-accent-hover">{item.linkText}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <section class="container-x py-20">
     <SectionHeader
-      eyebrow="Featured"
-      title="Research tools"
-      lede="A selection of open-source packages built for clinical, metabolic, and genomic research workflows."
+      eyebrow="Tools"
+      title="Built for this"
+      lede="Open-source packages I wrote because I needed them: biomarkers, insulin sensitivity and islet function from routine data."
     />
     <div class="mt-10">
       <CardGrid>
@@ -76,19 +138,6 @@ const latestPubs = latest(3);
 
   <section class="container-x py-20">
     <WorkWithMe />
-  </section>
-
-  <section class="container-x py-20">
-    <div class="rounded-3xl bg-gradient-to-br from-primary to-accent px-8 py-14 text-center text-white sm:px-16">
-      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Open Science</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-white/90">
-        Every tool and course on this site is released openly so other researchers can reuse, verify, and build on the work, from documented software packages to complete course materials.
-      </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <ButtonLink href="/tools/" variant="secondary">Tools</ButtonLink>
-        <ButtonLink href="/courses/" variant="secondary">Courses</ButtonLink>
-      </div>
-    </div>
   </section>
 
   <VisitorCount />

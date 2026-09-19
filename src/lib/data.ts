@@ -26,6 +26,9 @@ export interface Profile {
   affiliation_secondary?: string;
   location: string;
   tagline: string;
+  hero_lead: string;
+  hero_paragraphs: string[];
+  statement_paragraphs: string[];
   subheadline: string;
   roles: string[];
   interests: string[];

@@ -3,11 +3,13 @@ import { profile } from '../lib/data';
 
 interface Props {
   headline: string;
-  subheadline: string;
+  subheadline?: string;
+  lead?: string;
+  paragraphs?: string[];
   kicker?: string;
 }
 
-const { headline, subheadline, kicker } = Astro.props;
+const { headline, subheadline, kicker, lead, paragraphs = [] } = Astro.props;
 const [emailUser, emailDomain] = profile.socials.email.split('@');
 ---
 
@@ -18,7 +20,11 @@ const [emailUser, emailDomain] = profile.socials.email.split('@');
         {headline}
       </h1>
       {kicker && <p class="mt-3 text-lg font-medium text-accent sm:text-xl">{kicker}</p>}
-      <p class="mt-4 max-w-xl text-base text-muted">{subheadline}</p>
+      {lead && <p class="mt-6 text-xl font-semibold text-ink dark:text-white">{lead}</p>}
+      {paragraphs.map((t, i) => (
+        <p class="mt-5 max-w-xl text-base text-muted first:mt-6">{t}</p>
+      ))}
+      {subheadline && <p class="mt-4 max-w-xl text-base text-muted">{subheadline}</p>}
       <div class="mt-6 flex flex-wrap gap-3">
         <slot name="actions" />
       </div>
