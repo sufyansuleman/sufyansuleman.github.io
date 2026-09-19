@@ -27,7 +27,7 @@ const sections = [
   { id: 'research-experience', label: 'Research experience' },
   { id: 'teaching', label: 'Teaching' },
   { id: 'consortia', label: 'Consortia' },
-  { id: 'talks', label: 'Talks' },
+  { id: 'talks', label: 'Posters' },
   { id: 'awards', label: 'Awards and memberships' },
   { id: 'certifications', label: 'Certifications and training' },
   { id: 'skills', label: 'Skills' },
@@ -166,10 +166,10 @@ const sections = [
         </section>
 
         <section id="talks">
-          <h2 class="text-xl font-semibold text-primary dark:text-white">Talks</h2>
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Posters</h2>
           <ul class="mt-4 space-y-1">
             {cv.talks.map((t) => (
-              <li class="text-ink dark:text-white">{t.title}<span class="text-muted">, {t.venue}, {t.year} ({t.type.toLowerCase()})</span></li>
+              <li class="text-ink dark:text-white">{t.title}<span class="text-muted">, {t.venue}, {t.year}{t.type.includes('upcoming') ? ' (upcoming)' : ''}</span></li>
             ))}
           </ul>
         </section>

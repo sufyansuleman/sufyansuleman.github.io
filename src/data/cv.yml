@@ -5,6 +5,8 @@ positions:
     start: "2024-09"
     end: "present"
     summary: "Shared genetic architecture and biological mechanisms of obesity and ADHD."
+    highlights:
+      - "GDPR data access applications for UK Biobank and Generation Scotland"
   - title: "Affiliate Scientist"
     org: "NNF Center for Genomic Mechanisms of Disease, Broad Institute of MIT and Harvard"
     location: "Cambridge, MA, USA"
@@ -15,15 +17,11 @@ positions:
     location: "Copenhagen, Denmark"
     start: "2024-04"
     end: "2024-05"
-    highlights:
-      - "Studied diabetic complications using proteomics and genomics data"
   - title: "PhD Researcher"
     org: "Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen"
     location: "Copenhagen, Denmark"
     start: "2021-06"
     end: "2024-11"
-    highlights:
-      - "GDPR data access applications for UK Biobank and Generation Scotland"
   - title: "Research Assistant"
     org: "Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen"
     location: "Copenhagen, Denmark"
@@ -49,14 +47,11 @@ positions:
     highlights:
       - "Regulatory genomics of type 1 diabetes and developmental biology"
       - "Contributed to the lab's broader stem-cell and genome-editing biosensor research programme"
-  - title: "Quality Control Inspector"
+  - title: "Quality Control Officer"
     org: "Popular Chemical Works Ltd"
     location: "Lahore, Pakistan"
     start: "2010-09"
     end: "2013-04"
-    highlights:
-      - "Pharmaceutical GMP QC: microbiological and chemical testing of raw and finished drugs"
-      - "Regulatory documentation and data entry"
 
 education:
   - degree: "PhD"
@@ -139,17 +134,21 @@ consortia:
 
 talks:
   - title: "Unravelling the shared genetics and biological mechanisms of ADHD and obesity"
-    venue: "ESHG Annual Meeting 2025"
+    venue: "ESHG Annual Meeting"
     year: 2025
-    type: "Oral presentation"
+    type: "Poster"
   - title: "Heritability, genetic and phenotypic correlations of surrogate measures of insulin sensitivity and their association with metabolic traits"
     venue: "Metabolism Day, University of Copenhagen"
     year: 2023
-    type: "Presentation"
+    type: "Poster"
+  - title: "Genetics of insulin sensitivity indices"
+    venue: "DDA Summer School on Diabetes and Metabolism"
+    year: 2022
+    type: "Poster"
   - title: "Shared genetics of ADHD and obesity"
     venue: "World Congress of Psychiatric Genetics, Glasgow"
     year: 2026
-    type: "Upcoming presentation"
+    type: "Poster, upcoming"
 
 manuscripts_in_preparation:
   - title: "Unraveling shared genetics and biological mechanisms of ADHD and obesity"
@@ -163,13 +162,15 @@ awards:
   - title: "Competitive PhD Fellowship"
     org: "Novo Nordisk Foundation Center for Basic Metabolic Research, co-funded by DFF"
     period: "2021-2024"
-  - title: "Co-applicant on successful research funding"
-    org: "Novo Nordisk Foundation, Danish Diabetes and Endocrine Academy, Danish Independent Research Fund"
+  - title: "Co-applicant on a granted research project"
+    org: "Danish Independent Research Fund (DFF)"
     period: "2021-2024"
 
 memberships:
   - name: "European Society of Human Genetics (ESHG)"
     since: "2023"
+  - name: "International Society of Psychiatric Genetics (ISPG)"
+    since: "2026"
 
 certifications:
   - name: "Good Clinical Practice (GCP)"
