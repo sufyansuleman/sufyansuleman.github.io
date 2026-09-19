@@ -12,7 +12,7 @@ npm run dev          # local server at http://localhost:4321
 npm run build        # static build to ./dist
 npm run preview      # serve the production build
 npm run fetch        # refresh GitHub repo metadata and ORCID/OpenAlex publications
-npm run cv:pdf       # regenerate public/cv.pdf from src/data/cv.yml (needs Quarto)
+npm run cv:pdf       # build a local CV PDF from src/data/cv.yml (needs Quarto; not published on the site)
 npm run og           # regenerate public/og.png (share image) from profile.yml
 npm run screenshots  # capture documentation-site thumbnails for tools and courses
 ```
@@ -44,7 +44,7 @@ on at most three tools to show them on the Home page.
 **A hand-made banner for a detail page.** Drop `public/covers/<slug>.jpg` (16:9, under 300 KB).
 It replaces the generated cover on that item's detail page only.
 
-**CV, About timeline, PDF.** All come from `src/data/cv.yml`. Edit it, then `npm run cv:pdf`.
+**CV and About timeline.** Both come from `src/data/cv.yml`. `npm run cv:pdf` builds a PDF locally if one is needed; it is not linked from the site.
 
 **Bio, interests, research themes, socials, analytics code.** `src/data/profile.yml`.
 
