@@ -17,17 +17,11 @@ projects:
       - "CellProfiler / LipocyteProfiler imaging integration"
     outcomes:
       - "Manuscript in preparation (first author)"
-      - "Oral presentation, ESHG Annual Meeting 2025"
-      - "Upcoming presentation, World Congress of Psychiatric Genetics, Glasgow, September 2026"
     related:
       publications: []
       tools: []
       courses: []
-    milestones:
-      - date: "2025-06"
-        label: "ESHG 2025 oral presentation"
-      - date: "2026-09"
-        label: "WCPG Glasgow presentation"
+    milestones: []
 
   - slug: insulin-sensitivity-genetics
     title: "Genetics of insulin sensitivity and T2D"
