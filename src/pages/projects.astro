@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Badge from '../components/Badge.astro';
-import MailLine from '../components/MailLine.astro';
+import CallToAction from '../components/CallToAction.astro';
 import { projects } from '../lib/data';
 import { getItem } from '../lib/catalog';
 import { getPublications } from '../lib/publications';
@@ -101,8 +101,6 @@ function resolveLinks(project: (typeof projects)[number]) {
       })}
     </div>
 
-    <div class="mt-10">
-      <MailLine text="Interested in any of these projects?" subject="Project enquiry" />
-    </div>
+    <CallToAction kind="projects-list" />
   </section>
 </Base>

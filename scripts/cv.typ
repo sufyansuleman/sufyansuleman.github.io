@@ -139,8 +139,8 @@
   ..cv.memberships.map(m => [#m.name, since #m.since])
 )
 
-// -- Certifications & training -------------------------------------------
-= Certifications & training
+// -- Certifications and training -------------------------------------------
+= Certifications and training
 #list(
   ..cv.certifications.map(c => [#c.name, #c.issuer#if "year" in c and c.year != none [, #c.year]]),
   ..cv.training.map(t => [#t.name, #t.org, #t.year])

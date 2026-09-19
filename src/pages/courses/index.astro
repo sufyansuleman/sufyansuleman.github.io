@@ -37,7 +37,7 @@ function metaLine(course: NonNullable<(typeof courses)[number]['course']>): stri
               </p>
             )}
           </div>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 sm:w-64 sm:shrink-0 sm:justify-start">
             {item.links.site && <ButtonLink href={item.links.site} variant="secondary" external>Course website</ButtonLink>}
             {item.links.slides && item.links.slides !== item.links.site && (
               <ButtonLink href={item.links.slides} variant="secondary" external>Slides</ButtonLink>
