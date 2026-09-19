@@ -21,8 +21,8 @@ const pages = defineCollection({
   })
 });
 
-const writing = defineCollection({
-  loader: glob({ pattern: '*.mdx', base: './src/content/writing' }),
+const essays = defineCollection({
+  loader: glob({ pattern: '*.mdx', base: './src/content/essays' }),
   schema: z.object({
     title: z.string(),
     summary: z.string().optional(),
@@ -39,5 +39,5 @@ export const collections = {
   courses: makeCollection('courses'),
   datasets: makeCollection('datasets'),
   pages,
-  writing
+  essays
 };

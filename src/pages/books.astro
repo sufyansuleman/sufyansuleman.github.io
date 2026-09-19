@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import MailLine from '../components/MailLine.astro';
+---
+
+<Base title="Books">
+  <section class="container-x py-20">
+    <SectionHeader
+      title="Books"
+      lede="Two books in progress, to be read here in full."
+    />
+
+    <div class="mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
+      <div class="rounded-2xl border border-line bg-white p-6 dark:border-[#233049] dark:bg-[#111A2E]">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent">Urdu</p>
+        <p class="mt-2 font-semibold text-primary dark:text-white">In progress</p>
+        <p class="mt-2 text-sm text-muted">Chapters will appear here as they are finished.</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-white p-6 dark:border-[#233049] dark:bg-[#111A2E]">
+        <p class="text-xs font-semibold uppercase tracking-wide text-accent">Persian</p>
+        <p class="mt-2 font-semibold text-primary dark:text-white">In progress</p>
+        <p class="mt-2 text-sm text-muted">Chapters will appear here as they are finished.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 max-w-3xl">
+      <MailLine text="Want to know when a chapter is published?" subject="Books" />
+    </div>
+  </section>
+</Base>

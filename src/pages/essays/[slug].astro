@@ -3,7 +3,7 @@ import Article from '../../layouts/Article.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const essays = await getCollection('writing', (entry) => entry.data.status !== 'draft');
+  const essays = await getCollection('essays', (entry) => entry.data.status !== 'draft');
   return essays.map((entry) => ({
     params: { slug: entry.id },
     props: { entry }
@@ -23,7 +23,7 @@ const updated = entry.data.updated
   summary={entry.data.summary}
   updated={updated}
   statusLabel={entry.data.status === 'living' ? 'Living essay' : undefined}
-  crumbs={[{ label: 'Writing', href: '/writing/' }, { label: entry.data.title }]}
+  crumbs={[{ label: 'Essays', href: '/essays/' }, { label: entry.data.title }]}
   headings={headings}
   mailText="If any of this overlaps with your work, I would like to hear from you."
   mailSubject={entry.data.title}

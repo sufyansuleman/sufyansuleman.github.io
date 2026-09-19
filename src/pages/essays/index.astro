@@ -4,7 +4,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import MailLine from '../../components/MailLine.astro';
 import { getCollection } from 'astro:content';
 
-const allEssays = await getCollection('writing', (entry) => entry.data.status !== 'draft');
+const allEssays = await getCollection('essays', (entry) => entry.data.status !== 'draft');
 const essays = allEssays.sort((a, b) => b.data.date.localeCompare(a.data.date));
 
 function monthYear(date: string) {
@@ -12,11 +12,11 @@ function monthYear(date: string) {
 }
 ---
 
-<Base title="Writing">
+<Base title="Essays">
   <section class="container-x py-20">
     <SectionHeader
-      title="Writing"
-      lede="Essays on health that starts from the person, and books in progress."
+      title="Essays"
+      lede="Longer pieces on individual variation, health that starts from the person, and what older and newer medicine have in common."
     />
 
     <div class="mt-10 max-w-3xl divide-y divide-line dark:divide-[#233049]">
@@ -24,7 +24,7 @@ function monthYear(date: string) {
       {essays.map((entry) => (
         <article class="py-6 first:pt-0">
           <h3 class="text-lg font-semibold text-primary dark:text-white">
-            <a href={`/writing/${entry.id}/`} class="hover:text-accent">{entry.data.title}</a>
+            <a href={`/essays/${entry.id}/`} class="hover:text-accent">{entry.data.title}</a>
             {entry.data.status === 'living' && (
               <span class="ml-2 inline-flex items-center rounded-full border border-line px-2 py-0.5 align-middle text-xs font-medium text-ink dark:border-[#233049] dark:text-[#E5EAF2]">Living essay</span>
             )}
@@ -35,13 +35,8 @@ function monthYear(date: string) {
       ))}
     </div>
 
-    <div class="mt-16 max-w-3xl">
-      <h2 class="text-xl font-semibold text-primary dark:text-white">Books</h2>
-      <p class="mt-3 text-sm text-muted">Two books are in progress, one in Urdu and one in Persian. They will be readable here.</p>
-    </div>
-
     <div class="mt-10 max-w-3xl">
-      <MailLine text="Want to discuss any of this?" subject="Writing" />
+      <MailLine text="Want to discuss any of this?" subject="Essays" />
     </div>
   </section>
 </Base>
