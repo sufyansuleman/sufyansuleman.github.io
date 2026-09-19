@@ -8,10 +8,10 @@ export const nav: NavItem[] = [
   { label: 'Tools', href: '/tools/' },
   { label: 'Courses', href: '/courses/' },
   { label: 'Publications', href: '/publications/' },
-  { label: 'Essays', href: '/essays/' },
-  { label: 'Books', href: '/books/' },
   { label: 'Projects', href: '/projects/' },
   { label: 'CV', href: '/cv/' },
   { label: 'About', href: '/about/' },
+  { label: 'Essays', href: '/essays/' },
+  { label: 'Books', href: '/books/' },
   { label: 'Contact', href: '/contact/' }
 ];
