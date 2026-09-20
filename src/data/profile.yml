@@ -54,7 +54,7 @@ socials:
   email: "sufyansuleman@hotmail.com"
 bio_short: "Computational biologist and geneticist studying metabolic and psychiatric disease, with a background in biotechnology and molecular biology. Postdoctoral researcher at Aarhus University and the Broad Institute; builds open-source R tools, reproducible pipelines and courses that make genomic and clinical data more usable."
 bio_long: |
-  I am a computational biologist and geneticist working on the shared genetics of metabolic and psychiatric disease. I trained in biotechnology and molecular biology before moving to statistical genetics. My doctoral work established the genetic architecture of insulin sensitivity and its links to type 2 diabetes, obesity and cardiovascular disease. My current research asks what obesity, ADHD and depression share at the level of genes and biology, using polygenic risk scores, Mendelian randomisation, PheWAS and integrative genomics in large population cohorts.
+  I am a computational biologist and geneticist studying how genetic variation contributes to differences in metabolic and psychiatric health. I began in biotechnology and molecular biology before moving into statistical genetics, where my doctoral work investigated the genetic architecture of insulin sensitivity and its links to type 2 diabetes, obesity and cardiovascular disease. My current research examines the shared genetic architecture of obesity and psychiatric traits, including ADHD and depression, using large population cohorts and methods including polygenic risk scores, Mendelian randomisation, PheWAS and integrative genomics.
 research_themes:
   - name: "Metabolic Disease Genetics"
     blurb: "Genetic architecture of type 2 diabetes, obesity and insulin resistance"
