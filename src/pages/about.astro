@@ -76,7 +76,7 @@ const sections = [
 
     <div class="mt-12 border-t border-line pt-8 dark:border-[#233049]">
       <p class="text-xs font-semibold uppercase tracking-wide text-muted">Education and affiliations</p>
-      <ul class="mt-5 flex flex-wrap items-start gap-x-10 gap-y-6">
+      <ul class="mt-5 flex flex-wrap items-center gap-x-12 gap-y-6">
         {[
           { src: '/logos/gcu-lahore.png', alt: 'Government College University Lahore', href: 'https://gcu.edu.pk/', label: 'GC University Lahore', tall: true },
           { src: '/logos/oulu.svg', alt: 'University of Oulu', href: 'https://www.oulu.fi/en', label: 'University of Oulu' },
@@ -86,10 +86,9 @@ const sections = [
         ].map((l) => (
           <li>
             <a href={l.href} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center gap-2">
-              <span class="flex h-16 items-center">
-              <img src={l.src} alt={l.alt} class:list={["w-auto max-w-[160px] object-contain transition group-hover:opacity-80", l.tall ? "h-16" : l.small ? "h-9" : "h-12"]} loading="lazy" />
+              <span class="flex h-14 items-center">
+              <img src={l.src} alt={l.alt} class:list={["w-auto max-w-[160px] object-contain transition group-hover:opacity-80", l.tall ? "h-14" : l.small ? "h-9" : "h-11"]} loading="lazy" />
               </span>
-              {l.label && <span class="text-xs text-muted group-hover:text-accent">{l.label}</span>}
             </a>
           </li>
         ))}
