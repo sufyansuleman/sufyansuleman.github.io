@@ -73,7 +73,30 @@ const sections = [
       </div>
     </div>
 
-    <div class="mt-16 grid gap-10 border-t border-line pt-12 lg:grid-cols-[220px_1fr] dark:border-[#233049]">
+
+    <div class="mt-12 border-t border-line pt-8 dark:border-[#233049]">
+      <p class="text-xs font-semibold uppercase tracking-wide text-muted">Education and affiliations</p>
+      <ul class="mt-5 flex flex-wrap items-start gap-x-10 gap-y-6">
+        {[
+          { src: '/logos/gcu-lahore.png', alt: 'Government College University Lahore', href: 'https://gcu.edu.pk/', label: 'GC University Lahore', tall: true },
+          { src: '/logos/oulu.svg', alt: 'University of Oulu', href: 'https://www.oulu.fi/en', label: 'University of Oulu' },
+          { src: '/logos/copenhagen.svg', alt: 'University of Copenhagen', href: 'https://www.ku.dk/en', label: 'University of Copenhagen' },
+          { src: '/logos/aarhus.svg', alt: 'Aarhus University', href: 'https://international.au.dk/', label: '' },
+          { src: '/logos/broad.png', alt: 'Broad Institute of MIT and Harvard', href: 'https://www.broadinstitute.org/', label: '', small: true }
+        ].map((l) => (
+          <li>
+            <a href={l.href} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center gap-2">
+              <span class="flex h-16 items-center">
+              <img src={l.src} alt={l.alt} class:list={["w-auto max-w-[160px] object-contain transition group-hover:opacity-80", l.tall ? "h-16" : l.small ? "h-9" : "h-12"]} loading="lazy" />
+              </span>
+              {l.label && <span class="text-xs text-muted group-hover:text-accent">{l.label}</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-12 grid gap-10 border-t border-line pt-12 lg:grid-cols-[220px_1fr] dark:border-[#233049]">
       <nav class="hidden lg:block h-fit lg:sticky lg:top-24">
         <ul class="space-y-2 text-sm">
           {sections.map((s) => (
