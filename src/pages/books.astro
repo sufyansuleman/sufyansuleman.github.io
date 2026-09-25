@@ -8,19 +8,21 @@ import MailLine from '../components/MailLine.astro';
   <section class="container-x py-20">
     <SectionHeader
       title="Books"
-      lede="Two books in progress, to be read here in full."
+      lede="Books I am writing and translating, to be read here in full."
     />
 
     <div class="mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
-      <div class="rounded-2xl border border-line bg-white p-6 dark:border-[#233049] dark:bg-[#111A2E]">
+      <a href="/books/mizaj-shanasi/" class="group rounded-2xl border border-line bg-white p-6 transition hover:border-accent dark:border-[#233049] dark:bg-[#111A2E]">
         <p class="text-xs font-semibold uppercase tracking-wide text-accent">Urdu</p>
-        <p class="mt-2 font-semibold text-primary dark:text-white">In progress</p>
-        <p class="mt-2 text-sm text-muted">Chapters will appear here as they are finished.</p>
-      </div>
+        <p class="mt-2 text-lg font-semibold text-primary group-hover:text-accent dark:text-white" lang="ur" dir="rtl">مزاج شناسی</p>
+        <p class="mt-1 font-medium text-ink dark:text-[#E5EAF2]">Mizaj Shanasi</p>
+        <p class="mt-3 text-sm text-muted">My Urdu translation of Ustad Taleqani's Persian work on temperament in traditional medicine, translated with the author's permission. Nine chapters, complete and readable here.</p>
+        <p class="mt-4 text-sm font-medium text-accent">Read the book</p>
+      </a>
       <div class="rounded-2xl border border-line bg-white p-6 dark:border-[#233049] dark:bg-[#111A2E]">
         <p class="text-xs font-semibold uppercase tracking-wide text-accent">Persian</p>
         <p class="mt-2 font-semibold text-primary dark:text-white">In progress</p>
-        <p class="mt-2 text-sm text-muted">Chapters will appear here as they are finished.</p>
+        <p class="mt-3 text-sm text-muted">Chapters will appear here as they are finished.</p>
       </div>
     </div>
 
