@@ -12,6 +12,7 @@ npm run dev          # local server at http://localhost:4321
 npm run build        # static build to ./dist
 npm run preview      # serve the production build
 npm run fetch        # refresh GitHub repo metadata and ORCID/OpenAlex publications
+npm run book:import   # re-import the books from my_Books, with font, spacing and read counter applied
 npm run cv:pdf       # build a local CV PDF from src/data/cv.yml (needs Quarto; not published on the site)
 npm run og           # regenerate public/og.png (share image) from profile.yml
 npm run screenshots  # capture documentation-site thumbnails for tools and courses

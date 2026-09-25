@@ -15,6 +15,7 @@
     "fetch": "npm run fetch:github && npm run fetch:pubs",
     "screenshots": "node scripts/screenshots.mjs",
     "covers:optimise": "node scripts/optimise-covers.mjs",
+    "book:import": "node scripts/import-book.mjs",
     "cv:pdf": "quarto typst compile --root . scripts/cv.typ cv.pdf",
     "og": "node scripts/og-image.mjs"
   },
