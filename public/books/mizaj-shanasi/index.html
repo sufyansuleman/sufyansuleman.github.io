@@ -33,7 +33,6 @@
         radial-gradient(circle at top, rgba(255,255,255,0.85), transparent 42%),
         linear-gradient(180deg, #eadfce 0%, var(--bg) 18%, #efe7da 100%);
       font-family: "Noto Nastaliq Urdu", "PreviewUrdu", "Urdu Typesetting", "Traditional Arabic", "Arabic Typesetting", Tahoma, serif;
-      line-height: 2.1;
       direction: rtl;
     }
 
@@ -62,13 +61,13 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-      line-height: 1.7;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
       font-weight: 600;
     }
 
     .subtitle {
-      margin: 18px 0 0;
+      margin: 10px 0 0;
       color: var(--muted);
       font-size: 1.18rem;
       line-height: 1.9;
@@ -278,6 +277,7 @@
       .chapter-break { border: 0; border-top: 2px solid var(--line); margin: 3em 0; }    .toc { margin: 2.5em 0; padding: 1.25em 1.5em; border: 1px solid var(--line); border-radius: 8px; }    .toc h3 { margin: 0 0 0.6em; }    .toc ol { margin: 0; padding-inline-start: 1.4em; }    .toc li { margin: 0.35em 0; }    .toc a { color: inherit; text-decoration: none; }    .toc a:hover { text-decoration: underline; }
     h2, h3, h4 { line-height: 1.9; }
     li { line-height: 2.1; }
+    .read-count { margin: 28px 0 8px; text-align: center; color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -1740,5 +1740,21 @@
 
     
   </main>
+  <p class="read-count" id="read-count" hidden></p>
+  <script>
+    (function () {
+      var el = document.getElementById('read-count');
+      fetch('https://sufyansuleman.goatcounter.com/counter/' + encodeURIComponent('/books/mizaj-shanasi/') + '.json')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) {
+          var n = Number(String(d.count).replace(/[^0-9]/g, ''));
+          if (!isFinite(n) || n < 1) return;
+          el.textContent = "اب تک {n} بار دیکھا گیا".replace('{n}', n.toLocaleString('ur'));
+          el.hidden = false;
+        })
+        .catch(function () {});
+    })();
+  </script>
+  <script data-goatcounter="https://sufyansuleman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
