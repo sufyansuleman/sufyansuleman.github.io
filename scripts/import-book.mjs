@@ -14,8 +14,8 @@ const books = [
     src: 'C:/HE_Sufyan/my_Books/mezaj_shenasi/publishing/mizaj-shanasi-urdu.html',
     assetsRoot: 'C:/HE_Sufyan/my_Books/mezaj_shenasi/assets',
     lang: 'ur',
-    // "viewed N times so far"; {n} is replaced with the count
-    counterLabel: 'اب تک {n} بار دیکھا گیا'
+    // "N readers"; {n} is replaced with the count of unique visitors
+    counterLabel: '{n} قارئین'
   }
 ];
 
@@ -67,7 +67,7 @@ for (const book of books) {
       fetch('https://${GOAT}.goatcounter.com/counter/' + encodeURIComponent('${path}') + '.json')
         .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
         .then(function (d) {
-          var n = Number(String(d.count).replace(/[^0-9]/g, ''));
+          var n = Number(String(d.count_unique || d.count).replace(/[^0-9]/g, ''));
           if (!isFinite(n) || n < 1) return;
           el.textContent = ${JSON.stringify(book.counterLabel)}.replace('{n}', n.toLocaleString('${book.lang}'));
           el.hidden = false;
