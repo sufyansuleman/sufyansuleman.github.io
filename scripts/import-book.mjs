@@ -48,12 +48,28 @@ for (const book of books) {
     'font-family: "Noto Nastaliq Urdu", "PreviewUrdu",'
   );
 
-  // Nastaliq needs more room than the source styles allow
-  html = html
-    .replace(/(\n\s*font-family: "Noto Nastaliq Urdu".*?;\n)/, '$1      line-height: 2.1;\n')
-    .replace('font-size: clamp(2.4rem, 5vw, 4rem);\n      line-height: 1.1;', 'font-size: clamp(2.2rem, 4.4vw, 3.4rem);\n      line-height: 1.7;')
-    .replace('.subtitle {\n      margin: 10px 0 0;', '.subtitle {\n      margin: 18px 0 0;')
-    .replace('  </style>', '\n    h2, h3, h4 { line-height: 1.9; }\n    li { line-height: 2.1; }\n    .read-count { margin: 28px 0 8px; text-align: center; color: var(--muted); font-size: 0.95rem; }\n  </style>');
+  // Nastaliq is a tall script and the source styles are set for a fallback
+  // font, so lines collide once the web font swaps in. These overrides are
+  // appended last, after the source CSS, so they win without touching it.
+  html = html.replace(
+    '</head>',
+    `  <style>
+    body { line-height: 2.1; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.75; }
+    h2, h3, h4 { line-height: 1.85; }
+    h2 { margin-top: 1.6em; }
+    p, li, dd, dt, td, th, blockquote, figcaption { line-height: 2.1; }
+    .subtitle, .meta-value, .eyebrow, .footer-note { line-height: 2; }
+    article { line-height: 2.15; }
+    .image-card figcaption { line-height: 1.95; }
+    .read-count { margin: 28px 0 8px; text-align: center; color: var(--muted); font-size: 0.95rem; }
+    @media (max-width: 720px) {
+      article { line-height: 2.15; }
+      h1 { line-height: 1.8; }
+    }
+  </style>
+</head>`
+  );
 
   // analytics and read count
   if (GOAT) {
