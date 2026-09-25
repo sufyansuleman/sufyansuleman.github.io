@@ -1747,9 +1747,9 @@
       fetch('https://sufyansuleman.goatcounter.com/counter/' + encodeURIComponent('/books/mizaj-shanasi/') + '.json')
         .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
         .then(function (d) {
-          var n = Number(String(d.count).replace(/[^0-9]/g, ''));
+          var n = Number(String(d.count_unique || d.count).replace(/[^0-9]/g, ''));
           if (!isFinite(n) || n < 1) return;
-          el.textContent = "اب تک {n} بار دیکھا گیا".replace('{n}', n.toLocaleString('ur'));
+          el.textContent = "{n} قارئین".replace('{n}', n.toLocaleString('ur'));
           el.hidden = false;
         })
         .catch(function () {});
