@@ -4,7 +4,7 @@ import { profile } from '../lib/data';
 import ButtonLink from './ButtonLink.astro';
 
 interface Props {
-  kind: 'tool' | 'course' | 'tools-list' | 'courses-list' | 'projects-list';
+  kind: 'tool' | 'course' | 'tools-list' | 'courses-list' | 'projects-list' | 'capabilities';
   name?: string;
   question?: string;
   detail?: string;
@@ -30,6 +30,12 @@ const copy = {
     body: 'Support, custom extensions and collaboration are available for each package.',
     button: 'Get in touch',
     subject: 'Research tools: support request'
+  },
+  capabilities: {
+    title: 'Working on something that needs this?',
+    body: 'I am open to collaboration, consulting and applied projects with research groups and companies working on human genetic and clinical data.',
+    button: 'Start a conversation',
+    subject: 'Capabilities enquiry'
   },
   'projects-list': {
     title: 'Interested in any of these projects?',
