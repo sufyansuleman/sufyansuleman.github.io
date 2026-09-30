@@ -173,11 +173,11 @@ memberships:
     since: "2026"
 
 certifications:
-  - name: "Good Clinical Practice (GCP)"
-    issuer: "NIDA Clinical Trials Network"
-    year: 2026
   - name: "GDPR and UK Biobank Data Protection (4 modules)"
     issuer: "UK Biobank"
+    year: 2026
+  - name: "Good Clinical Practice (GCP)"
+    issuer: "NIDA Clinical Trials Network"
     year: 2026
   - name: "GDPR and Data Protection Rules"
     issuer: "Aarhus University"
@@ -187,36 +187,37 @@ certifications:
     year: 2024
   - name: "Using Animals in Research - Carrying out procedures"
     issuer: "European directive for animal handling"
+    year: 2015
 
 training:
   - name: "Postdoctoral Leadership, Management and Personal Development"
     org: "Danish Cardiovascular Academy"
     year: 2026
-  - name: "Introduction to Statistical Analysis of GWAS"
-    org: "University of Surrey / ESHG"
-    year: 2022
-  - name: "Computational Systems Biology for Complex Human Disease"
-    org: "Wellcome Connecting Science"
-    year: 2021
-  - name: "Basic Statistics for PhD Students"
-    org: "University of Copenhagen"
-    year: 2022
-  - name: "Reproducible Research in R - Advanced Workshop"
-    org: "Danish Diabetes Academy"
-    year: 2022
-  - name: "Intermediate R course"
-    org: "Danish Diabetes Academy"
-    year: 2021
   - name: "Basal Cardio-Metabolic PhD Course"
     org: "Danish Cardiovascular / Diabetes Academy"
+    year: 2022
+  - name: "Basic Statistics for PhD Students"
+    org: "University of Copenhagen"
     year: 2022
   - name: "DDA Summer School on Diabetes and Metabolism"
     org: "Danish Diabetes Academy"
     year: 2022
-  - name: "Python Tsunami - Introduction to Python Programming"
-    org: "University of Copenhagen"
+  - name: "Introduction to Statistical Analysis of GWAS"
+    org: "University of Surrey / ESHG"
+    year: 2022
+  - name: "Reproducible Research in R - Advanced Workshop"
+    org: "Danish Diabetes Academy"
+    year: 2022
+  - name: "Computational Systems Biology for Complex Human Disease"
+    org: "Wellcome Connecting Science"
     year: 2021
   - name: "Git and GitHub for Researchers"
+    org: "University of Copenhagen"
+    year: 2021
+  - name: "Intermediate R course"
+    org: "Danish Diabetes Academy"
+    year: 2021
+  - name: "Python Tsunami - Introduction to Python Programming"
     org: "University of Copenhagen"
     year: 2021
 
