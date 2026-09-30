@@ -189,6 +189,9 @@ certifications:
     issuer: "European directive for animal handling"
 
 training:
+  - name: "Postdoctoral Leadership, Management and Personal Development"
+    org: "Danish Cardiovascular Academy"
+    year: 2026
   - name: "Introduction to Statistical Analysis of GWAS"
     org: "University of Surrey / ESHG"
     year: 2022
