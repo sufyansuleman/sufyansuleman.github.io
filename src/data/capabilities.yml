@@ -1,15 +1,15 @@
-lede: "What I can do with human genetic and clinical data, for research groups, biotech and pharma teams, and companies building platforms on this kind of evidence."
+lede: "What I can do with human genetic and clinical data, from statistical analysis in large cohorts to the functional experiments that test what an association means, for research groups, biotech and pharma teams, and companies building platforms on this kind of evidence."
 
 capabilities:
   - title: "Human genetics at scale"
     body:
-      - "Genetics is my domain. I work with family studies, population cohorts and consortium-scale datasets, and with the methods that turn them into estimates that hold, heritability, genetic and phenotypic correlation, common and rare variant association, pleiotropy across traits, and linkage disequilibrium and fine-mapping."
-      - "I have run analyses in cohorts from a few thousand participants to half a million, and contributed age-stratified and trait meta-analyses to international consortia."
+      - "Human genetics is my primary domain. I work with family studies, population cohorts and consortium-scale datasets, and with the methods that turn them into defensible estimates, heritability, genetic and phenotypic correlation, common and rare variant association testing, pleiotropy across traits, and linkage disequilibrium modelling and fine-mapping."
+      - "I have run analyses in cohorts ranging from a few thousand participants to half a million, and contributed age-stratified and trait-level meta-analyses to international consortia. Study design, phenotype definition and quality control are part of that work, not a preliminary to it."
     chips: ["PLINK", "GCTA", "LDSC", "MiXeR", "LAVA", "METAL", "ASSET", "METASOFT", "FINEMAP", "GCTB", "SOLAR"]
 
   - title: "From association to target"
     body:
-      - "An association is a starting point, not an answer. I take signals through fine-mapping, gene prioritisation and functional annotation to a ranked, defensible shortlist, and I say plainly which candidates the evidence supports and which it only fails to exclude."
+      - "An association is a starting point, not an answer. I take signals through fine-mapping, gene prioritisation and functional annotation to a ranked shortlist, with the reasoning for each rank stated, and I distinguish candidates the evidence supports from candidates it merely fails to exclude."
       - "The same stack supports polygenic scores, phenome-wide scans across large phecode sets and single-cell disease relevance, so a target can be examined from several directions rather than one."
     chips: ["FUMA", "MAGMA", "FINEMAP", "PoPS", "FLAMES", "scDRS", "SBayesRC", "PheWAS", "Open Targets Genetics"]
 
@@ -36,6 +36,13 @@ capabilities:
       - "I build analyses that another person can run again and get the same answer, with dependencies pinned, steps declared, rules held as configuration rather than buried in code, and tests that fail when the data change shape."
       - "This extends to clinical data standards and to the paperwork that precedes the analysis, data access applications, GDPR documentation, and the quality control that decides whether a dataset is usable."
     chips: ["Snakemake", "targets", "renv", "testthat", "Quarto", "Git / GitHub", "CDISC (SDTM, ADaM)", "HPC (GenomeDK, Computerome)"]
+
+  - title: "Molecular biology and functional genomics"
+    body:
+      - "I began at the bench, and that is where my understanding of what a genetic association can mean was formed. In the Wei laboratory in Oulu I worked on the functional characterisation of prostate and breast cancer susceptibility loci, including allele-specific protein binding screens, reporter assays, CRISPR and Cas9 editing, chromatin immunoprecipitation and expression analysis, contributing to papers in Cell, Nature Communications and Cancer Research."
+      - "In the Vainio laboratory I ran a promoter reporter study on a candidate skin biomarker of systemic glucose, from molecular cloning to the dual luciferase assay, within a project that extended to primary cell culture, imaging and an in vivo diabetic mouse model."
+      - "I no longer work at the bench, and I state that plainly. What remains is the ability to read experimental evidence critically, to judge whether a proposed validation experiment will answer the question, and to design a computational analysis that an experimentalist can act on."
+    chips: ["Functional genomics", "SNPs-seq", "ChIP-seq and RNA-seq", "CRISPR-Cas9", "Reporter assays", "eQTL analysis", "Cell culture", "In vivo models"]
 
 principles_title: "How I work"
 principles:
