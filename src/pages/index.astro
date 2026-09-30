@@ -25,7 +25,7 @@ const latestPubs = latest(3);
   <Hero headline={profile.name} kicker={profile.kicker} paragraphs={profile.hero_paragraphs}>
     <Fragment slot="actions">
       <ButtonLink href="/tools/">Tools</ButtonLink>
-      <ButtonLink href="/publications/" variant="secondary">Publications</ButtonLink>
+      <ButtonLink href="/research/" variant="secondary">Research</ButtonLink>
       <ButtonLink href="/courses/" variant="secondary">Courses</ButtonLink>
       <ButtonLink href="/about/" variant="secondary">About</ButtonLink>
     </Fragment>
@@ -93,7 +93,7 @@ const latestPubs = latest(3);
       {latestPubs.map((pub) => <PubItem pub={pub} compact />)}
     </ul>
     <div class="mt-6">
-      <ButtonLink href="/publications/" variant="ghost">All publications</ButtonLink>
+      <ButtonLink href="/research/" variant="ghost">All publications</ButtonLink>
     </div>
   </section>
 
