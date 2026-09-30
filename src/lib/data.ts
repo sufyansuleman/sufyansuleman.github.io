@@ -2,6 +2,7 @@ import { load } from 'js-yaml';
 import profileRaw from '../data/profile.yml?raw';
 import cvRaw from '../data/cv.yml?raw';
 import projectsRaw from '../data/projects.yml?raw';
+import capabilitiesRaw from '../data/capabilities.yml?raw';
 
 // Vite inlines `?raw` imports at build time, so this survives bundling
 // (a runtime fs.readFileSync path does not, since dist/ moves relative to src/).
@@ -46,6 +47,7 @@ export interface Profile {
   };
   bio_short: string;
   bio_long: string;
+  emails_institutional?: { label: string; address: string }[];
   analytics?: { goatcounter?: string; since?: string };
   research_themes: ResearchTheme[];
   languages: Language[];
@@ -193,5 +195,22 @@ export interface Project {
 }
 
 export const projects = loadYaml<{ projects: Project[] }>(projectsRaw).projects;
+
+export interface Capability {
+  title: string;
+  body: string[];
+  chips: string[];
+}
+
+export interface CapabilitiesPage {
+  lede: string;
+  capabilities: Capability[];
+  principles_title: string;
+  principles: string[];
+  evidence_title: string;
+  evidence: { label: string; href: string }[];
+}
+
+export const capabilities = loadYaml<CapabilitiesPage>(capabilitiesRaw);
 
 export { nav } from './nav';

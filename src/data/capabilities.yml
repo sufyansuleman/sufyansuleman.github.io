@@ -1,0 +1,56 @@
+lede: "What I can do with human genetic and clinical data, for research groups, biotech and pharma teams, and companies building platforms on this kind of evidence."
+
+capabilities:
+  - title: "Human genetics at scale"
+    body:
+      - "Genetics is my domain. I work with family studies, population cohorts and consortium-scale datasets, and with the methods that turn them into estimates that hold, heritability, genetic and phenotypic correlation, common and rare variant association, pleiotropy across traits, and linkage disequilibrium and fine-mapping."
+      - "I have run analyses in cohorts from a few thousand participants to half a million, and contributed age-stratified and trait meta-analyses to international consortia."
+    chips: ["PLINK", "GCTA", "LDSC", "MiXeR", "LAVA", "METAL", "ASSET", "METASOFT", "FINEMAP", "GCTB", "SOLAR"]
+
+  - title: "From association to target"
+    body:
+      - "An association is a starting point, not an answer. I take signals through fine-mapping, gene prioritisation and functional annotation to a ranked, defensible shortlist, and I say plainly which candidates the evidence supports and which it only fails to exclude."
+      - "The same stack supports polygenic scores, phenome-wide scans across large phecode sets and single-cell disease relevance, so a target can be examined from several directions rather than one."
+    chips: ["FUMA", "MAGMA", "FINEMAP", "PoPS", "FLAMES", "scDRS", "SBayesRC", "PheWAS", "Open Targets Genetics"]
+
+  - title: "Biomarkers from routine clinical data"
+    body:
+      - "I write and maintain the R packages that turn a routine clinical table into several hundred documented markers and indices per participant, over 290 validated biomarkers in HealthMarkers, 38 insulin sensitivity indices across fasting, OGTT, adipose and tracer families in InsuSensCalc, and surrogate islet function indices in IsletCalc."
+      - "Each formula carries its published source and its unit conventions, which is what makes the output auditable rather than merely computed. The packages are open source and can be embedded as a library inside another platform or pipeline."
+    chips: ["HealthMarkers", "InsuSensCalc", "IsletCalc", "R packages", "CRAN", "Zenodo"]
+
+  - title: "Disease areas I know as data"
+    body:
+      - "Metabolic disease is the core of my own research, insulin sensitivity and its subtypes, obesity, type 2 diabetes and cardiometabolic traits. Psychiatric genetics is the second, ADHD and depression, and the overlap between them and body weight."
+      - "I know these areas as datasets and phenotype definitions, not only as literature, which is usually what decides whether an analysis is possible at all."
+    chips: ["Insulin sensitivity", "Obesity", "Type 2 diabetes", "ADHD", "Depression", "Cross-disease overlap"]
+
+  - title: "Populations beyond the discovery sample"
+    body:
+      - "My work so far is in European ancestry cohorts, and I treat that as a limitation rather than a default. Prediction accuracy falls with genetic distance from the sample a tool was built in, so a score or a threshold carried into a new population needs to be re-estimated, not reused."
+      - "The same applies to clinical cut-offs. Population-specific thresholds can be implemented in the biomarker packages where the reference data exist, and where they do not, that is the first thing worth saying."
+    chips: ["UK Biobank", "Generation Scotland", "iPSYCH", "Inter99", "Holbæk", "PGC", "GIANT"]
+
+  - title: "Data, pipelines and reproducibility"
+    body:
+      - "I build analyses that another person can run again and get the same answer, with dependencies pinned, steps declared, rules held as configuration rather than buried in code, and tests that fail when the data change shape."
+      - "This extends to clinical data standards and to the paperwork that precedes the analysis, data access applications, GDPR documentation, and the quality control that decides whether a dataset is usable."
+    chips: ["Snakemake", "targets", "renv", "testthat", "Quarto", "Git / GitHub", "CDISC (SDTM, ADaM)", "HPC (GenomeDK, Computerome)"]
+
+principles_title: "How I work"
+principles:
+  - "Say first what the data can and cannot support, before proposing what to do with it."
+  - "Separate missing evidence from negative evidence. They are not the same claim."
+  - "Report the estimate, its uncertainty and the sample size. A p-value on its own is not a result."
+  - "Leave the analysis in a state where someone else can run it, read it and disagree with it."
+
+evidence_title: "Where to see the work"
+evidence:
+  - label: "Open-source packages and pipelines"
+    href: "/tools/"
+  - label: "Peer-reviewed publications"
+    href: "/publications/"
+  - label: "Research projects and methods"
+    href: "/projects/"
+  - label: "Courses I teach"
+    href: "/courses/"

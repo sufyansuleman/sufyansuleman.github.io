@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Badge from '../components/Badge.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+import { capabilities } from '../lib/data';
+---
+
+<Base title="Capabilities" description={capabilities.lede}>
+  <section class="container-x py-20">
+    <SectionHeader title="Capabilities" lede={capabilities.lede} />
+
+    <div class="mt-12 space-y-12">
+      {capabilities.capabilities.map((c, i) => (
+        <div class="grid gap-4 border-t border-line pt-8 lg:grid-cols-[260px_1fr] dark:border-[#233049]">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">
+            <span class="mr-3 text-sm font-medium text-muted">{String(i + 1).padStart(2, '0')}</span>
+            {c.title}
+          </h2>
+          <div>
+            {c.body.map((p) => <p class="text-base leading-relaxed text-ink first:mt-0 mt-4 dark:text-[#E5EAF2]">{p}</p>)}
+            <div class="mt-5 flex flex-wrap gap-2">
+              {c.chips.map((chip) => <Badge>{chip}</Badge>)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
+    <div class="container-x">
+      <SectionHeader title={capabilities.principles_title} />
+      <ul class="mt-8 max-w-3xl space-y-4">
+        {capabilities.principles.map((p) => (
+          <li class="flex gap-3 text-base text-ink dark:text-[#E5EAF2]">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-x py-20">
+    <SectionHeader title={capabilities.evidence_title} />
+    <ul class="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+      {capabilities.evidence.map((e) => (
+        <li>
+          <a href={e.href} class="group flex items-center gap-2 rounded-xl border border-line px-4 py-3 text-sm font-medium text-ink transition hover:border-accent hover:text-accent dark:border-[#233049] dark:text-[#E5EAF2]">
+            <Icon name="lucide:arrow-right" class="h-4 w-4 text-accent" />
+            {e.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <CallToAction kind="capabilities" />
+  </section>
+</Base>

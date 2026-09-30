@@ -53,6 +53,26 @@ const [emailUser, emailDomain] = profile.socials.email.split('@');
         <li class="pt-2 text-sm text-muted">Email is the fastest way to reach me.</li>
       </ul>
 
+      {profile.emails_institutional && profile.emails_institutional.length > 0 && (
+        <div class="mt-10">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-muted">Institutional email</h2>
+          <ul class="mt-4 space-y-3">
+            {profile.emails_institutional.map((e) => (
+              <li class="flex items-center gap-3">
+                <Icon name="lucide:building-2" class="h-5 w-5 text-muted" />
+                <span class="text-sm text-muted">{e.label}</span>
+                <a
+                  href="#"
+                  class="js-mailto js-reveal text-ink hover:text-accent dark:text-[#E5EAF2]"
+                  data-user={e.address.split('@')[0]}
+                  data-domain={e.address.split('@')[1]}
+                >{e.label} email</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div class="mt-10">
         <h2 class="text-sm font-semibold uppercase tracking-wide text-muted">How I can help</h2>
         <WorkWithMe compact />
@@ -73,4 +93,10 @@ const [emailUser, emailDomain] = profile.socials.email.split('@');
     link.href = `mailto:${address}`;
     label.textContent = address;
   }
+
+  document.querySelectorAll<HTMLAnchorElement>('a.js-reveal').forEach((a) => {
+    const user = a.dataset.user ?? '';
+    const domain = a.dataset.domain ?? '';
+    if (user && domain) a.textContent = `${user}@${domain}`;
+  });
 </script>
