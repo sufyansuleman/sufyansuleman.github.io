@@ -11,7 +11,14 @@ export default defineConfig({
   site: 'https://sufyansuleman.github.io',
   output: 'static',
   trailingSlash: 'always',
-  redirects: { '/cv/': '/about/' },
+  redirects: {
+    '/cv/': '/about/',
+    '/publications/': '/research/',
+    '/projects/': '/research/',
+    '/essays/': '/writing/',
+    '/books/': '/writing/',
+    '/contact/': '/about/'
+  },
 
   vite: {
     plugins: [tailwindcss()]

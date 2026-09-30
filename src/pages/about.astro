@@ -3,10 +3,20 @@ import Base from '../layouts/Base.astro';
 import Badge from '../components/Badge.astro';
 import ButtonLink from '../components/ButtonLink.astro';
 import { Icon } from 'astro-icon/components';
+import WorkWithMe from '../components/WorkWithMe.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import { profile, cv } from '../lib/data';
 
-const bioParagraphs = profile.bio_long.trim().split(/\n\s*\n/);
+const socials = [
+  { label: 'GitHub', href: profile.socials.github, icon: 'lucide:github' },
+  { label: 'ORCID', href: profile.socials.orcid, icon: 'lucide:badge-check' },
+  { label: 'LinkedIn', href: profile.socials.linkedin, icon: 'lucide:linkedin' },
+  { label: 'Google Scholar', href: profile.socials.scholar, icon: 'lucide:graduation-cap' }
+].filter((s) => s.href);
+
 const [emailUser, emailDomain] = profile.socials.email.split('@');
+
+const bioParagraphs = profile.bio_long.trim().split(/\n\s*\n/);
 
 const currentPositions = cv.positions.filter((p) => p.end === 'present');
 const pastPositions = cv.positions.filter((p) => p.end !== 'present');
@@ -263,9 +273,58 @@ const sections = [
       </div>
     </div>
   </section>
+
+  <section id="contact" class="border-t border-line bg-surface py-20 dark:bg-[#111A2E] dark:border-[#233049]">
+    <div class="container-x">
+      <SectionHeader title="Contact" lede="Reach out about collaborations, research tools, or courses." />
+
+      <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(18rem,24rem)_1fr]">
+        <ul class="space-y-4">
+          <li>
+            <a
+              id="email-link"
+              href="#"
+              data-user={emailUser}
+              data-domain={emailDomain}
+              class="flex items-center gap-3 text-ink hover:text-accent dark:text-[#E5EAF2]"
+            >
+              <Icon name="lucide:mail" class="h-5 w-5" />
+              <span id="email-label">Email</span>
+            </a>
+          </li>
+          {socials.map((s) => (
+            <li>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-ink hover:text-accent dark:text-[#E5EAF2]">
+                <Icon name={s.icon} class="h-5 w-5" />
+                <span>{s.label}</span>
+              </a>
+            </li>
+          ))}
+          <li class="flex items-center gap-3 text-ink dark:text-[#E5EAF2]">
+            <Icon name="lucide:map-pin" class="h-5 w-5" />
+            <span>{profile.location}</span>
+          </li>
+          <li class="pt-2 text-sm text-muted">Email is the fastest way to reach me.</li>
+        </ul>
+
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-muted">How I can help</h3>
+          <WorkWithMe compact />
+        </div>
+      </div>
+    </div>
+  </section>
 </Base>
 
 <script>
+  const link = document.getElementById('email-link') as HTMLAnchorElement | null;
+  const label = document.getElementById('email-label');
+  if (link && label) {
+    const address = `${link.dataset.user ?? ''}@${link.dataset.domain ?? ''}`;
+    link.href = `mailto:${address}`;
+    label.textContent = address;
+  }
+
   document.querySelectorAll<HTMLAnchorElement>('a.js-reveal').forEach((a) => {
     const user = a.dataset.user ?? '';
     const domain = a.dataset.domain ?? '';
