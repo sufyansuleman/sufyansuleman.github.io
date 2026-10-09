@@ -63,6 +63,28 @@ items:
       question: "Which beta-cell or glucagon indices do you need, or all of them?"
       detail: "I can help you match the indices to your OGTT and glucagon data and run them across your cohort."
 
+  - slug: isat
+    label: WEB APP AND CLI
+    category: tool
+    title: ISAT
+    tagline: Insulin sensitivity indices in the browser or from the command line, no installation
+    icon: lucide:sliders-horizontal
+    featured: true
+    tags: [web app, command line, insulin resistance]
+    links:
+      launch: https://sufyansuleman.github.io/isat/
+      site: https://sufyansuleman.github.io/isat/
+      github: https://github.com/sufyansuleman/isat
+      doi: https://doi.org/10.5281/zenodo.23190906
+    cover:
+      what: "33 published insulin sensitivity indices, computed in the browser"
+      audience: "Researchers with cohort or trial measurements"
+      keyword: "ISAT"
+      motif: curves
+    cta:
+      question: "Do you need insulin sensitivity indices without writing any code?"
+      detail: "ISAT runs in the browser for files up to 100,000 people and as a single Linux binary for anything larger. I can help you map your columns, check units and set it up on your cluster."
+
   - slug: R_basic
     category: course
     title: Getting Started with R
