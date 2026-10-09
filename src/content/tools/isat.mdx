@@ -1,0 +1,53 @@
+---
+slug: "isat"
+summary: "Web application and Linux command-line tool for computing insulin sensitivity indices from fasting, OGTT, lipid and body measurements."
+---
+
+## Overview
+
+ISAT, the Insulin Sensitivity Analysis Tool, computes 33 published surrogate indices of insulin sensitivity and resistance from fasting, OGTT, lipid and anthropometric measurements, for a whole research file or for one person. It runs as a web application in the browser with nothing to install and no account, and as a single-file Linux command-line tool for larger files and cluster work. The two share one calculation engine, so their results are identical.
+
+## Research problem
+
+The published indices each come with their own formula, required timepoints and unit conventions, and re-implementing them for every study is a recurring source of error. Many researchers who need these indices do not write code, and those who do often need to run them on files too large for a browser. ISAT covers both without changing the calculation.
+
+## In the browser
+
+- 33 indices, including HOMA-IR, QUICKI, Matsuda, Stumvoll, Gutt, BIGTT-SI, TyG, VAI and Adipo-IR
+- CSV or TSV upload for up to 100,000 individuals, with warnings when values do not fit the chosen units
+- Results explored as per-index summaries, distributions by sex, Spearman correlation heatmaps and scatter plots
+- Transformation for downstream analysis by log, z-score or rank-based inverse normal, optionally within sex
+- Download of results as CSV, a settings file for reproducibility, and every plot as SVG
+- Each index shows its formula, its reference, the population it was derived in and how the formula was verified
+
+Everything is computed locally in the browser and no data are uploaded.
+
+## On the command line
+
+The Linux build is a single file that needs no installation, no root access and no R, Python or Node runtime. It is intended for files beyond the browser limit and for HPC use.
+
+```bash
+# download the latest release
+url=https://github.com/sufyansuleman/isat/releases/latest/download
+curl -L $url/isat-linux-x64.tar.gz | tar xz
+
+./isat check cohort.csv                       # columns, units, problems
+./isat calculate cohort.csv -o results.csv    # all indices
+
+# or in chunks, for example a SLURM array
+./isat calculate cohort.csv -o res_$i.csv --chunk $i/20
+./isat merge res_*.csv -o results.csv
+./isat transform results.csv -o rint.csv   --method rint --within-sex --input cohort.csv
+```
+
+Builds are available for x64 and ARM, with checksums, alongside a Node version of the same tool.
+
+## Validation
+
+Results are validated against InsuSensCalc, an independent re-implementation of the same formulas in R, and against base R for all transformations and statistics. Deliberate differences between the two are documented in the repository.
+
+These are surrogate indices, not direct measurements of insulin sensitivity, and not a diagnosis.
+
+## Derivation populations
+
+Each index was developed in one population, mostly single European or United States cohorts of a few hundred people or fewer, and most of the original papers do not report ancestry. The repository lists the population, sample size, place and original paper for every index. Values are best compared within a study rather than against thresholds carried over from another population.
