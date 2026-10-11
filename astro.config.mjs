@@ -17,7 +17,8 @@ export default defineConfig({
     '/projects/': '/research/',
     '/essays/': '/writing/',
     '/books/': '/writing/',
-    '/contact/': '/about/'
+    '/contact/': '/about/',
+    '/about/journey/': '/about/'
   },
 
   vite: {
