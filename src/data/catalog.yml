@@ -67,17 +67,17 @@ items:
     label: WEB APP AND CLI
     category: tool
     title: ISAT
-    tagline: Insulin sensitivity indices in the browser or from the command line, no installation
+    tagline: Insulin sensitivity, secretion and glucagon indices in the browser or from the command line, no installation
     icon: lucide:sliders-horizontal
     featured: true
-    tags: [web app, command line, insulin resistance]
+    tags: [web app, command line, insulin resistance, beta-cell]
     links:
       launch: https://sufyansuleman.github.io/isat/
       site: https://sufyansuleman.github.io/isat/
       github: https://github.com/sufyansuleman/isat
       doi: https://doi.org/10.5281/zenodo.23190906
     cover:
-      what: "33 published insulin sensitivity indices, computed in the browser"
+      what: "47 published metabolic indices, computed in the browser"
       audience: "Researchers with cohort or trial measurements"
       keyword: "ISAT"
       motif: curves

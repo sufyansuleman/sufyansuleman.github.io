@@ -1,11 +1,11 @@
 ---
 slug: "isat"
-summary: "Web application and Linux command-line tool for computing insulin sensitivity indices from fasting, OGTT, lipid and body measurements."
+summary: "Web application and Linux command-line tool for computing insulin sensitivity, insulin secretion and glucagon indices from fasting, OGTT, lipid and body measurements."
 ---
 
 ## Overview
 
-ISAT, the Insulin Sensitivity Analysis Tool, computes 33 published surrogate indices of insulin sensitivity and resistance from fasting, OGTT, lipid and anthropometric measurements, for a whole research file or for one person. It runs as a web application in the browser with nothing to install and no account, and as a single-file Linux command-line tool for larger files and cluster work. The two share one calculation engine, so their results are identical.
+ISAT, the Insulin Sensitivity Analysis Tool, computes 47 published surrogate indices from fasting, OGTT, lipid and anthropometric measurements, for a whole research file or for one person: 33 indices of insulin sensitivity and resistance, and 14 of insulin secretion and glucagon. It runs as a web application in the browser with nothing to install and no account, and as a single-file Linux command-line tool for larger files and cluster work. The two share one calculation engine, so their results are identical.
 
 ## Research problem
 
@@ -13,7 +13,9 @@ The published indices each come with their own formula, required timepoints and 
 
 ## In the browser
 
-- 33 indices, including HOMA-IR, QUICKI, Matsuda, Stumvoll, Gutt, BIGTT-SI, TyG, VAI and Adipo-IR
+- 33 insulin sensitivity and resistance indices, including HOMA-IR, QUICKI, Matsuda, Stumvoll, Gutt, BIGTT-SI, TyG, VAI and Adipo-IR
+- 14 beta-cell and alpha-cell indices, including HOMA-beta, the insulinogenic index, the corrected insulin response, the disposition index, BIGTT-AIR and glucagon AUC, following IsletCalc and Madsen et al. 2024
+- Optional glucagon columns at 0, 30, 60 and 120 minutes, in pmol/L or pg/mL, unlock the glucagon indices
 - CSV or TSV upload for up to 100,000 individuals, with warnings when values do not fit the chosen units
 - Results explored as per-index summaries, distributions by sex, Spearman correlation heatmaps and scatter plots
 - Transformation for downstream analysis by log, z-score or rank-based inverse normal, optionally within sex
@@ -33,6 +35,9 @@ curl -L $url/isat-linux-x64.tar.gz | tar xz
 
 ./isat check cohort.csv                       # columns, units, problems
 ./isat calculate cohort.csv -o results.csv    # all indices
+
+# or a subset of index groups
+./isat calculate cohort.csv -o results.csv --include fasting,secretion
 
 # or in chunks, for example a SLURM array
 ./isat calculate cohort.csv -o res_$i.csv --chunk $i/20
