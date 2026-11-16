@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Badge from '../components/Badge.astro';
+import { getOutputs, countByType, outputTypes } from '../lib/outputs';
+
+const rows = await getOutputs();
+const counts = countByType(rows);
+---
+
+<Base title="Outputs">
+  <section class="container-x py-20">
+    <SectionHeader
+      title="Outputs"
+      lede="Everything I have produced in one list, newest first: papers, software, courses, data, essays and books."
+    />
+
+    <div id="type-chips" class="mt-8 hidden flex-wrap gap-2" role="group" aria-label="Filter by type">
+      <button type="button" class="type-chip rounded-full border border-line px-3 py-1 text-xs font-medium text-ink dark:border-[#233049] dark:text-white" data-type="all" aria-pressed="true">All ({rows.length})</button>
+      {outputTypes.filter((t) => counts[t] > 0).map((t) => (
+        <button type="button" class="type-chip rounded-full border border-line px-3 py-1 text-xs font-medium text-ink dark:border-[#233049] dark:text-white" data-type={t.toLowerCase()} aria-pressed="false">{t} ({counts[t]})</button>
+      ))}
+    </div>
+
+    <ul id="output-list" class="mt-8">
+      {rows.map((r) => (
+        <li class="flex gap-4 border-b border-line py-5 last:border-b-0 dark:border-[#233049]" data-type={r.type.toLowerCase()}>
+          <div class="hidden w-28 shrink-0 sm:block">
+            <Badge variant={r.type === 'Publication' ? 'accent' : 'neutral'}>{r.type}</Badge>
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="text-base font-semibold leading-snug text-ink dark:text-white">
+              <a
+                href={r.href}
+                class="hover:text-accent"
+                target={r.external ? '_blank' : undefined}
+                rel={r.external ? 'noopener noreferrer' : undefined}
+              >{r.title}</a>
+            </h3>
+            {r.description && <p class="mt-1 text-sm text-muted">{r.description}</p>}
+            <p class="mt-1 text-xs text-muted sm:hidden">{r.type}{r.year ? ` · ${r.year}` : ''}</p>
+          </div>
+          <div class="hidden w-14 shrink-0 text-right text-sm text-muted sm:block">{r.year ?? ''}</div>
+        </li>
+      ))}
+    </ul>
+    <p id="output-empty" class="hidden py-10 text-center text-muted">No outputs of this type.</p>
+  </section>
+</Base>
+
+<script>
+  const chipBar = document.getElementById('type-chips');
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.type-chip'));
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#output-list li[data-type]'));
+  const empty = document.getElementById('output-empty');
+
+  function setType(type: string) {
+    for (const chip of chips) {
+      const active = chip.dataset.type === type;
+      chip.setAttribute('aria-pressed', String(active));
+      chip.classList.toggle('bg-accent', active);
+      chip.classList.toggle('text-white', active);
+      chip.classList.toggle('border-accent', active);
+    }
+    let visibleCount = 0;
+    for (const item of items) {
+      const visible = type === 'all' || item.dataset.type === type;
+      item.hidden = !visible;
+      if (visible) visibleCount += 1;
+    }
+    empty?.classList.toggle('hidden', visibleCount > 0);
+    const url = new URL(location.href);
+    if (type === 'all') url.searchParams.delete('type');
+    else url.searchParams.set('type', type);
+    history.replaceState(null, '', url.pathname + url.search);
+  }
+
+  if (chipBar) {
+    chipBar.classList.remove('hidden');
+    chipBar.classList.add('flex');
+    const wanted = new URLSearchParams(location.search).get('type')?.toLowerCase() ?? 'all';
+    setType(chips.some((c) => c.dataset.type === wanted) ? wanted : 'all');
+    for (const chip of chips) chip.addEventListener('click', () => setType(chip.dataset.type ?? 'all'));
+  }
+</script>

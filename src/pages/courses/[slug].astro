@@ -6,6 +6,7 @@ import ButtonLink from '../../components/ButtonLink.astro';
 import Cover from '../../components/Cover.astro';
 import { Icon } from 'astro-icon/components';
 import { getItems } from '../../lib/catalog';
+import { projectsForItem } from '../../lib/data';
 import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -28,7 +29,7 @@ const banner = existsSync(new URL(`../../../public/covers/${item.slug}.jpg`, imp
 <Base title={item.title} description={item.tagline}>
   <section class="container-x py-12">
     <nav class="text-sm text-muted">
-      <a href="/courses/" class="hover:text-accent">Courses</a>
+      <a href="/courses/" class="hover:text-accent">Teaching</a>
       <span class="mx-2">/</span>
       <span class="text-ink dark:text-white">{item.title}</span>
     </nav>
@@ -42,6 +43,12 @@ const banner = existsSync(new URL(`../../../public/covers/${item.slug}.jpg`, imp
         <p class="mt-2 max-w-2xl text-lg text-muted">{item.tagline}</p>
       </div>
     </div>
+
+    {projectsForItem(item.slug).map((p) => (
+      <p class="mt-4 text-sm text-muted">
+        Part of the research project: <a href={`/research/#${p.slug}`} class="text-accent hover:text-accent-hover">{p.title}</a>
+      </p>
+    ))}
 
     {item.course && (
       <div class="mt-6 flex flex-wrap gap-2">

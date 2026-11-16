@@ -5,6 +5,10 @@ affiliation_secondary: "Visiting Postdoctoral Researcher, NNF Center for Genomic
 location: "Aarhus, Denmark"
 tagline: "Health that starts from the person"
 kicker: "Geneticist and data scientist, working towards personalised health"
+descriptor: "Research scientist in statistical genetics of metabolic and psychiatric disease"
+statement_short:
+  - "I study how genetic variation shapes differences between people in metabolic and psychiatric health, from insulin sensitivity, obesity and type 2 diabetes to the biology that obesity shares with ADHD and depression."
+  - "I work with biobank-scale cohorts and statistical genetics, and I release the software, courses and data that come out of that work."
 hero_lead: "No two people are the same."
 hero_paragraphs:
   - "Two people can follow the same diet and see their health change in different ways. The same exercise can bring one person a large weight loss and another almost none. Two people can share a diagnosis, similar symptoms and the same treatment, and still respond differently. One improves a great deal while the other barely changes."

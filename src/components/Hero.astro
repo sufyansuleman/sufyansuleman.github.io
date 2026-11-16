@@ -7,9 +7,11 @@ interface Props {
   lead?: string;
   paragraphs?: string[];
   kicker?: string;
+  appointments?: string[];
+  links?: { label: string; href: string; external?: boolean }[];
 }
 
-const { headline, subheadline, kicker, lead, paragraphs = [] } = Astro.props;
+const { headline, subheadline, kicker, lead, paragraphs = [], appointments = [], links = [] } = Astro.props;
 const [emailUser, emailDomain] = profile.socials.email.split('@');
 ---
 
@@ -20,6 +22,9 @@ const [emailUser, emailDomain] = profile.socials.email.split('@');
         {headline}
       </h1>
       {kicker && <p class="mt-3 text-lg font-medium text-accent sm:text-xl">{kicker}</p>}
+      {appointments.map((a, i) => (
+        <p class:list={['text-sm text-muted', i === 0 ? 'mt-3' : 'mt-1']}>{a}</p>
+      ))}
       {lead && <p class="mt-6 text-xl font-semibold text-ink dark:text-white">{lead}</p>}
       {paragraphs.map((t, i) => (
         <p class="mt-5 max-w-xl text-base text-muted first:mt-6">{t}</p>
@@ -28,6 +33,18 @@ const [emailUser, emailDomain] = profile.socials.email.split('@');
       <div class="mt-6 flex flex-wrap gap-3">
         <slot name="actions" />
       </div>
+      {links.length > 0 && (
+        <p class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+          {links.map((l) => (
+            <a
+              href={l.href}
+              class="text-accent hover:text-accent-hover"
+              target={l.external ? '_blank' : undefined}
+              rel={l.external ? 'noopener noreferrer' : undefined}
+            >{l.label}</a>
+          ))}
+        </p>
+      )}
       <p class="mt-4 text-sm text-muted">
         Open to collaborations, tool support and teaching requests.{' '}
         <a

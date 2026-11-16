@@ -51,6 +51,12 @@ It replaces the generated cover on that item's detail page only.
 
 **Projects page.** `src/data/projects.yml`.
 
+**Home page identity.** `descriptor` (the accent line under the name) and `statement_short` (two paragraphs) in `profile.yml`. The long narrative fields (`hero_lead`, `hero_paragraphs`, `statement_paragraphs`, `values`) now render on About under "Why I do this".
+
+**Outputs page.** `/outputs/` is assembled by `src/lib/outputs.ts` from publications (ORCID), Zenodo archives not already a catalog item, catalog items (tool = Software, course, dataset), essays, and the book list in that file. Add a book there when you add one to the writing page. `?type=dataset` preselects a filter.
+
+**Linking a project to its outputs.** In `projects.yml`, `related` takes DOIs (or `orcid:<put-code>` ids) under `publications`, and catalog slugs under `tools`, `courses` and `datasets`. Research shows them under "Outputs from this project", and the tool and course pages show "Part of the research project" automatically.
+
 **Academic journey article.** `src/content/pages/journey.mdx`.
 
 **Visitor counter.** Set `analytics.goatcounter` in `profile.yml` to your GoatCounter site code.

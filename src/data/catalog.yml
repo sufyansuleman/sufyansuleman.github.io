@@ -176,7 +176,7 @@ items:
       detail: "I can help you adapt this pipeline, write your validation rules as configuration, and set up the reporting."
 
   - slug: isi_t2d_nat_24
-    categories: [tool, dataset]
+    category: tool
     label: INTERACTIVE BROWSER
     title: T2D Risk × Insulin Sensitivity Browser
     tagline: Explore associations between type 2 diabetes risk alleles and insulin sensitivity measures

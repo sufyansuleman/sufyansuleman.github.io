@@ -122,4 +122,17 @@ export function count(): number {
   return merged.length;
 }
 
+// Conference papers and meeting abstracts (some abstracts are indexed as journal articles).
+export function isConference(pub: Publication): boolean {
+  return pub.type === 'conference-paper' || /^Abstract \d+/.test(pub.title);
+}
+
+export function countArticles(): number {
+  return merged.filter((p) => !isConference(p)).length;
+}
+
+export function countConference(): number {
+  return merged.filter(isConference).length;
+}
+
 export const fetchedAt: string = works.fetched_at;

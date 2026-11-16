@@ -32,6 +32,7 @@ const skillLabels: Record<string, string> = {
 const skillGroups = Object.entries(cv.skills).map(([key, values]) => ({ label: skillLabels[key] ?? key, values }));
 
 const sections = [
+  { id: 'why-i-do-this', label: 'Why I do this' },
   { id: 'current-position', label: 'Current position' },
   { id: 'education', label: 'Education' },
   { id: 'research-experience', label: 'Research experience' },
@@ -132,6 +133,24 @@ const sections = [
       </nav>
 
       <div class="min-w-0 space-y-12 text-sm leading-relaxed">
+        <section id="why-i-do-this">
+          <h2 class="text-xl font-semibold text-primary dark:text-white">Why I do this</h2>
+          <p class="mt-4 text-base font-semibold text-ink dark:text-white">{profile.hero_lead}</p>
+          <div class="mt-3 space-y-4 text-ink dark:text-[#E5EAF2]">
+            {profile.hero_paragraphs.map((t) => <p>{t}</p>)}
+            {profile.statement_paragraphs.map((t) => <p>{t}</p>)}
+          </div>
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-muted">{profile.values_title}</p>
+          <ul class="mt-3 space-y-2">
+            {profile.values.map((v) => (
+              <li class="flex gap-3 text-ink dark:text-[#E5EAF2]">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+                <span>{v}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section id="current-position">
           <h2 class="text-xl font-semibold text-primary dark:text-white">Current position</h2>
           <div class="mt-4 space-y-4">
@@ -269,6 +288,16 @@ const sections = [
             ))}
           </div>
         </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="work-with-me" class="border-t border-line py-14 dark:border-[#233049]">
+    <div class="container-x">
+      <h2 class="text-2xl font-semibold tracking-tight text-primary dark:text-white">Work with me</h2>
+      <p class="mt-3 max-w-2xl text-muted">I can help with statistical analysis of human genetic and clinical data, from large cohorts to the functional experiments that test what an association means.</p>
+      <div class="mt-5">
+        <ButtonLink href="/capabilities/" variant="secondary">See capabilities</ButtonLink>
       </div>
     </div>
   </section>

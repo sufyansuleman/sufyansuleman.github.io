@@ -28,6 +28,8 @@ export interface Profile {
   location: string;
   tagline: string;
   kicker: string;
+  descriptor: string;
+  statement_short: string[];
   hero_lead: string;
   hero_paragraphs: string[];
   statement_eyebrow: string;
@@ -179,6 +181,9 @@ export interface ProjectRelated {
   publications: string[];
   tools: string[];
   courses: string[];
+  datasets: string[];
+  // Side projects and consortium work linked to the project but not a direct output of it.
+  contributions?: { id: string; note: string }[];
 }
 
 export interface Project {
@@ -195,6 +200,14 @@ export interface Project {
 }
 
 export const projects = loadYaml<{ projects: Project[] }>(projectsRaw).projects;
+
+// Reverse lookup: research projects that list a catalog item (by slug, any case)
+// under related tools, courses or datasets.
+export function projectsForItem(slug: string): Project[] {
+  const key = slug.toLowerCase();
+  const has = (list: string[] | undefined) => (list ?? []).some((s) => s.toLowerCase() === key);
+  return projects.filter((p) => has(p.related.tools) || has(p.related.courses) || has(p.related.datasets));
+}
 
 export interface Capability {
   title: string;

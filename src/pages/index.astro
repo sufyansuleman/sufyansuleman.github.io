@@ -9,27 +9,54 @@ import Card from '../components/Card.astro';
 import Cover from '../components/Cover.astro';
 import PubItem from '../components/PubItem.astro';
 import VisitorCount from '../components/VisitorCount.astro';
-import { profile } from '../lib/data';
-import { featured as getFeatured } from '../lib/catalog';
-import { latest } from '../lib/publications';
+import { profile, projects } from '../lib/data';
+import { getItems } from '../lib/catalog';
+import { latest, countArticles, countConference } from '../lib/publications';
 
-const featured = getFeatured()
-  .filter((item) => item.categories.includes('tool'))
-  .slice(0, 3);
-
+const tools = getItems('tool');
+const courses = getItems('course');
+const datasets = getItems('dataset');
 const latestPubs = latest(3);
+const activeProjects = projects.filter((p) => p.status === 'active');
 
+const appointments = [`${profile.title}, ${profile.affiliation}`, profile.affiliation_secondary].filter(
+  (a): a is string => Boolean(a)
+);
+
+const heroLinks = [
+  { label: 'ORCID', href: profile.socials.orcid, external: true },
+  { label: 'GitHub', href: profile.socials.github, external: true },
+  { label: 'LinkedIn', href: profile.socials.linkedin, external: true },
+  { label: 'Google Scholar', href: profile.socials.scholar, external: true },
+  { label: 'CV', href: '/about/', external: false }
+].filter((l) => l.href);
+
+const evidence = [
+  { value: countArticles(), label: 'Journal articles', href: '/research/' },
+  { value: countConference(), label: 'Conference papers', href: '/research/' },
+  { value: tools.length, label: 'Software tools', href: '/tools/' },
+  { value: courses.length, label: 'Courses', href: '/courses/' }
+];
+
+function courseMeta(item: (typeof courses)[number]): string {
+  const c = item.course;
+  if (!c) return '';
+  return [c.level, c.duration && c.duration !== 'TBC' ? c.duration : undefined].filter(Boolean).join(' · ');
+}
+
+function toolMeta(item: (typeof tools)[number]): string {
+  return item.label ?? '';
+}
 ---
 
 <Base title="Home">
-  <Hero headline={profile.name} kicker={profile.kicker} paragraphs={profile.hero_paragraphs}>
-    <Fragment slot="actions">
-      <ButtonLink href="/tools/">Tools</ButtonLink>
-      <ButtonLink href="/research/" variant="secondary">Research</ButtonLink>
-      <ButtonLink href="/courses/" variant="secondary">Courses</ButtonLink>
-      <ButtonLink href="/about/" variant="secondary">About</ButtonLink>
-    </Fragment>
-
+  <Hero
+    headline={profile.name}
+    kicker={profile.descriptor}
+    appointments={appointments}
+    paragraphs={profile.statement_short}
+    links={heroLinks}
+  >
     <Fragment slot="aside">
       <div class="mx-auto max-w-xs rounded-3xl border border-line bg-white p-5 text-center shadow-sm dark:bg-[#111A2E] dark:border-[#233049]">
         <img src="/photo-512.jpg" width="512" height="512" alt="Sufyan Suleman" class="mx-auto h-32 w-32 rounded-full object-cover" />
@@ -43,53 +70,49 @@ const latestPubs = latest(3);
     </Fragment>
   </Hero>
 
-  <section class="container-x pt-8 pb-16">
-    <div class="grid gap-10 lg:grid-cols-12">
-      <div class="lg:col-span-8">
-        <p class="text-sm font-medium uppercase tracking-wide text-accent">{profile.statement_eyebrow}</p>
-        {profile.statement_paragraphs.map((t) => <p class="mt-5 text-lg leading-relaxed text-ink dark:text-[#E5EAF2]">{t}</p>)}
-      </div>
-      <aside class="lg:col-span-4 lg:pt-10">
-        <div class="lg:sticky lg:top-28">
-          <p class="hidden border-l-2 border-accent pl-6 text-xl font-medium leading-snug text-primary lg:block dark:text-white">{profile.statement_aside}</p>
-          <p class="text-sm font-medium uppercase tracking-wide text-accent lg:mt-10">{profile.values_title}</p>
-          <ul class="mt-4 space-y-3">
-            {profile.values.map((v) => (
-              <li class="flex gap-3 text-base text-ink dark:text-[#E5EAF2]">
-                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
-                <span>{v}</span>
-              </li>
-            ))}
-          </ul>
+  <section class="container-x pt-4 pb-4">
+    <ul class="grid grid-cols-2 overflow-hidden rounded-2xl border border-line dark:border-[#233049] lg:grid-cols-4">
+      {evidence.map((e, i) => (
+        <li class:list={[
+          'border-line dark:border-[#233049]',
+          i % 2 === 0 ? 'border-r' : '',
+          i < 2 ? 'border-b lg:border-b-0' : '',
+          i < 3 ? 'lg:border-r' : 'lg:border-r-0'
+        ]}>
+          <a href={e.href} class="group block px-6 py-6 text-center transition hover:bg-surface dark:hover:bg-[#111A2E]">
+            <span class="block text-4xl font-semibold tracking-tight text-primary group-hover:text-accent dark:text-white">{e.value}</span>
+            <span class="mt-1 block text-sm text-muted">{e.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="container-x py-16">
+    <SectionHeader title="Research" />
+    <div class="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+      {profile.research_themes.map((t) => (
+        <div>
+          <p class="font-semibold text-primary dark:text-white">{t.name}</p>
+          <p class="mt-1 text-sm text-muted">{t.blurb}</p>
         </div>
-      </aside>
+      ))}
     </div>
-  </section>
 
-  <section class="container-x py-20">
-    <SectionHeader
-      eyebrow="Tools"
-      title="R packages"
-      lede="Written because I needed them, then released so others could use them."
-    />
-    <div class="mt-10">
-      <CardGrid>
-        {featured.map((item) => (
-          <Card title={item.title} description={item.tagline} href={`/tools/${item.urlSlug}/`} icon={item.icon}>
-            <Cover item={item} slot="cover" />
-          </Card>
+    {activeProjects.length > 0 && (
+      <div class="mt-10 space-y-4">
+        {activeProjects.map((p) => (
+          <a href={`/research/#${p.slug}`} class="group block rounded-2xl border border-line bg-white p-6 transition hover:border-accent dark:bg-[#111A2E] dark:border-[#233049]">
+            <p class="text-xs font-semibold uppercase tracking-wide text-accent">Current project</p>
+            <h3 class="mt-2 text-lg font-semibold text-primary group-hover:text-accent dark:text-white">{p.title}</h3>
+            <p class="mt-2 text-sm text-muted">{p.summary}</p>
+          </a>
         ))}
-      </CardGrid>
-    </div>
-  </section>
+      </div>
+    )}
 
-  <section class="container-x py-20">
-    <SectionHeader
-      eyebrow="Research output"
-      title="Latest publications"
-      lede="Recent peer-reviewed work."
-    />
-    <ul class="mt-10">
+    <h3 class="mt-12 text-lg font-semibold text-primary dark:text-white">Latest publications</h3>
+    <ul class="mt-2">
       {latestPubs.map((pub) => <PubItem pub={pub} compact />)}
     </ul>
     <div class="mt-6">
@@ -97,6 +120,80 @@ const latestPubs = latest(3);
     </div>
   </section>
 
+  <section class="container-x py-16">
+    <SectionHeader title="Software" lede="Written because I needed them, then released so others could use them." />
+    <div class="mt-10">
+      <CardGrid>
+        {tools.map((item) => (
+          <Card title={item.title} description={item.tagline} href={`/tools/${item.urlSlug}/`} icon={item.icon} meta={toolMeta(item)}>
+            <Cover item={item} slot="cover" />
+          </Card>
+        ))}
+      </CardGrid>
+    </div>
+    <div class="mt-6">
+      <ButtonLink href="/tools/" variant="ghost">All software</ButtonLink>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <SectionHeader title="Teaching" lede="Self-paced courses for researchers and statistical programmers." />
+    <div class="mt-10">
+      <CardGrid>
+        {courses.map((item) => (
+          <Card title={item.title} description={item.tagline} href={`/courses/${item.urlSlug}/`} icon={item.icon} meta={courseMeta(item)}>
+            <Cover item={item} slot="cover" />
+          </Card>
+        ))}
+      </CardGrid>
+    </div>
+    <div class="mt-6">
+      <ButtonLink href="/courses/" variant="ghost">All courses</ButtonLink>
+    </div>
+  </section>
+
+  {datasets.length > 0 && (
+    <section class="container-x py-16">
+      <SectionHeader title="Data" />
+      <ul class="mt-8 divide-y divide-line dark:divide-[#233049]">
+        {datasets.map((item) => {
+          const internal = item.categories.includes('tool');
+          const href = internal ? `/tools/${item.urlSlug}/` : (item.links.site ?? item.links.launch ?? item.links.github ?? '#');
+          return (
+            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4">
+              <div class="min-w-0">
+                <a
+                  href={href}
+                  class="font-semibold text-primary hover:text-accent dark:text-white"
+                  target={internal ? undefined : '_blank'}
+                  rel={internal ? undefined : 'noopener noreferrer'}
+                >{item.title}</a>
+                <p class="text-sm text-muted">{item.tagline}</p>
+              </div>
+              {item.links.doi && (
+                <a href={item.links.doi} target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover">
+                  {item.links.doi.replace('https://doi.org/', '')}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      <div class="mt-6">
+        <ButtonLink href="/outputs/?type=dataset" variant="ghost">All data</ButtonLink>
+      </div>
+    </section>
+  )}
+
+  <section class="container-x py-16">
+    <SectionHeader title="Writing" />
+    <blockquote class="mt-8 max-w-2xl border-l-2 border-accent pl-6 text-xl font-medium leading-snug text-primary dark:text-white">
+      {profile.statement_aside}
+    </blockquote>
+    <div class="mt-6">
+      <ButtonLink href="/writing/" variant="ghost">Essays and books</ButtonLink>
+    </div>
+  </section>
 
   <VisitorCount />
 </Base>

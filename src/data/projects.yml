@@ -18,9 +18,12 @@ projects:
     outcomes:
       - "Manuscript in preparation (first author)"
     related:
-      publications: []
+      publications:
+        - "orcid:217864456"
+        - "orcid:217864455"
       tools: []
       courses: []
+      datasets: []
     milestones: []
 
   - slug: insulin-sensitivity-genetics
@@ -43,8 +46,18 @@ projects:
         - "10.1210/clinem/dgae275"
         - "10.1210/clinem/dgae882"
         - "10.1038/s41598-025-98507-w"
-      tools: []
+      tools:
+        - InsuSensCalc
+        - IsletCalc
+        - isat
+        - HealthMarkers
+        - isi_t2d_nat_24
       courses: []
+      datasets:
+        - ir-grs-jcem-2024
+      contributions:
+        - id: "10.1038/s41588-023-01408-9"
+          note: "MAGIC consortium contribution on glycaemic traits"
 
   - slug: cancer-functional-genomics-oulu
     title: "Cancer functional genomics, Oulu"
@@ -65,8 +78,10 @@ projects:
         - "10.1016/j.cell.2018.06.003"
         - "10.1038/s41467-018-04451-x"
         - "10.1158/0008-5472.CAN-17-1721"
+        - "10.1158/1538-7445.am2017-1280"
       tools: []
       courses: []
+      datasets: []
 
   - slug: trisk95-skin-glucose-biomarker
     title: "Trisk 95 skin glucose biomarker"
@@ -87,3 +102,4 @@ projects:
         - "10.1038/s41598-020-68972-6"
       tools: []
       courses: []
+      datasets: []

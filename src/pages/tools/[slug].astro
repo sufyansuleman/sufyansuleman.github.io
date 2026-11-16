@@ -7,6 +7,7 @@ import Badge from '../../components/Badge.astro';
 import Cover from '../../components/Cover.astro';
 import { Icon } from 'astro-icon/components';
 import { getItems } from '../../lib/catalog';
+import { projectsForItem } from '../../lib/data';
 import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -33,7 +34,7 @@ const updated = item.updated
 <Base title={item.title} description={item.tagline}>
   <section class="container-x py-12">
     <nav class="text-sm text-muted">
-      <a href="/tools/" class="hover:text-accent">Tools</a>
+      <a href="/tools/" class="hover:text-accent">Software</a>
       <span class="mx-2">/</span>
       <span class="text-ink dark:text-white">{item.title}</span>
     </nav>
@@ -48,6 +49,12 @@ const updated = item.updated
         {item.manual?.note && <p class="mt-1 max-w-2xl text-sm text-muted">{item.manual.note}</p>}
       </div>
     </div>
+
+    {projectsForItem(item.slug).map((p) => (
+      <p class="mt-4 text-sm text-muted">
+        Part of the research project: <a href={`/research/#${p.slug}`} class="text-accent hover:text-accent-hover">{p.title}</a>
+      </p>
+    ))}
 
     <div class="mt-6 flex flex-wrap gap-3">
       {item.links.launch && <ButtonLink href={item.links.launch} icon="lucide:external-link" external>Launch browser</ButtonLink>}
