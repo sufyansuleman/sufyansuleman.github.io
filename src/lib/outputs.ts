@@ -1,11 +1,10 @@
-import { getCollection } from 'astro:content';
 import { allItems, type CatalogItem } from './catalog';
 import { getPublications, getArchives, isConference, type Publication } from './publications';
 import { profile } from './data';
 
-export type OutputType = 'Publication' | 'Software' | 'Course' | 'Dataset' | 'Essay' | 'Book' | 'Archive';
+export type OutputType = 'Publication' | 'Software' | 'Course' | 'Dataset' | 'Archive';
 
-export const outputTypes: OutputType[] = ['Publication', 'Software', 'Course', 'Dataset', 'Essay', 'Book', 'Archive'];
+export const outputTypes: OutputType[] = ['Publication', 'Software', 'Course', 'Dataset', 'Archive'];
 
 export interface Output {
   id: string;
@@ -17,18 +16,7 @@ export interface Output {
   external: boolean;
 }
 
-// Books are listed by hand on the writing page; keep this in step with it.
-const books: Output[] = [
-  {
-    id: 'book:mizaj-shanasi',
-    type: 'Book',
-    title: 'Mizaj Shanasi',
-    description: 'Urdu translation of Ustad Taleqani’s Persian work on temperament in traditional medicine.',
-    year: 2026,
-    href: '/books/mizaj-shanasi/',
-    external: false
-  }
-];
+// Essays and books are not research outputs; they live on the Writing page only.
 
 function publicationHref(pub: Publication): { href: string; external: boolean } {
   if (pub.doi) return { href: `https://doi.org/${pub.doi}`, external: true };
@@ -76,7 +64,7 @@ function itemToOutput(item: CatalogItem, type: OutputType): Output {
   };
 }
 
-export async function getOutputs(): Promise<Output[]> {
+export function getOutputs(): Output[] {
   const items = allItems();
   const catalogDois = new Set(items.filter((i) => i.links.doi).map((i) => i.links.doi!.toLowerCase()));
 
@@ -101,18 +89,8 @@ export async function getOutputs(): Promise<Output[]> {
       .map((c) => itemToOutput(item, typeByCategory[c]))
   );
 
-  const essays = (await getCollection('essays', (e) => e.data.status !== 'draft')).map<Output>((e) => ({
-    id: `essay:${e.id}`,
-    type: 'Essay',
-    title: e.data.title,
-    description: e.data.summary ?? '',
-    year: Number.parseInt(e.data.date.slice(0, 4), 10) || null,
-    href: `/essays/${e.id}/`,
-    external: false
-  }));
-
   // Newest first; rows with no date go after all dated rows.
-  return [...pubs, ...archives, ...catalogRows, ...essays, ...books].sort((a, b) => {
+  return [...pubs, ...archives, ...catalogRows].sort((a, b) => {
     if ((a.year == null) !== (b.year == null)) return a.year == null ? 1 : -1;
     return (b.year ?? 0) - (a.year ?? 0) || a.type.localeCompare(b.type) || a.title.localeCompare(b.title);
   });

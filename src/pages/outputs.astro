@@ -4,7 +4,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import Badge from '../components/Badge.astro';
 import { getOutputs, countByType, outputTypes } from '../lib/outputs';
 
-const rows = await getOutputs();
+const rows = getOutputs();
 const counts = countByType(rows);
 ---
 
@@ -12,7 +12,7 @@ const counts = countByType(rows);
   <section class="container-x py-20">
     <SectionHeader
       title="Outputs"
-      lede="Everything I have produced in one list, newest first: papers, software, courses, data, essays and books."
+      lede="Everything I have produced in one list, newest first: papers, software, courses and data. Essays and books are under Writing."
     />
 
     <div id="type-chips" class="mt-8 hidden flex-wrap gap-2" role="group" aria-label="Filter by type">
